@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.png';
-import './home.css';
+import './home.scss';
 
 const Home = () => {
-    return (<>
+    return (
         <div className="home-wrapper">
             <div className="logo-container">
                 <img src={Logo} alt="Logo" />
@@ -14,11 +14,12 @@ const Home = () => {
             <div className="menu-container">
                 <Link to="/"> Home </Link>
                 <Link to="/browse"> Browse </Link>
+                <Link to="/search"> Search </Link>
                 <Link to="/export"> Export Data </Link>
                 <Link to="/submission"> Data Submission </Link>
                 <Link to="/guide"> Guide </Link>
             </div>
         </div>
-    </>)
+    )
 }
 export default Home;
