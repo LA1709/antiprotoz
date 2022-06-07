@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Menu from '../components/Menu';
-import './search.scss';
+import './browse.scss';
 import DownIcon from '../assets/chevron-down.svg';
 import UpIcon from '../assets/chevron-up.svg';
 
-const Search = () => {
+const Browse = () => {
     const [show, setShow] = useState(false);
     const handleSubmit = e => {
         e.preventDefault();
@@ -12,8 +12,8 @@ const Search = () => {
     }
     return (<>
         <Menu />
-        <div className="search-wrapper">
-            <h1>Search</h1>
+        <div className="browse-wrapper">
+            <h1>Browse</h1>
             <hr />
             <form className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -44,19 +44,19 @@ const Search = () => {
                                 <input id="length" name="length" type="text" placeholder="Enter Length" />
                             </div>
                             <hr />
-                            <div className="form-group-item closer">
+                            <div className="form-group-item">
                                 <input id="hemolytic" name="hemolytic" type="checkbox" defaultChecked />
                                 <label htmlFor="hemolytic" className="not-aligned">Hemolytic Activity</label>
                             </div>
-                            <div className="form-group-item closer">
+                            <div className="form-group-item">
                                 <input id="uniport" name="uniport" type="checkbox" defaultChecked />
                                 <label htmlFor="uniport" className="not-aligned">Uniport</label>
                             </div>
-                            <div className="form-group-item closer">
+                            <div className="form-group-item">
                                 <input id="charge" name="charge" type="checkbox" defaultChecked />
                                 <label htmlFor="charge" className="not-aligned">Net Charge</label>
                             </div>
-                            <div className="form-group-item closer">
+                            <div className="form-group-item">
                                 <input id="activity" name="activity" type="checkbox" defaultChecked />
                                 <label htmlFor="activity" className="not-aligned">Activity</label>
                             </div>
@@ -73,7 +73,7 @@ const Search = () => {
                             </div>
                         </div>}
                     <div className="form-group-item">
-                        <input id="submit" name="submit" type="submit" value="Search" />
+                        <input id="submit" name="submit" type="submit" value="Browse" />
                     </div>
                     <div className="form-group-item">
                         <p onClick={() => setShow(!show)}>
@@ -90,4 +90,4 @@ const Search = () => {
         </div >
     </>)
 }
-export default Search;
+export default Browse;
