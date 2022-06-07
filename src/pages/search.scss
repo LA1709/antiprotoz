@@ -1,4 +1,55 @@
 .search-wrapper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0px;
+  color: #3e3733;
+  h1 {
+    margin: 0 0.5rem;
+  }
+  form {
+    display: flex;
+    gap: 1rem;
+    min-height: 70vh;
+    .form-group {
+      min-width: 25%;
+      p {
+        padding: 0px;
+        width: max-content;
+        cursor: pointer;
+        img {
+          transform: translateY(7px);
+          margin-left: 7px;
+        }
+      }
+      .form-group-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        p {
+          margin: 0;
+          margin-top: -0.5rem;
+          padding: 0;
+        }
+        label {
+          width: 50%;
+          text-align: right;
+        }
+        .not-aligned {
+          text-align: left;
+        }
+        input {
+          cursor: pointer;
+        }
+        input[type="text"],
+        input[type="number"] {
+          cursor: auto;
+        }
+      }
+    }
+    .result-group {
+      padding: 0.5rem;
+    }
+  }
 }
