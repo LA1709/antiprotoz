@@ -3,16 +3,19 @@ import Menu from '../components/Menu';
 import Table from '../components/Table';
 import CheckIcon from '../assets/check-square.svg';
 import TrashIcon from '../assets/trash.svg';
+import LeftIcon from '../assets/chevron-left.svg';
 import './browse.scss';
 
 const Browse = () => {
 
     const [showInput, setShowInput] = useState(true);
-    const [data, setData] = useState(null);
+    const [columns, setColumns] = useState(undefined); 
+    const [data, setData] = useState(undefined);
 
     const handleSubmit = e => {
         e.preventDefault();
         if (data) setData(null);
+        setColumns(null);
         setShowInput(false);
     }
 
@@ -37,7 +40,12 @@ const Browse = () => {
         <div className="browse-wrapper">
             <h1>Browse</h1>
             <hr />
-            {!showInput && <div onClick={() => setShowInput(true)}>Back</div>}
+            {!showInput && <button
+                onClick={() => setShowInput(true)}
+                className="back-button"
+            >
+                <img src={LeftIcon} alt="" />Back
+            </button>}
             {showInput ?
                 <form id="form" className="form" onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -118,7 +126,7 @@ const Browse = () => {
                         <input id="submit" name="submit" type="submit" value="Browse" />
                     </div>
                 </form> :
-                <Table data={data} />
+                <Table data={data} columns={columns} />
             }
         </div >
     </>)

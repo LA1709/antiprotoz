@@ -1,24 +1,29 @@
 import './table.scss';
 
-const Table = ({data}) => {
+const Table = ({ columns, data }) => {
+    if (data === undefined) return <div>Loading</div>
+    if (!data) return <div>No data</div>
     return (
-        <table>
-            <tr>
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-        </table>
+        <div className='table-wrapper'>
+            <table>
+                <thead>
+                    <tr>
+                        {columns.map(column =>
+                            <th>{column.name}</th>
+                        )}
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(val =>
+                        <tr>
+                            {columns.map(column =>
+                                <td>{val[column.key] ?? "-"}</td>
+                            )}
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
     )
 }
 
