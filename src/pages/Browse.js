@@ -1,90 +1,111 @@
-import { useState } from 'react';
 import Menu from '../components/Menu';
+import CheckIcon from '../assets/check-square.svg';
+import TrashIcon from '../assets/trash.svg';
 import './browse.scss';
-import DownIcon from '../assets/chevron-down.svg';
-import UpIcon from '../assets/chevron-up.svg';
 
 const Browse = () => {
-    const [show, setShow] = useState(false);
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target.elements);
     }
+
+    const handleSelectAll = e => {
+        e.preventDefault();
+        const elements = document.getElementById("form").elements;
+        for (let i = 0; i < elements.length - 3; i++) {
+            elements[i].checked = true;
+        }
+    }
+
+    const handleClearAll = e => {
+        e.preventDefault();
+        const elements = document.getElementById("form").elements;
+        for (let i = 0; i < elements.length - 3; i++) {
+            elements[i].checked = false;
+        }
+    }
+
     return (<>
         <Menu />
         <div className="browse-wrapper">
             <h1>Browse</h1>
             <hr />
-            <form className="form" onSubmit={handleSubmit}>
+            <form id="form" className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
+                    <h3>Source</h3>
                     <div className="form-group-item">
-                        <label htmlFor="sequence">Sequence: </label>
-                        <input id="sequence" name="sequence" type="text" placeholder="Enter Sequence" required={!show} />
-                    </div>
-                    {show ?
-                        <div className="collapsible">
-                            <div className="form-group-item">
-                                <label htmlFor="pubmedid">PubMed ID: </label>
-                                <input id="pubmedid" name="pubmedid" type="text" placeholder="Enter PubMed ID" />
-                            </div>
-                            <div className="form-group-item">
-                                <label htmlFor="target">Target Organism: </label>
-                                <input id="target" name="target" type="text" placeholder="Enter Target Organism" />
-                            </div>
-                            <div className="form-group-item">
-                                <label htmlFor="source">Source: </label>
-                                <input id="source" name="source" type="text" placeholder="Enter Source" />
-                            </div>
-                            <div className="form-group-item">
-                                <label htmlFor="family">Family: </label>
-                                <input id="family" name="family" type="text" placeholder="Enter Family" />
-                            </div>
-                            <div className="form-group-item">
-                                <label htmlFor="length">Length: </label>
-                                <input id="length" name="length" type="text" placeholder="Enter Length" />
-                            </div>
-                            <hr />
-                            <div className="form-group-item">
-                                <input id="hemolytic" name="hemolytic" type="checkbox" defaultChecked />
-                                <label htmlFor="hemolytic" className="not-aligned">Hemolytic Activity</label>
-                            </div>
-                            <div className="form-group-item">
-                                <input id="uniport" name="uniport" type="checkbox" defaultChecked />
-                                <label htmlFor="uniport" className="not-aligned">Uniport</label>
-                            </div>
-                            <div className="form-group-item">
-                                <input id="charge" name="charge" type="checkbox" defaultChecked />
-                                <label htmlFor="charge" className="not-aligned">Net Charge</label>
-                            </div>
-                            <div className="form-group-item">
-                                <input id="activity" name="activity" type="checkbox" defaultChecked />
-                                <label htmlFor="activity" className="not-aligned">Activity</label>
-                            </div>
-                            <hr />
-                        </div> :
-                        <div className="form-group-item">
-                            <div>
-                                <input id="exact" name="type" type="radio" value="exact" required />
-                                <label htmlFor="exact">Exact Sequence</label>
-                            </div>
-                            <div>
-                                <input id="part" name="type" type="radio" value="part" required />
-                                <label htmlFor="part">Part of Sequence</label>
-                            </div>
-                        </div>}
-                    <div className="form-group-item">
-                        <input id="submit" name="submit" type="submit" value="Browse" />
+                        <input id="source1" name="source1" type="checkbox" />
+                        <label htmlFor="source1">Natural</label>
                     </div>
                     <div className="form-group-item">
-                        <p onClick={() => setShow(!show)}>
-                            {show ? "Hide" : "Show"} Advanced Filters
-                            <img src={show ? UpIcon : DownIcon} alt="icon" />
-                        </p>
+                        <input id="source2" name="source2" type="checkbox" />
+                        <label htmlFor="source2">Synthetic</label>
                     </div>
                 </div>
                 <hr />
-                <div className="result-group">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga minus, quam dolor sunt vero in. Deleniti at quos ut obcaecati impedit sapiente minima voluptatibus ratione recusandae voluptates. Placeat aspernatur delectus et? Est quibusdam ratione debitis eveniet sunt suscipit!
+                <div className="form-group">
+                    <h3>Target Organism</h3>
+                    <div className="form-group-item">
+                        <input id="target1" name="target1" type="checkbox" />
+                        <label htmlFor="target1">Antileishmanial</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="target2" name="target2" type="checkbox" />
+                        <label htmlFor="target2">Antitrypanosomal</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="target3" name="target3" type="checkbox" />
+                        <label htmlFor="target3">Antimalarial</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="target4" name="target4" type="checkbox" />
+                        <label htmlFor="target4">Others</label>
+                    </div>
+                </div>
+                <hr />
+                <div className="form-group">
+                    <h3>Family</h3>
+                    <div className="form-group-item">
+                        <input id="family1" name="family1" type="checkbox" />
+                        <label htmlFor="family1">Defensin</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family2" name="family2" type="checkbox" />
+                        <label htmlFor="family2">Frog skin active peptide (FSAP)</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family3" name="family3" type="checkbox" />
+                        <label htmlFor="family3">Cathelicidin family</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family4" name="family4" type="checkbox" />
+                        <label htmlFor="family4">Cecropin family</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family5" name="family5" type="checkbox" />
+                        <label htmlFor="family5">Bombinin family</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family6" name="family6" type="checkbox" />
+                        <label htmlFor="family6">Melittin</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family7" name="family7" type="checkbox" />
+                        <label htmlFor="family7">Cecropin</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family8" name="family8" type="checkbox" />
+                        <label htmlFor="family8">MCD family</label>
+                    </div>
+                    <div className="form-group-item">
+                        <input id="family9" name="family9" type="checkbox" />
+                        <label htmlFor="family9">Others</label>
+                    </div>
+                </div>
+                <hr />
+                <div className="actionable-form-group">
+                    <button onClick={handleSelectAll}><img src={CheckIcon} alt="" />Select All</button>
+                    <button onClick={handleClearAll}><img src={TrashIcon} alt="" />Clear All</button>
+                    <input id="submit" name="submit" type="submit" value="Browse" />
                 </div>
             </form>
         </div >
