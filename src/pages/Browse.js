@@ -9,7 +9,7 @@ import './browse.scss';
 const Browse = () => {
 
     const [showInput, setShowInput] = useState(true);
-    const [columns, setColumns] = useState(undefined); 
+    const [columns, setColumns] = useState(undefined);
     const [data, setData] = useState(undefined);
 
     const handleSubmit = e => {

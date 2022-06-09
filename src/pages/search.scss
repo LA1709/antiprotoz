@@ -12,6 +12,8 @@
     min-height: 70vh;
     .form-group {
       min-width: 25%;
+      max-width: 28%;
+      flex-grow: 1;
       p {
         padding: 0px;
         width: max-content;
@@ -33,7 +35,7 @@
           padding: 0;
         }
         label {
-          width: 50%;
+          width: 40%;
           text-align: right;
         }
         .not-aligned {
@@ -46,6 +48,12 @@
         input[type="number"] {
           cursor: auto;
         }
+        input[type="submit"] {
+          padding: 0.1rem 0.5rem;
+          text-align: center;
+          font-size: 1.1rem;
+          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        }
       }
       .closer {
         margin-top: 0.2rem;
@@ -53,6 +61,7 @@
     }
     .result-group {
       padding: 0.5rem;
+      flex-grow: 1;
     }
   }
 }

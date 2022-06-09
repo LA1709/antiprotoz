@@ -3,12 +3,17 @@ import Menu from '../components/Menu';
 import './search.scss';
 import DownIcon from '../assets/chevron-down.svg';
 import UpIcon from '../assets/chevron-up.svg';
+import Table from '../components/Table';
 
 const Search = () => {
     const [show, setShow] = useState(false);
+    const [data, setData] = useState(undefined);
+    const [columns, setColumns] = useState(undefined);
+
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target.elements);
+        setData(null);
+        setColumns(null);
     }
     return (<>
         <Menu />
@@ -84,7 +89,7 @@ const Search = () => {
                 </div>
                 <hr />
                 <div className="result-group">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga minus, quam dolor sunt vero in. Deleniti at quos ut obcaecati impedit sapiente minima voluptatibus ratione recusandae voluptates. Placeat aspernatur delectus et? Est quibusdam ratione debitis eveniet sunt suscipit!
+                    <Table data={data} columns={columns} />
                 </div>
             </form>
         </div >
