@@ -14,7 +14,7 @@ const Browse = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (data) setData(null);
+        setData(null);
         setColumns(null);
         setShowInput(false);
     }

@@ -1,0 +1,14 @@
+.peptide-wrapper {
+  display: flex;
+  flex-direction: column;
+  .loader {
+    border: 5px solid #3e37333d;
+    border-radius: 50%;
+    border-top: 5px solid #515151;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    align-self: center;
+    margin: 15% 0px;
+  }
+}
