@@ -1,10 +1,18 @@
 import axios from "axios";
 
 export const fetchPeptide = (id, callback) => {
-    axios.get("https://run.mocky.io/v3/6c5e5097-32da-427d-9cca-89fa47aa8486")
-        .then(result => callback(result.data))
-        .catch(err => {
-            console.log(err);
-            callback(null);
-        })
+    const data = {
+        "query": `SELECT * FROM master WHERE PubmedID='${id}';`
+    };
+    const config = {
+        method: 'post',
+        url: 'https://3v3bd3qzhk.execute-api.us-east-2.amazonaws.com/query_sql',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data
+    };
+    axios(config).then(result => {
+        callback(result.data);
+    }).catch(err => callback([]))
 }

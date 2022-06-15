@@ -16,8 +16,8 @@ const Peptide = () => {
     return <div className="peptide-wrapper">
         <Menu />
         {data === undefined ? <div className="loader" /> :
-            !data ? <div>No such Peptide exists!</div> :
-                <div>{data.name} - {data.sequence}</div>
+            !data.length ? <div>No such Peptide exists!</div> :
+                Object.entries(data[0]).map(item => <div>{item[0]}: {item[1] ?? '-'}</div>)
         }
     </div>
 }

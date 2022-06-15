@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { searchPeptides } from '../sql/searchPeptides';
 import Menu from '../components/Menu';
 import './search.scss';
 import DownIcon from '../assets/chevron-down.svg';
@@ -7,13 +8,13 @@ import Table from '../components/Table';
 
 const Search = () => {
     const [show, setShow] = useState(false);
-    const [data, setData] = useState(undefined);
-    const [columns, setColumns] = useState(undefined);
+    const [data, setData] = useState(null);
+    const [columns, setColumns] = useState(null);
 
     const handleSubmit = e => {
         e.preventDefault();
-        setData(null);
-        setColumns(null);
+        setData(undefined);
+        searchPeptides(e.target.elements, show, setData, setColumns);
     }
     return (<>
         <Menu />
@@ -45,24 +46,24 @@ const Search = () => {
                                 <input id="family" name="family" type="text" placeholder="Enter Family" />
                             </div>
                             <div className="form-group-item">
-                                <label htmlFor="length">Length: </label>
-                                <input id="length" name="length" type="text" placeholder="Enter Length" />
+                                <label htmlFor="plength">Length: </label>
+                                <input id="plength" name="plength" type="text" placeholder="Enter Length" />
                             </div>
                             <hr />
                             <div className="form-group-item closer">
-                                <input id="hemolytic" name="hemolytic" type="checkbox" defaultChecked />
+                                <input id="hemolytic" value="hemolytic" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="hemolytic" className="not-aligned">Hemolytic Activity</label>
                             </div>
                             <div className="form-group-item closer">
-                                <input id="uniport" name="uniport" type="checkbox" defaultChecked />
+                                <input id="uniport" value="uniport" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="uniport" className="not-aligned">Uniport</label>
                             </div>
                             <div className="form-group-item closer">
-                                <input id="charge" name="charge" type="checkbox" defaultChecked />
+                                <input id="charge" value="charge" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="charge" className="not-aligned">Net Charge</label>
                             </div>
                             <div className="form-group-item closer">
-                                <input id="activity" name="activity" type="checkbox" defaultChecked />
+                                <input id="activity" value="activity" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="activity" className="not-aligned">Activity</label>
                             </div>
                             <hr />
