@@ -60,9 +60,10 @@
       }
     }
     .result-group {
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       flex-grow: 1;
-      height: max-content;
+      max-width: 69vw;
+      max-height: 72vh;
     }
   }
 }

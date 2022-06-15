@@ -1,4 +1,5 @@
 import axios from "axios";
+import { colNames } from "./sql.util";
 
 const getAdvancedQuery = params => `SELECT * FROM master;`;
 
@@ -22,8 +23,8 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     const data = {
         "query": isAdvanced ?
             getAdvancedQuery(params) :
-            params.type === "exact" ? `SELECT * FROM master WHERE Sequence='${params.sequence.toUpperCase()}';`
-                : `SELECT * FROM master WHERE Sequence LIKE '%${params.sequence.toUpperCase()}%';`
+            params.type === "exact" ? `SELECT * FROM master WHERE Sequence='${params.sequence}';`
+                : `SELECT * FROM master WHERE Sequence LIKE '%${params.sequence}%';`
     };
     const config = {
         method: 'post',
@@ -36,7 +37,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     axios(config).then(result => {
         if (result.data?.length)
             colsCallback(Object.keys(result.data[0]).map(
-                key => ({ name: key, key })
+                key => ({ name: colNames[key], key })
             ))
         dataCallback(result.data);
     }).catch(err => dataCallback([]))
