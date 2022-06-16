@@ -1,13 +1,22 @@
 import axios from "axios";
 import { colNames } from "./sql.util";
 
-const getAdvancedQuery = params => `SELECT * FROM master;`;
+const getAdvancedQuery = params => {
+    const cols = params.cols.join();
+    delete params.cols;
+    const condition = Object.entries(params).filter(item => !!item[1])
+        .map(item => `${item[0]}='${item[1]}'`).join(" AND ");
+    return `SELECT
+    Name,Year,PubmedID,Source,${cols}
+    FROM master
+    WHERE ${condition ? condition : "TRUE"};`;
+}
 
 export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback) => {
     const params = {};
     let listChecked = false;
     for (const el of elements) {
-        if (isAdvanced && elements[el.name].length && !listChecked) {
+        if (isAdvanced && elements[el.name]?.length && !listChecked) {
             for (const node of elements[el.name]) {
                 if (node.checked) {
                     if (!params[node.name])
@@ -17,14 +26,15 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
             }
             listChecked = true;
         }
-        else if (!(isAdvanced && elements[el.name].length))
-            params[el.name] = elements[el.name].value;
+        else if (!(isAdvanced && elements[el.name]?.length))
+            params[el.name] = elements[el.name]?.value;
     };
+    delete params.submit;
     const data = {
         "query": isAdvanced ?
             getAdvancedQuery(params) :
-            params.type === "exact" ? `SELECT * FROM master WHERE Sequence='${params.sequence}';`
-                : `SELECT * FROM master WHERE Sequence LIKE '%${params.sequence}%';`
+            params.type === "exact" ? `SELECT Name,Year,PubmedID,Source FROM master WHERE Sequence='${params.Sequence}';`
+                : `SELECT Name,Year,PubmedID,Source FROM master WHERE Sequence LIKE '%${params.Sequence}%';`
     };
     const config = {
         method: 'post',

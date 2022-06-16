@@ -25,45 +25,45 @@ const Search = () => {
                 <div className="form-group">
                     <div className="form-group-item">
                         <label htmlFor="sequence">Sequence: </label>
-                        <input id="sequence" name="sequence" type="text" placeholder="Enter Sequence" required={!show} />
+                        <input id="sequence" name="Sequence" type="text" placeholder="Enter Sequence" required={!show} />
                     </div>
                     {show ?
                         <div className="collapsible">
                             <div className="form-group-item">
                                 <label htmlFor="pubmedid">PubMed ID: </label>
-                                <input id="pubmedid" name="pubmedid" type="text" placeholder="Enter PubMed ID" />
+                                <input id="pubmedid" name="PubmedID" type="text" placeholder="Enter PubMed ID" />
                             </div>
                             <div className="form-group-item">
                                 <label htmlFor="target">Target Organism: </label>
-                                <input id="target" name="target" type="text" placeholder="Enter Target Organism" />
+                                <input id="target" name="Target" type="text" placeholder="Enter Target Organism" />
                             </div>
                             <div className="form-group-item">
                                 <label htmlFor="source">Source: </label>
-                                <input id="source" name="source" type="text" placeholder="Enter Source" />
+                                <input id="source" name="Source" type="text" placeholder="Enter Source" />
                             </div>
                             <div className="form-group-item">
                                 <label htmlFor="family">Family: </label>
-                                <input id="family" name="family" type="text" placeholder="Enter Family" />
+                                <input id="family" name="Family" type="text" placeholder="Enter Family" />
                             </div>
                             <div className="form-group-item">
                                 <label htmlFor="plength">Length: </label>
-                                <input id="plength" name="plength" type="text" placeholder="Enter Length" />
+                                <input id="plength" name="Length" type="text" placeholder="Enter Length" />
                             </div>
                             <hr />
                             <div className="form-group-item closer">
-                                <input id="hemolytic" value="hemolytic" name="cols" type="checkbox" defaultChecked />
+                                <input id="hemolytic" value="Hemolytic" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="hemolytic" className="not-aligned">Hemolytic Activity</label>
                             </div>
                             <div className="form-group-item closer">
-                                <input id="uniport" value="uniport" name="cols" type="checkbox" defaultChecked />
+                                <input id="uniport" value="UniportID" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="uniport" className="not-aligned">Uniport</label>
                             </div>
                             <div className="form-group-item closer">
-                                <input id="charge" value="charge" name="cols" type="checkbox" defaultChecked />
+                                <input id="charge" value="Charge" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="charge" className="not-aligned">Net Charge</label>
                             </div>
                             <div className="form-group-item closer">
-                                <input id="activity" value="activity" name="cols" type="checkbox" defaultChecked />
+                                <input id="activity" value="Activity" name="cols" type="checkbox" defaultChecked />
                                 <label htmlFor="activity" className="not-aligned">Activity</label>
                             </div>
                             <hr />

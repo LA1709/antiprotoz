@@ -13,7 +13,7 @@ export const browsePeptides = (elements, dataCallback, colsCallback) => {
         `${item[0]}='${item[1].join(`' OR ${item[0]}='`)}'`
     ).join(") AND (")})`;
     const data = {
-        "query": `SELECT * FROM master WHERE ${q === "()" ? "TRUE" : q};`
+        "query": `SELECT Name,Year,PubmedID,Source FROM master WHERE ${q === "()" ? "TRUE" : q};`
     };
     const config = {
         method: 'post',
