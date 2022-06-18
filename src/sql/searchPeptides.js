@@ -7,7 +7,7 @@ const getAdvancedQuery = params => {
     const condition = Object.entries(params).filter(item => !!item[1])
         .map(item => `${item[0]}='${item[1]}'`).join(" AND ");
     return `SELECT
-    Name,Year,PubmedID,Source,${cols}
+    Name,Year,PubmedID,Source,Target,Species,${cols}
     FROM master
     WHERE ${condition ? condition : "TRUE"};`;
 }
@@ -33,8 +33,8 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     const data = {
         "query": isAdvanced ?
             getAdvancedQuery(params) :
-            params.type === "exact" ? `SELECT Name,Year,PubmedID,Source FROM master WHERE Sequence='${params.Sequence}';`
-                : `SELECT Name,Year,PubmedID,Source FROM master WHERE Sequence LIKE '%${params.Sequence}%';`
+            params.type === "exact" ? `SELECT Name,Year,PubmedID,Target,Species,Source FROM master WHERE Sequence='${params.Sequence}';`
+                : `SELECT Name,Year,PubmedID,Target,Species,Source FROM master WHERE Sequence LIKE '%${params.Sequence}%';`
     };
     const config = {
         method: 'post',

@@ -17,7 +17,7 @@ const Table = ({ columns, data }) => {
                   {columns.map(column =>
                     <th key={column.key}>{column.name}</th>
                   )}
-                  <th>Action</th>
+                  <th> </th>
                 </tr>
               </thead>
               <tbody>
