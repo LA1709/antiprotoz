@@ -2,39 +2,51 @@ import axios from "axios";
 import { colNames } from "./sql.util";
 
 const getAdvancedQuery = params => {
-    const cols = params.cols.join();
-    delete params.cols;
-    const condition = Object.entries(params).filter(item => !!item[1])
-        .map(item => `${item[0]}='${item[1]}'`).join(" AND ");
+    let cols = null;
+    if (params.cols) {
+        cols = params.cols.map(col => `${col} IS NOT NULL`).join(" AND ");
+        delete params.cols;
+    }
+    let condition = Object.entries(params).filter(item => item[0] !== 'type' && item[0] !== 'Sequence')
+        .map(item => `${item[0]}='${item[1]}'`)?.join(" AND ");
+    if (params.Sequence) {
+        const q = `${params.type === "exact" ?
+            `Sequence='${params.Sequence}'` :
+            `Sequence LIKE '%${params.Sequence}%'`
+            }`;
+        if (condition) condition += ` AND ${q}`;
+        else condition = q;
+    }
     return `SELECT
-    Name,Year,PubmedID,Source,Target,Species,${cols}
+    Name,Year,PubmedID,Target,Species,Source
     FROM master
-    WHERE ${condition ? condition : "TRUE"};`;
+    WHERE ${condition ? condition : "TRUE"} AND ${cols ? cols : "TRUE"};`;
 }
 
 export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback) => {
     const params = {};
-    let listChecked = false;
+    let colsChecked = false;
     for (const el of elements) {
-        if (isAdvanced && elements[el.name]?.length && !listChecked) {
+        if (!el.name) continue;
+        if (elements[el.name].value)
+            params[el.name] = elements[el.name].value;
+        else if (!colsChecked && el.name === "cols") {
+            params[el.name] = [];
             for (const node of elements[el.name]) {
-                if (node.checked) {
-                    if (!params[node.name])
-                        params[node.name] = [];
-                    params[node.name].push(node.value);
-                }
+                if (node.checked)
+                    params[el.name].push(node.value);
             }
-            listChecked = true;
+            colsChecked = true
         }
-        else if (!(isAdvanced && elements[el.name]?.length))
-            params[el.name] = elements[el.name]?.value;
     };
     delete params.submit;
     const data = {
         "query": isAdvanced ?
             getAdvancedQuery(params) :
-            params.type === "exact" ? `SELECT Name,Year,PubmedID,Target,Species,Source FROM master WHERE Sequence='${params.Sequence}';`
-                : `SELECT Name,Year,PubmedID,Target,Species,Source FROM master WHERE Sequence LIKE '%${params.Sequence}%';`
+            `SELECT Name,Year,PubmedID,Target,Species,Source FROM master ${params.type === "exact" ?
+                `WHERE Sequence='${params.Sequence}'` :
+                `WHERE Sequence LIKE '%${params.Sequence}%'`
+            };`
     };
     const config = {
         method: 'post',

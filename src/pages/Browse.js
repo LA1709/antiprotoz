@@ -39,8 +39,6 @@ const Browse = () => {
 
     return <div className="browse-wrapper">
         <Menu />
-        <h1>Browse</h1>
-        <hr />
         {!showInput && <button
             onClick={() => setShowInput(true)}
             className="back-button"

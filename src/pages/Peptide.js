@@ -17,7 +17,11 @@ const Peptide = () => {
         <Menu />
         {data === undefined ? <div className="loader" /> :
             !data.length ? <div>No such Peptide exists!</div> :
-                Object.entries(data[0]).map(item => <div>{item[0]}: {item[1] ?? '-'}</div>)
+                Object.entries(data[0]).map(item => {
+                if (item[1] && item[1].trim && item[1] !== item[1].trim())
+                    console.log(item[0], `/${item[1]}/`);
+                return <div>{item[0]}: {item[1] ?? '-'}</div>
+            })
         }
     </div>
 }

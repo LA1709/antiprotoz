@@ -9,10 +9,10 @@ const Home = () => {
                 <img src={Logo} alt="Logo" />
             </div>
             <div className="menu-container">
-                <Link to="/"> Home </Link>
                 <Link to="/browse"> Browse </Link>
                 <Link to="/search"> Search </Link>
                 <Link to="/enquire"> Enquire </Link>
+                <Link to="/download"> Download </Link>
                 <Link to="/submission"> Data Submission </Link>
                 <Link to="/guide"> Guide </Link>
             </div>
