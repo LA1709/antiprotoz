@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import jsonexport from 'jsonexport/dist';
 import './table.scss';
 import DownloadIcon from '../assets/download.svg';
+import NoData from '../assets/no-data.json';
 
 const Table = ({ columns, data }) => {
   const [processing, setProcessing] = useState(false);
@@ -30,7 +31,13 @@ const Table = ({ columns, data }) => {
         : !data ?
           <div className="help-text">Please select the Search Parameters and <u>Press Search</u> to continue.</div>
           : !data.length ?
-            <div>No Data</div>
+            <lottie-player
+              src={JSON.stringify(NoData)}
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+            />
             : [
               <div className="table-heading" key="table-heading">
                 <u>Results</u>

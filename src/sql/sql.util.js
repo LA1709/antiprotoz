@@ -99,3 +99,48 @@ export const organisms = {
     Euglena: ['Euglena gracilis'],
     Caryospora: ['Caryospora bigenetica'],
 }
+
+export const peptideInfo = {
+    "Peptide Description": [
+        'Source',
+        'TaxonomicID',
+        'UniportID',
+        'NatureType',
+        'Origin',
+        'Family',
+        'Modification',
+        'Type',
+        'Vitro_Vivo',
+        'CellLine',
+        'Model',
+        'Assay',
+    ],
+    "Antiprotozoal Activity": [
+        'Target',
+        'Species',
+        'Strain',
+        'Stage',
+        'Disease',
+        'Activity',
+        'CellTarget',
+        'Mechanism',
+        'Hemolytic',
+        'Cytotoxicity',
+    ],
+    "Physiochemical Properties": [
+        'Length',
+        'Charge',
+        'Weight',
+        'PI',
+        'Encoding',
+        'Nature',
+        'Chirality',
+        'Structure',
+        'NTerminal',
+        'CTerminal',
+    ],
+    "Literature Reference": [
+        'PubmedID',
+        'Year',
+    ]
+}

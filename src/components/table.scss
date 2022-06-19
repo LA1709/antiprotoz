@@ -6,6 +6,12 @@
   flex-direction: column;
   justify-content: center;
 
+  lottie-player {
+    align-self: center;
+    width: 50vh;
+    height: 50vh;
+  }
+
   .help-text {
     align-self: center;
   }
