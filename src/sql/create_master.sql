@@ -1,4 +1,5 @@
 CREATE TABLE master (
+	ID INT NOT NULL PRIMARY KEY,
 	Name varchar(255),
 	Year varchar(255),
 	PubmedID varchar(255),

@@ -14,7 +14,7 @@ export const browsePeptides = (elements, dataCallback, colsCallback) => {
     ).join(") AND (")})`;
     const data = {
         "query": `SELECT
-            Name,Year,PubmedID,Sequence,Source,Family,Target
+            ID,Name,Year,PubmedID,Sequence,Source,Family,Target,Species
             FROM master WHERE ${q === "()" ? "TRUE" : q}
         ;`
     };
@@ -28,7 +28,7 @@ export const browsePeptides = (elements, dataCallback, colsCallback) => {
     };
     axios(config).then(result => {
         if (result.data?.length)
-            colsCallback(Object.keys(result.data[0]).map(
+            colsCallback(Object.keys(result.data[0]).filter(key => key !== "ID").map(
                 key => ({ name: colNames[key], key })
             ))
         dataCallback(result.data);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchPeptide = (id, callback) => {
     const data = {
-        "query": `SELECT * FROM master WHERE PubmedID='${id}';`
+        "query": `SELECT * FROM master WHERE ID='${id}';`
     };
     const config = {
         method: 'post',

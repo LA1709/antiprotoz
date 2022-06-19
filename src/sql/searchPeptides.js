@@ -18,7 +18,7 @@ const getAdvancedQuery = params => {
         else condition = q;
     }
     return `SELECT
-    Name,Year,PubmedID,Target,Species,Source
+    ID,Name,Year,PubmedID,Sequence,Target,Species,Source
     FROM master
     WHERE ${condition ? condition : "TRUE"} AND ${cols ? cols : "TRUE"};`;
 }
@@ -43,7 +43,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     const data = {
         "query": isAdvanced ?
             getAdvancedQuery(params) :
-            `SELECT Name,Year,PubmedID,Target,Species,Source FROM master ${params.type === "exact" ?
+            `SELECT ID,Name,Year,PubmedID,Sequence,Target,Species,Source FROM master ${params.type === "exact" ?
                 `WHERE Sequence='${params.Sequence}'` :
                 `WHERE Sequence LIKE '%${params.Sequence}%'`
             };`
@@ -58,7 +58,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     };
     axios(config).then(result => {
         if (result.data?.length)
-            colsCallback(Object.keys(result.data[0]).map(
+            colsCallback(Object.keys(result.data[0]).filter(key => key !== "ID").map(
                 key => ({ name: colNames[key], key })
             ))
         dataCallback(result.data);
