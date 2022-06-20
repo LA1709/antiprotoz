@@ -77,12 +77,16 @@ const Search = () => {
                         <input id="source" name="Source" type="text" placeholder="Enter Source" />
                     </div>
                     <div className="form-group-item">
+                        <label htmlFor="year">Year: </label>
+                        <input id="year" name="year" type="text" placeholder="Enter Year" />
+                    </div>
+                    <div className="form-group-item">
                         <label htmlFor="family">Family: </label>
                         <input id="family" name="Family" type="text" placeholder="Enter Family" />
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="plength">Length: </label>
-                        <input id="plength" name="Length" type="text" placeholder="Enter Length" />
+                        <input id="plength" name="Length" type="number" placeholder="Enter Length" />
                     </div>
                     <hr />
                     <span>Show only if:</span>

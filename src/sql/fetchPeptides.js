@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const fetchPeptide = (id, callback) => {
+export const fetchPeptides = (idList, callback) => {
     const data = {
-        "query": `SELECT * FROM master WHERE ID=${id};`
+        "query": `SELECT * FROM master WHERE ID IN (${idList.join(",")});`
     };
     const config = {
         method: 'post',

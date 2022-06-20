@@ -4,6 +4,7 @@ import jsonexport from 'jsonexport/dist';
 import './table.scss';
 import DownloadIcon from '../assets/download.svg';
 import NoData from '../assets/no-data.json';
+import { fetchPeptides } from '../sql/fetchPeptides';
 
 const Table = ({ columns, data }) => {
   const [processing, setProcessing] = useState(false);
@@ -11,17 +12,26 @@ const Table = ({ columns, data }) => {
   const handleDownload = e => {
     e.preventDefault();
     setProcessing(true);
-    jsonexport(data, (err, csv) => {
-      if (err) return console.log(err);
-      let el = document.createElement('a');
-      el.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csv));
-      el.setAttribute('download', "Antiprotoz-Data.csv");
-      el.style.display = 'none';
-      document.body.appendChild(el);
-      el.click();
-      document.body.removeChild(el);
-      setProcessing(false);
-    });
+    fetchPeptides(
+      Object.values(data).reduce((prev, curr) =>
+        [...prev, curr.ID], []
+      ), (jsonData) => jsonexport(
+        jsonData, (err, csv) => {
+          if (err) {
+            setProcessing(false);
+            return console.log(err);
+          }
+          let el = document.createElement('a');
+          el.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csv));
+          el.setAttribute('download', "Antiprotoz-Data.csv");
+          el.style.display = 'none';
+          document.body.appendChild(el);
+          el.click();
+          document.body.removeChild(el);
+          setProcessing(false);
+        }
+      )
+    );
   }
 
   return (

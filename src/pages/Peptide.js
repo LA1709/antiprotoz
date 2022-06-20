@@ -15,7 +15,7 @@ const Peptide = () => {
         <div className="description">
             {cols.map(key => <p>
                 <span>{colNames[key]}</span>
-                <span>{data[0]?.[key]}</span>
+                <span>{data[0]?.[key] ?? "-"}</span>
             </p>)}
         </div>
 
