@@ -32,7 +32,6 @@
     display: flex;
     .logo-container {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 100%;
@@ -134,6 +133,58 @@
         }
         span:first-child {
           font-size: 4rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .home-wrapper {
+    .first-container {
+      flex-direction: column;
+      justify-content: space-between;
+      .menu-container {
+        padding: 1rem 0;
+        a {
+          padding: 1rem 0;
+        }
+      }
+    }
+    .second-container {
+      padding: 0;
+      text-align: justify;
+      span {
+        margin: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+    .third-container {
+      flex-direction: column;
+      .title {
+        font-size: 1.5rem;
+        margin: 1rem;
+        padding: 1rem 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+      .description {
+        margin: 0;
+        text-align: justify;
+        overflow-y: hidden;
+        padding: 0 0.5rem;
+      }
+    }
+    .fourth-container {
+      gap: 1rem;
+      .stats {
+        flex-direction: column;
+        gap: 1rem;
+        .stats-text {
+          span:first-child {
+            font-size: 2.5rem;
+          }
         }
       }
     }

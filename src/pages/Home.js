@@ -55,17 +55,21 @@ const Home = () => {
                 </div>
                 <div className="stats-text">
                     <span>4,321</span>
+                    <span>Total Entries of ---</span>
                 </div>
                 <div className="stats-text">
                     <span>789</span>
+                    <span>Total Entries of ---</span>
                 </div>
             </div>
             <div className="stats">
                 <div className="stats-text">
                     <span>1,234</span>
+                    <span>Total Entries of ---</span>
                 </div>
                 <div className="stats-text">
                     <span>432</span>
+                    <span>Total Entries of ---</span>
                 </div>
                 <div className="stats-text">
                 </div>
