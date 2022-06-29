@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
 import { browsePeptides } from '../sql/browsePeptides';
+import { sources, organisms, families } from '../sql/sql.util'
 import CheckIcon from '../assets/check-square.svg';
 import TrashIcon from '../assets/trash.svg';
 import LeftIcon from '../assets/chevron-left.svg';
@@ -49,74 +50,32 @@ const Browse = () => {
             <form id="form" className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <h3>Source</h3>
-                    <div className="form-group-item">
-                        <input id="source1" value="source1" name="source" type="checkbox" />
-                        <label htmlFor="source1">Natural</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="source2" value="source2" name="source" type="checkbox" />
-                        <label htmlFor="source2">Synthetic</label>
-                    </div>
+                    {sources.map((source, idx) =>
+                        <div className="form-group-item">
+                            <input id={`source_${idx + 1}`} value={source} name="Source" type="checkbox" />
+                            <label htmlFor={`source_${idx + 1}`}>{source}</label>
+                        </div>
+                    )}
                 </div>
                 <hr />
                 <div className="form-group">
                     <h3>Target Organism</h3>
-                    <div className="form-group-item">
-                        <input id="target1" value="target1" name="target" type="checkbox" />
-                        <label htmlFor="target1">Antileishmanial</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="target2" value="target2" name="target" type="checkbox" />
-                        <label htmlFor="target2">Antitrypanosomal</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="target3" value="target3" name="target" type="checkbox" />
-                        <label htmlFor="target3">Antimalarial</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="target4" value="target4" name="target" type="checkbox" />
-                        <label htmlFor="target4">Others</label>
-                    </div>
+                    {Object.keys(organisms).map((target, idx) =>
+                        <div className="form-group-item">
+                            <input id={`target_${idx + 1}`} value={target} name="Target" type="checkbox" />
+                            <label htmlFor={`target_${idx + 1}`}>{target}</label>
+                        </div>
+                    )}
                 </div>
                 <hr />
                 <div className="form-group">
                     <h3>Family</h3>
-                    <div className="form-group-item">
-                        <input id="family1" value="family1" name="family" type="checkbox" />
-                        <label htmlFor="family1">Defensin</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family2" value="family2" name="family" type="checkbox" />
-                        <label htmlFor="family2">Frog skin active peptide (FSAP)</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family3" value="family3" name="family" type="checkbox" />
-                        <label htmlFor="family3">Cathelicidin family</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family4" value="family4" name="family" type="checkbox" />
-                        <label htmlFor="family4">Cecropin family</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family5" value="family5" name="family" type="checkbox" />
-                        <label htmlFor="family5">Bombinin family</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family6" value="family6" name="family" type="checkbox" />
-                        <label htmlFor="family6">Melittin</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family7" value="family7" name="family" type="checkbox" />
-                        <label htmlFor="family7">Cecropin</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family8" value="family8" name="family" type="checkbox" />
-                        <label htmlFor="family8">MCD family</label>
-                    </div>
-                    <div className="form-group-item">
-                        <input id="family9" value="family9" name="family" type="checkbox" />
-                        <label htmlFor="family9">Others</label>
-                    </div>
+                    {families.map((family, idx) =>
+                        <div className="form-group-item">
+                            <input id={`family_${idx + 1}`} value={family} name="Family" type="checkbox" />
+                            <label htmlFor={`family_${idx + 1}`}>{family}</label>
+                        </div>
+                    )}
                 </div>
                 <hr />
                 <div className="actionable-form-group">

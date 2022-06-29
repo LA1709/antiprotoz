@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { searchPeptides } from '../sql/searchPeptides';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
-import { organisms } from '../sql/sql.util';
+import { organisms, families, sources } from '../sql/sql.util';
 import './search.scss';
 import DownIcon from '../assets/chevron-down.svg';
 import UpIcon from '../assets/chevron-up.svg';
@@ -74,15 +74,25 @@ const Search = () => {
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="source">Source: </label>
-                        <input id="source" name="Source" type="text" placeholder="Enter Source" />
+                        <select id="source" name="Source" defaultValue="">
+                            <option value="">Any source</option>
+                            {sources.map(source =>
+                                <option value={source} key={source}>{source}</option>
+                            )}
+                        </select>
+                    </div>
+                    <div className="form-group-item">
+                        <label htmlFor="family">Family: </label>
+                        <select id="family" name="Family" defaultValue="">
+                            <option value="">Any family</option>
+                            {families.map(family =>
+                                <option value={family} key={family}>{family}</option>
+                            )}
+                        </select>
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="year">Year: </label>
                         <input id="year" name="year" type="text" placeholder="Enter Year" />
-                    </div>
-                    <div className="form-group-item">
-                        <label htmlFor="family">Family: </label>
-                        <input id="family" name="Family" type="text" placeholder="Enter Family" />
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="plength">Length: </label>
