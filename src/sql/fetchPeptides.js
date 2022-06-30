@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchPeptides = (idList, callback) => {
     const data = {
-        "query": `SELECT * FROM master WHERE ID IN (${idList.join(",")});`
+        "query": `SELECT * FROM master WHERE ID IN ('${idList.join("','")}');`
     };
     const config = {
         method: 'post',

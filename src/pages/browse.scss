@@ -1,7 +1,7 @@
 .browse-wrapper {
   width: 100%;
   height: 100%;
-  color: #3e3733;
+  color: #4E2F20;
   h1 {
     padding: 0rem 1rem;
   }
@@ -24,10 +24,14 @@
     .form-group {
       padding: 1rem 1rem 2rem;
       flex-grow: 1;
+      max-width: 25%;
+      max-height: 74vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
       h3 {
         margin: 0 0 1rem 0;
         padding-bottom: 0.2rem;
-        border-bottom: 1px solid #3e3733;
+        border-bottom: 1px solid #4E2F20;
       }
       .form-group-item {
         padding-left: 2.5rem;
@@ -38,7 +42,7 @@
           cursor: pointer;
         }
         label {
-          color: #3e3733;
+          color: #4E2F20;
         }
       }
     }
