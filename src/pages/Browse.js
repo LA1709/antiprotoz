@@ -52,7 +52,7 @@ const Browse = () => {
                     <h3>Source</h3>
                     {sources.map((source, idx) =>
                         <div className="form-group-item" key={`source_${idx + 1}`}>
-                            <input id={`source_${idx + 1}`} value={source} name="Source" type="checkbox" />
+                            <input id={`source_${idx + 1}`} value={source} name="NatureType" type="checkbox" />
                             <label htmlFor={`source_${idx + 1}`}>{source}</label>
                         </div>
                     )}

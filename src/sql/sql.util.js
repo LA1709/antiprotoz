@@ -211,3 +211,86 @@ export const families = [
     'beta-defensin family',
     'moricin family',
 ]
+
+export const minmax = {
+    'A': {
+        min: 0,
+        max: 11,
+    },
+    'C': {
+        min: 0,
+        max: 1,
+    },
+    'D': {
+        min: 0,
+        max: 1,
+    },
+    'E': {
+        min: 0,
+        max: 3,
+    },
+    'F': {
+        min: 0,
+        max: 3,
+    },
+    'G': {
+        min: 1,
+        max: 5,
+    },
+    'H': {
+        min: 0,
+        max: 1,
+    },
+    'I': {
+        min: 0,
+        max: 3,
+    },
+    'K': {
+        min: 0,
+        max: 6,
+    },
+    'L': {
+        min: 1,
+        max: 6,
+    },
+    'M': {
+        min: 0,
+        max: 1,
+    },
+    'N': {
+        min: 0,
+        max: 2,
+    },
+    'P': {
+        min: 0,
+        max: 6,
+    },
+    'Q': {
+        min: 0,
+        max: 1,
+    },
+    'R': {
+        min: 0,
+        max: 3,
+    },
+    'S': {
+        min: 0,
+        max: 3,
+    },
+    'T': {
+        min: 0,
+        max: 2,
+    },
+    'V': {
+        min: 0,
+        max: 3,
+    },
+    'W': {
+        min: 0,
+        max: 1,
+    },
+    'Y': {
+        min: 0,
+        max: 1,
+    },
+}

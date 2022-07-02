@@ -20,5 +20,6 @@ CREATE TABLE minmax (
 	T INT,
 	V INT,
 	W INT,
-    Y INT
+    Y INT,
+	FOREIGN KEY (ID) REFERENCES master(ID)
 );

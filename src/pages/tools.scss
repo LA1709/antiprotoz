@@ -1,0 +1,81 @@
+.tools-wrapper {
+  width: 100%;
+  height: 100%;
+  color: #4e2f20;
+  .back-button {
+    width: 75px;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem;
+    cursor: pointer;
+    img {
+      width: 15px;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    h3 {
+      margin: 0.5rem 0;
+      border-bottom: 1px solid #4e2f20;
+    }
+    .form-group {
+      padding: 0.5rem 0 1rem 0;
+      overflow-x: auto;
+      display: flex;
+      gap: 1.4rem;
+      .form-group-item {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        input {
+          cursor: pointer;
+        }
+        label {
+          color: #4e2f20;
+        }
+      }
+    }
+    .form-group-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      input {
+        width: 20%;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+    }
+    .form-range {
+      display: flex;
+      overflow-x: auto;
+      .form-range-item {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.25rem 0.5rem;
+        input {
+          width: 40px;
+        }
+        &:not(:last-child) {
+          border-right: 1px solid #4e2f20;
+        }
+      }
+    }
+  }
+  .result {
+    padding: 0.5rem 2rem;
+  }
+}
