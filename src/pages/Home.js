@@ -13,7 +13,7 @@ const Home = () => {
                 <Link to="/search"> Search </Link>
                 <Link to="/tools"> Tools </Link>
                 <Link to="/download"> Download </Link>
-                <Link to="/submission"> Data Submission </Link>
+                <Link to="/submit"> Data Submission </Link>
                 <Link to="/guide"> Guide </Link>
             </div>
         </section>

@@ -4,6 +4,7 @@ import Search from './pages/Search';
 import Browse from './pages/Browse';
 import Tools from './pages/Tools';
 import Peptide from './pages/Peptide';
+import Submit from './pages/Submit';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/browse' element={<Browse />} />
         <Route path='/tools' element={<Tools />} />
         <Route path='/peptide/:id' element={<Peptide />} />
+        <Route path='/submit' element={<Submit />} />
         <Route path='/*' element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
