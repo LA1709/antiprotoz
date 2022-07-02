@@ -1,7 +1,7 @@
 .peptide-wrapper {
   width: 100%;
   height: 100%;
-  color: #4E2F20;
+  color: #4e2f20;
   overflow-x: hidden;
   .animation {
     display: flex;
@@ -12,7 +12,7 @@
       height: 50vh;
     }
     .loader {
-      border: 5px solid #4E2F203d;
+      border: 5px solid #4e2f203d;
       border-radius: 50%;
       border-top: 5px solid #515151;
       width: 40px;
@@ -22,21 +22,25 @@
     }
   }
   .container {
-    display: flex;
     width: 100%;
+    display: flex;
     .peptide-section {
-      width: 75%;
-      margin: 2rem 0 2rem 2rem;
-      border: 1px solid #2d221b;
-      padding: 0 1rem 2rem 1rem;
+      width: 30%;
+      height: 100%;
+      position: fixed;
+      padding: 10% 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      color: #2d221b;
       span:nth-child(odd) {
         font-size: 1.4rem;
         font-weight: 700;
         margin-top: 1rem;
       }
+    }
+    .description-margin {
+      width: 93%;
+      background-color: #b79171;
     }
     .description-section {
       width: 100%;
@@ -48,21 +52,21 @@
         padding-right: 0;
       }
       .description-card {
-        border: 1px solid #2d221b;
         padding: 1rem;
         .description-heading {
           font-size: 1.4rem;
           font-weight: 700;
+          border-bottom: 1px solid #4e2f20;
+          padding-bottom: 0.3rem;
         }
         .description {
-          margin-top: 0.5rem;
+          margin-top: 1rem;
           display: flex;
           flex-direction: column;
           p {
             margin: 0;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid #2d221b;
             // padding: 0.2rem 0;
             &:last-child {
               border: none;

@@ -42,6 +42,7 @@ const Peptide = () => {
                 <span>Sequence</span>
                 <span>{data[0].Sequence}</span>
             </div>
+            <div className="description-margin" />
             <div className="description-section">
                 <div className="description-card">
                     <span className="description-heading">Peptide Description</span>
