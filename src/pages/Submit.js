@@ -36,7 +36,7 @@ const Tools = () => {
             </div>
             <div className="form-group-item">
                 <label htmlFor="email">Submitter's Email:</label>
-                <input id="email" name="Email" type="email" placeholder="Enter your affiliation" required />
+                <input id="email" name="Email" type="email" placeholder="Enter your email" required />
             </div>
             <div className="form-special-item">
                 <label htmlFor="comments">Comments (optional):</label>
