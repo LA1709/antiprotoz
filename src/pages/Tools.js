@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
-import { browsePeptides } from '../sql/browsePeptides';
+import { getPeptides } from '../sql/lookForPeptides';
 import { minmax } from '../sql/sql.util'
 import LeftIcon from '../assets/chevron-left.svg';
 import './tools.scss';
@@ -15,9 +15,15 @@ const Tools = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        const inputs = {};
+        Object.entries(selection).filter(item => !!item[1]).forEach(val => {
+            const min_val = document.getElementById(`${val}_min`).value;
+            const max_val = document.getElementById(`${val}_max`).value;
+            inputs[val] = [min_val, max_val];
+        })
         setData(undefined);
         setColumns(undefined);
-        browsePeptides(e.target.elements, setData, setColumns);
+        getPeptides(inputs, setData, setColumns);
         setShowInput(false);
     }
 
@@ -51,9 +57,9 @@ const Tools = () => {
                     {Object.entries(selection).filter(item => !!item[1]).map(val =>
                         <div className="form-range-item">
                             <b>{val}:</b>
-                            <input type="number" placeholder="min" min={minmax[val[0]].min} max={minmax[val[0]].max} required />
+                            <input id={`${val}_min`} type="number" placeholder="min" min={minmax[val[0]].min} max={minmax[val[0]].max} required />
                             to
-                            <input type="number" placeholder="max" min={minmax[val[0]].min} max={minmax[val[0]].max} required />
+                            <input id={`${val}_max`} type="number" placeholder="max" min={minmax[val[0]].min} max={minmax[val[0]].max} required />
                         </div>
                     )}
                 </div>
