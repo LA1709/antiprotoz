@@ -1,15 +1,20 @@
 import axios from "axios";
 import { colNames } from "./sql.util";
 
-export const getPeptides = (inputData, dataCallback, colsCallback) => {
+const tableMap = [
+    'minmax',
+    'catminmax',
+]
+
+export const getPeptides = (inputData, inputType, dataCallback, colsCallback) => {
     const q = `(${Object.entries(inputData).map(item =>
-        `minmax.${item[0]} BETWEEN ${item[1][0]} and ${item[1][1]}`
+        `${item[0]} BETWEEN ${item[1][0]} and ${item[1][1]}`
     ).join(") AND (")})`;
     const data = {
         "query": `SELECT
-            ID,Name,Year,PubmedID,Sequence,Source,Family,Target,Species
-            FROM master,minmax WHERE ${q === "()" ? "TRUE" : q}
-        ;`
+            master.ID,Name,Year,PubmedID,Sequence,Source,Family,Target,Species
+            FROM master,${tableMap[inputType]} WHERE
+            master.ID=${tableMap[inputType]}.ID AND ${q === "()" ? "TRUE" : q};`
     };
     const config = {
         method: 'post',

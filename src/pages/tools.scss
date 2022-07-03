@@ -14,65 +14,45 @@
       width: 15px;
     }
   }
-  form {
+  .tabs-container {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    height: 80%;
     margin-top: 2rem;
-    padding: 0 2rem;
-    box-sizing: border-box;
-    h3 {
-      margin: 0.5rem 0;
-      border-bottom: 1px solid #4e2f20;
-    }
-    .form-group {
-      padding: 0.5rem 0 1rem 0;
-      overflow-x: auto;
+    .tab-pane {
+      flex-grow: 1;
+      width: 20%;
+      box-sizing: border-box;
+      background-color: #b79171;
       display: flex;
-      gap: 1.4rem;
-      .form-group-item {
+      flex-direction: column;
+      .tab-pane-item {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
-        input {
-          cursor: pointer;
-        }
-        label {
-          color: #4e2f20;
-        }
-      }
-    }
-    .form-group-button {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-      input {
-        width: 20%;
-        padding: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        cursor: pointer;
         justify-content: center;
-        font-size: 1.1rem;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        gap: 1rem;
+        padding: 1.8rem 0;
+        border-bottom: 1px solid #f1e8b6;
+        color: #efefef;
+        font-size: 1.4rem;
+        cursor: pointer;
+        &:hover {
+          background-color: #f1e8b630;
+          font-weight: 500;
+        }
+        &:last-child {
+          border: none;
+        }
+      }
+      .disabled {
+        background-color: #f1e8b630;
+        font-weight: 500;
+        cursor: context-menu;
       }
     }
-    .form-range {
-      display: flex;
-      overflow-x: auto;
-      .form-range-item {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        padding: 0.25rem 0.5rem;
-        input {
-          width: 40px;
-        }
-        &:not(:last-child) {
-          border-right: 1px solid #4e2f20;
-        }
-      }
+    .tab-content {
+      flex-grow: 2;
+      width: 60%;
+      padding-top: 2rem;
     }
   }
   .result {

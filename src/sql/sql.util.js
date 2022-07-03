@@ -212,7 +212,7 @@ export const families = [
     'moricin family',
 ]
 
-export const minmax = {
+export const aa = {
     'A': {
         min: 0,
         max: 11,
@@ -292,5 +292,28 @@ export const minmax = {
     'Y': {
         min: 0,
         max: 1,
+    },
+}
+
+export const pp = {
+    'Aliphatic': {
+        min: 0,
+        max: 11,
+    },
+    'Aromatic': {
+        min: 0,
+        max: 1,
+    },
+    'Polar': {
+        min: 0,
+        max: 1,
+    },
+    'Hydrophobic': {
+        min: 0,
+        max: 3,
+    },
+    'Neutral': {
+        min: 0,
+        max: 3,
     },
 }

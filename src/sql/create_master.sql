@@ -1,7 +1,7 @@
 CREATE TABLE master (
 	ID varchar(10) NOT NULL PRIMARY KEY,
 	Name varchar(255),
-	Year varchar(255),
+	Year varchar(4),
 	PubmedID varchar(255),
 	Sequence varchar(255),
 	NatureType varchar(255),
@@ -39,3 +39,12 @@ CREATE TABLE master (
 );
 
 --- INSERT INTO master VALUES ('Batroxicidin (BatxC)','2017','28246023','KRFKKFFKKLKNSVKKRVKKFFRKPRVDFFDSHVCDE','natural','Bothrops atrox ','venom gland','8723 [NCBI]','U5KJC9','cathelicidin famiy',28,-3,'4258.63 g/mol',4.5,'linear','anionic','D',NULL,'Fatty acid, Lauryl','Amidation','O= Ornithine','parasite','Trypanosoma ','Trypanosoma cruzi','Y strain','Epimastigote forms','Chagas disease','Epimastigote (T. cruzi) 24hr-11.3 Â± 1.6, 48 h 6.33 Â± 1.7, 72 h- 9.6 Â± 3.5uM','cell membrane','induces necrosis','HC50- 12.5 ÂµM','mammalian cell (LLC-MK) 138.8 Â± 20 24 hr MTT assay','in vitro','Rat Myoblast L6 Cells ',NULL,'hemocytometer;','PROTOZ_002');
+
+-- .map(o => Object.entries(o).map(item =>
+--     (item[1] == "-" || item[1] == "N/A" || item[1] == "NA") ?
+--         `NULL` :
+--         item[0].match(/^Length$|^Net charge$|^PI$/i) ?
+--             item[1] :
+--             item[0] == "ID" ?
+--                 `'Protoz_${item[1]}'` : `'${item[1]}'`
+-- )).join('), (');
