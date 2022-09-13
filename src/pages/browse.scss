@@ -1,7 +1,7 @@
 .browse-wrapper {
   width: 100%;
   height: 100%;
-  color: #4E2F20;
+  color: #4e2f20;
   h1 {
     padding: 0rem 1rem;
   }
@@ -26,23 +26,27 @@
       flex-grow: 1;
       max-width: 25%;
       max-height: 74vh;
-      overflow-y: auto;
-      scrollbar-width: thin;
       h3 {
         margin: 0 0 1rem 0;
         padding-bottom: 0.2rem;
-        border-bottom: 1px solid #4E2F20;
+        border-bottom: 1px solid #4e2f20;
       }
-      .form-group-item {
-        padding-left: 2.5rem;
-        display: flex;
-        align-items: center;
-        margin-top: 0.3rem;
-        input {
-          cursor: pointer;
-        }
-        label {
-          color: #4E2F20;
+      .item-container {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        max-height: 100%;
+        max-width: 100%;
+        .form-group-item {
+          padding-left: 2.5rem;
+          display: flex;
+          align-items: center;
+          margin-top: 0.3rem;
+          input {
+            cursor: pointer;
+          }
+          label {
+            color: #4e2f20;
+          }
         }
       }
     }

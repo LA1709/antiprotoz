@@ -50,7 +50,7 @@ const Table = ({ columns, data }) => {
             />
             : [
               <div className="table-heading" key="table-heading">
-                <u>Results</u>
+                <span><u>Results</u> ({data.length} entries)</span>
                 <button onClick={handleDownload} disabled={processing}>
                   <img src={DownloadIcon} alt="i" />
                   Download

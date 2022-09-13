@@ -38,66 +38,114 @@ export const colNames = {
 }
 
 export const organisms = {
-    Trypanosoma: [
-        'Trypanosoma cruzi',
-        'Trypanosoma brucei brucei',
-        'Trypanosoma brucei rhodesiense',
-        'Trypanosoma brucei gambiense',
-        'Trypanosoma evansi',
-        'Trypanosoma equiperdum',
-        'Trypanosoma carassii',
+    Acanthamoeba: [
+        "Acanthamoeba castellanii",
+        "Acanthamoeba polyphaga"
     ],
-    Leishmania: [
-        'Leishmania infantum',
-        'Leishmania mexicana',
-        'Leishmania major',
-        'Leishmania tropica',
-        'Leishmania amazonensis',
-        'Leishmania donovani',
-        'Leishmania braziliensis',
-        'Leishmania panamensis',
-        'Leishmania pifanoi',
-        'Leishmania aethiopica',
-        'Leishmania infantum chagasi',
-    ],
-    Plasmodium: [
-        'Plasmodium gallinaceum',
-        'Plasmodium falciparum',
-        'Plasmodium berghei',
-        'Plasmodium yoelii nigeriensis',
-        'Plasmodium yoelii',
-        'Plasmodium vinckei',
-    ],
-    Eimeria: [
-        'Eimeria tenella',
-        'Eimeria acervulina',
+    Amoeba: [
+        "amoeba proteus",
+        "Amoeba proteus"
     ],
     Babesia: [
-        'Babesia bigemina',
-        'Babesia equi',
+        "Babesia equi",
+        "Babesia microti",
+        "Babesia bigemina"
     ],
-    Acanthamoeba: [
-        'Acanthamoeba castellanii',
-        'Acanthamoeba polyphaga',
+    Besnoitia: [
+        "Besnoitia jellisoni"
     ],
     Blastocystis: [
-        'Blastocystis hominis',
-        'Blastocystis spp',
+        "Blastocystis spp",
+        "Blastocystis hominis"
     ],
-    Cryptocaryon: ['Cryptocaryon irritans'],
-    Toxoplasma: ['Toxoplasma gondii'],
-    Miamiensis: ['Miamiensis avidus'],
-    Entamoeba: ['Entamoeba histolytica'],
-    Tetrahymena: ['Tetrahymena pyriformis'],
-    Ichthyophthirius: ['Ichthyophthirius multifiliis'],
-    Paramecium: ['Paramecium caudatum'],
-    Neospora: ['Neospora caninum'],
-    Trichomonas: ['Trichomonas vaginalis'],
-    Besnoitia: ['Besnoitia jellisoni'],
-    Cryptosporidium: ['Cryptosporidium parvum'],
-    Amoeba: ['Amoeba proteus'],
-    Euglena: ['Euglena gracilis'],
-    Caryospora: ['Caryospora bigenetica'],
+    Caryospora: [
+        "Caryospora bigenetica"
+    ],
+    Cryptocaryon: [
+        "Cryptocaryon irritans"
+    ],
+    Cryptosporidium: [
+        "Cryptosporidium parvum"
+    ],
+    Eimeria: [
+        "Eimeria tenella",
+        "Eimeria acervulina"
+    ],
+    Entamoeba: [
+        "Entamoeba histolytica"
+    ],
+    Euglena: [
+        "euglena gracilis"
+    ],
+    Ichthyophthirius: [
+        "Ichthyophthirius multifiliis"
+    ],
+    Leishmania: [
+        "Leishmania donovani",
+        "Leishmania amazonensis",
+        "Leishmania braziliensis,",
+        "Leishmania infantum chagasi,",
+        "Leishmania major",
+        "Leishmania pifanoi",
+        "Leishmania mexicana",
+        "Leishmania braziliensis",
+        "Leishmania aethiopica",
+        "Leishmania donovani 3-Luc",
+        "Leishmania major promastigotes and amastigotes",
+        "Leishmania infantum",
+        "Leishmania major,",
+        "Leishmania tropica",
+        "Leishmania panamensis",
+        "Leishmania (Viannia)  braziliensis",
+        "Leishmania infantum chagasi"
+    ],
+    Miamiensis: [
+        "Miamiensis avidus"
+    ],
+    Naegleria: [
+        "Naegleria fowleri"
+    ],
+    Neospora: [
+        "Neospora caninum"
+    ],
+    Paramecium: [
+        "Paramecium caudatum"
+    ],
+    Plasmodium: [
+        "Plasmodium berghei",
+        "Plasmodium falciparum",
+        "Plasmodium yoelii",
+        "Plasmodium cynomolgi",
+        "Plasmodium knowlesi",
+        "Plasmodium falciparum,",
+        "Plasmodium yoelii nigeriensis",
+        "Plasmodium falciparum falciparum",
+        "Plasmodium vinckei",
+        "Plasmodium chabaudi",
+        "Plasmodium bergei",
+        "Plasmodium yoelli",
+        "Plasmodium gallinaceum"
+    ],
+    Tetrahymena: [
+        "Tetrahymena pyriformis"
+    ],
+    Toxoplasma: [
+        "Toxoplasma gondii"
+    ],
+    Trichomonas: [
+        "Trichomonas vaginillas",
+        "Trichomonas vaginalis"
+    ],
+    Trypanosoma: [
+        "Trypanosoma cruzi",
+        "Trypanosoma brucei brucei",
+        "Trypanosoma brucei",
+        "Trypanosoma evansi",
+        "Trypanosoma equiperdum",
+        "Trypanosoma brucei gambiense",
+        "Trypanosoma brucei rhodesiense",
+        "Trypanosoma carassii"
+    ],
 }
 
 export const peptideInfo = {
@@ -151,65 +199,73 @@ export const sources = [
 ]
 
 export const families = [
-    'frog skin active peptide (FSAP) family. Dermaseptin subfamily',
-    'Defensin',
-    'MCD family. Protonectin subfamily',
-    'Temporin subfamily. frog skin active peptide (FSAP) family',
-    'cationic peptide 04 (cupiennin) family. 01 subfamily',
-    'cathelicidin family',
-    'phospholipase A2 family. Group II subfamily. K49 sub-subfamily',
-    'major royal jelly protein family',
-    'MCD family. Mastoparan subfamily',
-    'hepcidin family',
-    'transferrin family',
-    'Longicin derived',
-    'piscidin',
-    'Saposin',
-    'NPY family',
-    'thiocillin family',
-    'cecropin family',
-    'gastrin/cholecystokinin family. Magainin subfamily',
-    'tachyplesin/polyphemusin family',
-    'magainin family',
-    'Thiostrepton family ',
-    'Analogs of dermaseptin S4 derivative(P)',
-    'melittin family',
-    'long (4 C-C) scorpion toxin superfamily. Sodium channel inhibitor family. Beta subfamily',
-    'attacin/sarcotoxin-2 family',
-    'alpha-defensin family',
-    'pleurocidin family',
-    'G-protein coupled receptor 2 family',
-    'adrenomedullin family',
-    'sauvagine/corticotropin-releasing factor/urotensin I family',
-    'motilin family',
-    'andropin family',
-    'frog skin active peptide (FSAP) family. Dermaseptin subfamily',
-    'gastrin/cholecystokinin family',
-    'non-disulfide-bridged peptide (NDBP) superfamily. Antimalarial peptide (group 5) family',
-    'long chain scorpion toxin family. Class 2 subfamily',
-    'non-disulfide-bridged peptide (NDBP) superfamily. Medium-length antimicrobial peptide (group 3) family. Ponericin-W subfamily',
-    'pore-forming trialysin (trialysin) family',
-    'intercrine alpha (chemokine CxC) family',
-    'neurotoxin 10 (Hwtx-1) family',
-    'neurotoxin 36 family',
-    'glycosyl hydrolase 24 family',
-    'frog skin active peptide (FSAP) family. Ocellatin subfamily.Curated',
-    'SAPLIP family,',
-    'Halictine family',
-    'frog skin active peptide (FSAP) family. Brevinin subfamily',
-    'MCD family. Eumenitin subfamily',
-    'frog skin active peptide (FSAP) family. Phylloseptin subfamily',
-    'invertebrate defensin family. Type 1 subfamily',
-    'histatin/statherin family',
-    'neurotoxin 19 (CSTX) family. 04 (U1-Lctx) subfamily',
-    'frog skin active peptide (FSAP) family. Cruzioseptin subfamily',
-    'crotamine-myotoxin family',
-    'intercrine beta (chemokine CC) family',
-    'alpha-defensin family',
-    'histone H2A family',
-    'bombinin family',
-    'beta-defensin family',
-    'moricin family',
+    "adrenomedullin family",
+    "alpha-defensin family",
+    "andropin family",
+    "attacin/sarcotoxin-2 family",
+    "beta-defensin family",
+    "bombinin family",
+    "cathelicidin family",
+    "cationic peptide 04 (cupiennin) family. 01 subfamily",
+    "cecropin and melittin family",
+    "cecropin family",
+    "crotamine-myotoxin family",
+    "defensin",
+    "defensin alpha",
+    "defensin beta",
+    "defensin family",
+    "defensin Vigna unguiculata",
+    "defensin- tick defensin",
+    "derived from protegrin",
+    "formicidae venom precursor-01 superfamily",
+    "frog skin active peptide (FSAP) family. Brevinin subfamily",
+    "frog skin active peptide (FSAP) family. Cruzioseptin subfamily",
+    "frog skin active peptide (FSAP) family. Dermaseptin subfamily",
+    "frog skin active peptide (FSAP) family. Ocellatin subfamily.Curated",
+    "frog skin active peptide (FSAP) family. Phylloseptin subfamily",
+    "frog skin active peptide (FSAP) family. Temporin subfamily",
+    "G-protein coupled receptor 2 family",
+    "gastrin/cholecystokinin family",
+    "gastrin/cholecystokinin family. Magainin subfamily",
+    "glycosyl hydrolase 24 family",
+    "Halictine family",
+    "hepcidin family",
+    "histatin/statherin family",
+    "histone H2A family",
+    "intercrine alpha (chemokine CxC) family",
+    "intercrine beta (chemokine CC) family",
+    "invertebrate defensin family. Type 1 subfamily",
+    "invertebrate defensin family. Type 2 subfamily",
+    "long (4 C-C) scorpion toxin superfamily. Sodium channel inhibitor family. Beta subfamily",
+    "long chain scorpion toxin family. Class 1 subfamily",
+    "long chain scorpion toxin family. Class 2 subfamily",
+    "Longicin derived",
+    "Magainin",
+    "major royal jelly protein family",
+    "MCD family. Eumenitin subfamily",
+    "MCD family. Mastoparan subfamily",
+    "MCD family. Protonectin subfamily",
+    "melittin family",
+    "moricin family",
+    "motilin family",
+    "neurotoxin 10 (Hwtx-1) family",
+    "neurotoxin 19 (CSTX) family. 04 (U1-Lctx) subfamily",
+    "neurotoxin 36 family",
+    "non-disulfide-bridged peptide (NDBP) superfamily. Antimalarial peptide (group 5) family",
+    "non-disulfide-bridged peptide (NDBP) superfamily. Medium-length antimicrobial peptide (group 3) family. Ponericin-W subfamily",
+    "NPY family",
+    "phospholipase A2 family. Group II subfamily. K49 sub-subfamily",
+    "piscidin",
+    "pleurocidin family",
+    "pore-forming trialysin (trialysin) family",
+    "rog skin active peptide (FSAP) family. Dermaseptin subfamily",
+    "SAPLIP family,",
+    "Saposin",
+    "sauvagine/corticotropin-releasing factor/urotensin I family",
+    "tachyplesin/polyphemusin family",
+    "thiocillin family",
+    "Thiostrepton family",
+    "transferrin family",
 ]
 
 export const aa = {

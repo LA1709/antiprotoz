@@ -50,32 +50,38 @@ const Browse = () => {
             <form id="form" className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <h3>Source</h3>
-                    {sources.map((source, idx) =>
-                        <div className="form-group-item" key={`source_${idx + 1}`}>
-                            <input id={`source_${idx + 1}`} value={source} name="NatureType" type="checkbox" />
-                            <label htmlFor={`source_${idx + 1}`}>{source}</label>
-                        </div>
-                    )}
+                    <div className="item-container">
+                        {sources.map((source, idx) =>
+                            <div className="form-group-item" key={`source_${idx + 1}`}>
+                                <input id={`source_${idx + 1}`} value={source} name="NatureType" type="checkbox" />
+                                <label htmlFor={`source_${idx + 1}`}>{source}</label>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <hr />
                 <div className="form-group">
                     <h3>Target Organism</h3>
-                    {Object.keys(organisms).map((target, idx) =>
-                        <div className="form-group-item" key={`target_${idx + 1}`}>
-                            <input id={`target_${idx + 1}`} value={target} name="Target" type="checkbox" />
-                            <label htmlFor={`target_${idx + 1}`}>{target}</label>
-                        </div>
-                    )}
+                    <div className="item-container">
+                        {Object.keys(organisms).map((target, idx) =>
+                            <div className="form-group-item" key={`target_${idx + 1}`}>
+                                <input id={`target_${idx + 1}`} value={target} name="Target" type="checkbox" />
+                                <label htmlFor={`target_${idx + 1}`}>{target}</label>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <hr />
                 <div className="form-group">
                     <h3>Family</h3>
-                    {families.map((family, idx) =>
-                        <div className="form-group-item" key={`family_${idx + 1}`}>
-                            <input id={`family_${idx + 1}`} value={family} name="Family" type="checkbox" />
-                            <label htmlFor={`family_${idx + 1}`}>{family}</label>
-                        </div>
-                    )}
+                    <div className="item-container">
+                        {families.map((family, idx) =>
+                            <div className="form-group-item" key={`family_${idx + 1}`}>
+                                <input id={`family_${idx + 1}`} value={family} name="Family" type="checkbox" />
+                                <label htmlFor={`family_${idx + 1}`}>{family}</label>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <hr />
                 <div className="actionable-form-group">
