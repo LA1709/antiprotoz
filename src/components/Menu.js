@@ -10,7 +10,6 @@ const Menu = () => {
             <Link to="/browse" className={selected === '/browse' ? 'disabled' : ''}>Browse</Link>
             <Link to="/search" className={selected === '/search' ? 'disabled' : ''}>Search</Link>
             <Link to="/tools" className={selected === '/tools' ? 'disabled' : ''}>Tools</Link>
-            <Link to="/download" className={selected === '/download' ? 'disabled' : ''}>Download</Link>
             <Link to="/submit" className={selected === '/submit' ? 'disabled' : ''}>Data Submission</Link>
             <Link to="/guide" className={selected === '/guide' ? 'disabled' : ''}>Guide</Link>
         </div>

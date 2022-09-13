@@ -14,8 +14,8 @@ const Peptide = () => {
     const getDescription = cols =>
         <div className="description">
             {cols.map(key => <p>
-                <span>{colNames[key]}</span>
-                <span>{data[0]?.[key] ?? "-"}</span>
+                <span className="parameter">{colNames[key]}</span>
+                <span className="value">{data[0]?.[key] ?? "-"}</span>
             </p>)}
         </div>
 
@@ -52,8 +52,6 @@ const Peptide = () => {
                     <span className="description-heading">Physiochemical Properties</span>
                     {getDescription(peptideInfo["Physiochemical Properties"])}
                 </div>
-            </div>
-            <div className="description-section">
                 <div className="description-card">
                     <span className="description-heading">Antiprotozoal Activity</span>
                     {getDescription(peptideInfo["Antiprotozoal Activity"])}

@@ -39,7 +39,7 @@
       }
     }
     .description-margin {
-      width: 93%;
+      width: 44%;
       background-color: #b79171;
     }
     .description-section {
@@ -47,10 +47,7 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      padding: 2rem;
-      &:nth-child(even) {
-        padding-right: 0;
-      }
+      padding: 2rem 4rem;
       .description-card {
         padding: 1rem;
         .description-heading {
@@ -67,12 +64,11 @@
             margin: 0;
             display: flex;
             align-items: center;
-            // padding: 0.2rem 0;
-            &:last-child {
-              border: none;
+            .parameter {
+              min-width: 25%;
             }
-            span {
-              width: 100%;
+            .value {
+              text-align: justify;
             }
           }
         }
