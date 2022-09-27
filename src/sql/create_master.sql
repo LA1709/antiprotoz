@@ -2,7 +2,7 @@ CREATE TABLE master (
 	ID varchar(10) NOT NULL PRIMARY KEY,
 	Name varchar(255),
 	Year varchar(4),
-	PubmedID varchar(255),
+	PubmedID varchar(25),
 	Sequence varchar(255),
 	NatureType varchar(255),
 	Source varchar(255),

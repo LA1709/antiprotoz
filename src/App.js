@@ -5,6 +5,7 @@ import Browse from './pages/Browse';
 import Tools from './pages/Tools';
 import Peptide from './pages/Peptide';
 import Submit from './pages/Submit';
+import Admin from './pages/Admin';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/tools' element={<Tools />} />
         <Route path='/peptide/:id' element={<Peptide />} />
         <Route path='/submit' element={<Submit />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='/*' element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
