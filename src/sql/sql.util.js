@@ -268,6 +268,125 @@ export const families = [
     "transferrin family",
 ]
 
+export const inputFields = {
+    "ID": {
+        "type": "text",
+        "disabled": true
+    },
+    "Name": {
+        "type": "text"
+    },
+    "Year": {
+        "type": "text"
+    },
+    "PubmedID": {
+        "type": "text"
+    },
+    "Sequence": {
+        "type": "text"
+    },
+    "NatureType": {
+        "type": "select",
+        source: sources
+    },
+    "Source": {
+        "type": "text"
+    },
+    "Origin": {
+        "type": "text"
+    },
+    "TaxonomicID": {
+        "type": "text"
+    },
+    "UniportID": {
+        "type": "text"
+    },
+    "Family": {
+        "type": "select",
+        "source": families
+    },
+    "Length": {
+        "type": "number"
+    },
+    "Charge": {
+        "type": "number"
+    },
+    "Weight": {
+        "type": "text"
+    },
+    "PI": {
+        "type": "number"
+    },
+    "Encoding": {
+        "type": "text"
+    },
+    "Nature": {
+        "type": "text"
+    },
+    "Chirality": {
+        "type": "text"
+    },
+    "Structure": {
+        "type": "text"
+    },
+    "NTerminal": {
+        "type": "text"
+    },
+    "CTerminal": {
+        "type": "text"
+    },
+    "Modification": {
+        "type": "text"
+    },
+    "Type": {
+        "type": "text"
+    },
+    "Target": {
+        "type": "select",
+        "source": Object.keys(organisms)
+    },
+    "Species": {
+        "type": "select",
+        "source": Object.values(organisms).reduce((prev, curr) => [...prev, ...curr], [])
+    },
+    "Strain": {
+        "type": "text"
+    },
+    "Stage": {
+        "type": "text"
+    },
+    "Disease": {
+        "type": "text"
+    },
+    "Activity": {
+        "type": "textarea"
+    },
+    "CellTarget": {
+        "type": "text"
+    },
+    "Mechanism": {
+        "type": "textarea"
+    },
+    "Hemolytic": {
+        "type": "textarea"
+    },
+    "Cytotoxicity": {
+        "type": "text"
+    },
+    "Vitro_Vivo": {
+        "type": "text"
+    },
+    "CellLine": {
+        "type": "text"
+    },
+    "Model": {
+        "type": "text"
+    },
+    "Assay": {
+        "type": "textarea"
+    },
+}
+
 export const aa = {
     'A': {
         min: 0,

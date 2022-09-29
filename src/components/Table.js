@@ -6,7 +6,7 @@ import DownloadIcon from '../assets/download.svg';
 import NoData from '../assets/no-data.json';
 import { fetchPeptides } from '../sql/fetchPeptides';
 
-const Table = ({ columns, data }) => {
+const Table = ({ columns, data, onClickCallback = null }) => {
   const [processing, setProcessing] = useState(false);
 
   const handleDownload = e => {
@@ -69,14 +69,17 @@ const Table = ({ columns, data }) => {
                   {data.map((val, idx) =>
                     <tr key={idx}>
                       {columns.map((column, i) =>
-                        <td key={`${column.key}-${i}`}>
+                        <td key={`${column.key}-${i}`} title={val[column.key]}>
                           {val[column.key] ?? "-"}
                         </td>
                       )}
                       <td>
-                        <Link to={`/peptide/${val.ID}`}>
+                        {!onClickCallback ? <Link to={`/peptide/${val.ID}`}>
                           <button>View Details</button>
-                        </Link>
+                        </Link> : <button
+                          onClick={() => onClickCallback(val.ID)}
+                        >Edit</button>
+                        }
                       </td>
                     </tr>
                   )}
@@ -84,7 +87,7 @@ const Table = ({ columns, data }) => {
               </table>
             ]
       }
-    </div>
+    </div >
   )
 }
 
