@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import jsonexport from 'jsonexport/dist';
 import './table.scss';
 import DownloadIcon from '../assets/download.svg';
+import TrashIcon from '../assets/trash.svg';
 import NoData from '../assets/no-data.json';
 import { fetchPeptides } from '../sql/fetchPeptides';
 
@@ -76,9 +77,12 @@ const Table = ({ columns, data, onClickCallback = null }) => {
                       <td>
                         {!onClickCallback ? <Link to={`/peptide/${val.ID}`}>
                           <button>View Details</button>
-                        </Link> : <button
-                          onClick={() => onClickCallback(val.ID)}
-                        >Edit</button>
+                        </Link> : <div className="action-container">
+                          <button
+                            onClick={() => onClickCallback(val.ID)}
+                          >Edit</button>
+                          <img src={TrashIcon} alt="delete" onClick={() => onClickCallback(val.ID, true)} />
+                        </div>
                         }
                       </td>
                     </tr>

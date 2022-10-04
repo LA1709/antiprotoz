@@ -62,9 +62,14 @@ const Admin = () => {
         }
     }
 
-    const handleClick = (id) => {
-        setShowTable(false);
-        fetchPeptide(id, (data) => setSelectedPeptide(data[0] ?? {}));
+    const handleClick = (id, callToDelete) => {
+        if (callToDelete) {
+            console.log(id);
+        }
+        else {
+            setShowTable(false);
+            fetchPeptide(id, (data) => setSelectedPeptide(data[0] ?? {}));
+        }
     }
 
     if (isVerified && showTable)

@@ -61,20 +61,30 @@
       max-width: 180px;
       text-overflow: ellipsis;
       overflow-x: hidden;
-      a {
-        text-decoration: none;
-      }
-      button {
-        cursor: pointer;
-        padding: 0.2rem 0.8rem;
-        color: #d4380d;
-        background-color: #fff2e8;
-        outline: 1px solid #d69470;
-        border: none;
-        &:hover {
-          background-color: #b74525;
-          color: #fff2e8;
-          outline: none;
+      .action-container {
+        display: flex;
+        gap: 0.6rem;
+        button {
+          cursor: pointer;
+          padding: 0.2rem 0.8rem;
+          color: #d4380d;
+          background-color: #fff2e8;
+          outline: 1px solid #d69470;
+          border: none;
+          &:hover {
+            background-color: #b74525;
+            color: #fff2e8;
+            outline: none;
+          }
+          a {
+            text-decoration: none;
+          }
+        }
+        img {
+          width: 16px;
+          &:hover {
+            width: 18px;
+          }
         }
       }
     }
@@ -84,6 +94,9 @@
     tbody tr {
       &:hover {
         background-color: #4e2f2010;
+      }
+      img {
+        cursor: pointer;
       }
     }
   }
@@ -103,7 +116,7 @@
       cursor: pointer;
       font-size: 1rem;
       img {
-        width: 17px;
+        width: 16px;
       }
     }
   }
