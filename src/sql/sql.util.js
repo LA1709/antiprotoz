@@ -306,16 +306,19 @@ export const inputFields = {
         "source": families
     },
     "Length": {
-        "type": "number"
+        "type": "number",
+        "step": "any"
     },
     "Charge": {
-        "type": "number"
+        "type": "number",
+        "step": "any"
     },
     "Weight": {
         "type": "text"
     },
     "PI": {
-        "type": "number"
+        "type": "number",
+        "step": "any"
     },
     "Encoding": {
         "type": "text"
