@@ -13,7 +13,7 @@ CREATE TABLE master (
 	Length INT,
 	Charge INT,
 	Weight varchar(255),
-	PI DECIMAL(10, 3),
+	PI varchar(20),
 	Encoding varchar(255),
 	Nature varchar(255),
 	Chirality varchar(255),

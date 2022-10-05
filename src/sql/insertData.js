@@ -1,23 +1,20 @@
 import axios from "axios";
 
-export const updateData = (elements, callback) => {
-    let q = "UPDATE master SET ";
-    let c = "";
+export const insertData = (elements, callback) => {
+    let q = "INSERT INTO master VALUES (";
     let t = [];
     for (const el of elements) {
         if (el.name !== "submit") {
             const val = el.value ? `${el.value}`.replaceAll(/'|;|\\/g, "") : null;
-            if (el.name === "ID")
-                c = ` WHERE ID='${val}';`;
-            else t.push(
+            t.push(
                 val ? ['Length', 'Charge'].includes(el.name)
-                    ? `${el.name}=${val}`
-                    : `${el.name}='${val}'`
-                    : `${el.name}=NULL`
+                    ? `${val}`
+                    : `'${val}'`
+                    : `NULL`
             );
         }
     }
-    q += t.join(", ") + c;
+    q += t.join(", ") + ");";
     const config = {
         method: 'post',
         url: 'https://3v3bd3qzhk.execute-api.us-east-2.amazonaws.com/query_sql',

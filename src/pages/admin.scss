@@ -78,4 +78,42 @@
   label {
     margin-right: 1rem;
   }
+  button {
+    float: right;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .modal-bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.325);
+    .delete-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: 1px solid #4e2f20;
+      background-color: #f1e8b6;
+      color: #4e2f20;
+      padding: 2rem;
+      border-radius: 10px;
+      .modal-footer {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        button {
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }

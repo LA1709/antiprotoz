@@ -317,8 +317,7 @@ export const inputFields = {
         "type": "text"
     },
     "PI": {
-        "type": "number",
-        "step": "any"
+        "type": "text"
     },
     "Encoding": {
         "type": "text"
