@@ -14,7 +14,7 @@ export const browsePeptides = (elements, dataCallback, colsCallback) => {
     ).join(") AND (")})`;
     const data = {
         "query": `SELECT
-            ID,Name,Year,PubmedID,Sequence,Source,Family,Target,Species
+            ID,Name,Year,PubmedID,Sequence,NatureType,Family,Target,Species
             FROM master WHERE ${q === "()" ? "TRUE" : q}
         ;`
     };
@@ -31,6 +31,10 @@ export const browsePeptides = (elements, dataCallback, colsCallback) => {
             colsCallback(Object.keys(result.data[0]).filter(key => key !== "ID").map(
                 key => ({ name: colNames[key], key })
             ))
-        dataCallback(result.data);
+        dataCallback(result.data.map(item => ({
+            ...item,
+            Family: item.Family ?
+                item.Family.charAt(0).toUpperCase() + item.Family.slice(1) : ""
+        })));
     }).catch(err => dataCallback([]))
 }

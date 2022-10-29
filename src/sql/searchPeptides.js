@@ -18,7 +18,7 @@ const getAdvancedQuery = params => {
         else condition = q;
     }
     return `SELECT
-    ID,Name,Year,PubmedID,Sequence,Target,Species,Source
+    ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType
     FROM master
     WHERE ${condition ? condition : "TRUE"} AND ${cols ? cols : "TRUE"};`;
 }
@@ -43,7 +43,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     const data = {
         "query": isAdvanced ?
             getAdvancedQuery(params) :
-            `SELECT ID,Name,Year,PubmedID,Sequence,Target,Species,Source FROM master ${params.type === "exact" ?
+            `SELECT ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType FROM master ${params.type === "exact" ?
                 `WHERE Sequence='${params.Sequence}'` :
                 `WHERE Sequence LIKE '%${params.Sequence}%'`
             };`
@@ -61,6 +61,10 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
             colsCallback(Object.keys(result.data[0]).filter(key => key !== "ID").map(
                 key => ({ name: colNames[key], key })
             ))
-        dataCallback(result.data);
+        dataCallback(result.data.map(item => ({
+            ...item,
+            Family: item.Family ?
+                item.Family.charAt(0).toUpperCase() + item.Family.slice(1) : ""
+        })));
     }).catch(err => dataCallback([]))
 }

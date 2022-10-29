@@ -78,7 +78,7 @@ const Browse = () => {
                         {families.map((family, idx) =>
                             <div className="form-group-item" key={`family_${idx + 1}`}>
                                 <input id={`family_${idx + 1}`} value={family} name="Family" type="checkbox" />
-                                <label htmlFor={`family_${idx + 1}`}>{family}</label>
+                                <label htmlFor={`family_${idx + 1}`}>{family.charAt(0).toUpperCase() + family.slice(1)}</label>
                             </div>
                         )}
                     </div>

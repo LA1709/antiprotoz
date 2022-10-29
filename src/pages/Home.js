@@ -44,7 +44,7 @@ const Home = () => {
         </section>
         <section className="fourth-container">
             <div className="heading">
-                Database Satistics
+                Database Statistics
                 <div className="line" />
             </div>
             <div className="stats">

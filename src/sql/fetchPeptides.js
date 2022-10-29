@@ -13,6 +13,10 @@ export const fetchPeptides = (idList, callback) => {
         data
     };
     axios(config).then(result => {
-        callback(result.data);
+        callback(result.data.map(item => ({
+            ...item,
+            Family: item.Family ?
+                item.Family.charAt(0).toUpperCase() + item.Family.slice(1) : ""
+        })));
     }).catch(err => callback([]))
 }

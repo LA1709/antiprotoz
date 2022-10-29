@@ -3,7 +3,7 @@ import { colNames } from "./sql.util";
 
 export const fetchAllPeptides = (dataCallback, colsCallback) => {
     const data = {
-        "query": `SELECT ID,Name,Year,PubmedID,Sequence,Target,Species,Source,PI FROM master;`
+        "query": `SELECT ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType,PI FROM master;`
     };
     const config = {
         method: 'post',
@@ -18,6 +18,10 @@ export const fetchAllPeptides = (dataCallback, colsCallback) => {
             colsCallback(Object.keys(result.data[0]).filter(key => key !== "ID").map(
                 key => ({ name: colNames[key], key })
             ))
-        dataCallback(result.data);
+        dataCallback(result.data.map(item => ({
+            ...item,
+            Family: item.Family ?
+                item.Family.charAt(0).toUpperCase() + item.Family.slice(1) : ""
+        })));
     }).catch(err => dataCallback([]))
 }
