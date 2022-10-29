@@ -61,25 +61,25 @@
       max-width: 180px;
       text-overflow: ellipsis;
       overflow-x: hidden;
+      button {
+        cursor: pointer;
+        padding: 0.2rem 0.8rem;
+        color: #d4380d;
+        background-color: #fff2e8;
+        outline: 1px solid #d69470;
+        border: none;
+        &:hover {
+          background-color: #b74525;
+          color: #fff2e8;
+          outline: none;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
       .action-container {
         display: flex;
         gap: 0.6rem;
-        button {
-          cursor: pointer;
-          padding: 0.2rem 0.8rem;
-          color: #d4380d;
-          background-color: #fff2e8;
-          outline: 1px solid #d69470;
-          border: none;
-          &:hover {
-            background-color: #b74525;
-            color: #fff2e8;
-            outline: none;
-          }
-          a {
-            text-decoration: none;
-          }
-        }
         img {
           width: 16px;
           &:hover {
