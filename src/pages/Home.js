@@ -24,22 +24,9 @@ const Home = () => {
         <section className="third-container">
             <div className="title">Anti-Protozoal Peptides</div>
             <div className="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, itaque tenetur nobis libero nihil aliquam exercitationem quis cum eos optio sed maiores. Quibusdam dolores nisi vel nostrum aspernatur, dolorum esse!
+                Anti-protozoal peptides  are a subset of Antimicrobial peptides that show activity against protozoan species.
                 <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, itaque tenetur nobis libero nihil aliquam exercitationem quis cum eos optio sed maiores. Quibusdam dolores nisi vel nostrum aspernatur, dolorum esse!
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, itaque tenetur nobis libero nihil aliquam exercitationem quis cum eos optio sed maiores. Quibusdam dolores nisi vel nostrum aspernatur, dolorum esse!
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, itaque tenetur nobis libero nihil aliquam exercitationem quis cum eos optio sed maiores. Quibusdam dolores nisi vel nostrum aspernatur, dolorum esse!
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, itaque tenetur nobis libero nihil aliquam exercitationem quis cum eos optio sed maiores. Quibusdam dolores nisi vel nostrum aspernatur, dolorum esse!
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, itaque tenetur nobis libero nihil aliquam exercitationem quis cum eos optio sed maiores. Quibusdam dolores nisi vel nostrum aspernatur, dolorum esse!
+                They consist of both natural and synthetic derived peptides.
             </div>
         </section>
         <section className="fourth-container">

@@ -22,7 +22,7 @@
       flex-grow: 1;
       width: 20%;
       box-sizing: border-box;
-      background-color: #b79171;
+      background-color: #ABC3C9;
       display: flex;
       flex-direction: column;
       .tab-pane-item {
@@ -31,12 +31,12 @@
         justify-content: center;
         gap: 1rem;
         padding: 1.8rem 0;
-        border-bottom: 1px solid #f1e8b6;
-        color: #efefef;
+        border-bottom: 1px solid #E0DCD3;
+        color: #382119;
         font-size: 1.4rem;
         cursor: pointer;
         &:hover {
-          background-color: #f1e8b630;
+          background-color: #E0DCD330;
           font-weight: 500;
         }
         &:last-child {
@@ -44,7 +44,7 @@
         }
       }
       .disabled {
-        background-color: #f1e8b630;
+        background-color: #E0DCD330;
         font-weight: 500;
         cursor: context-menu;
       }

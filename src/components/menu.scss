@@ -1,6 +1,17 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
+}
+
+@font-face {
+  font-family: MontserratR;
+  src: url("../fonts/Montserrat/Montserrat-SemiBold.ttf");
+}
+
 .menu-wrapper {
   display: flex;
-  background-color: #b79171;
+  background-color: #ABC3C9;
+  font-family: Montserrat;
   a {
     display: flex;
     align-items: center;
@@ -16,9 +27,9 @@
     flex-grow: 1;
     a {
       text-decoration: none;
-      border-right: 2px solid #2d221b;
+      border-right: 2px solid #382119;
       padding: 0.5rem 2.5rem;
-      color: #2d221b;
+      color: #382119;
       text-align: center;
       font-size: large;
       margin: 0;
@@ -26,14 +37,14 @@
         border: none;
       }
       &:hover {
-        background-color: #F1E8B630;
-        font-weight: 500;
+        background-color: #E0DCD330;
+        font-family: MontserratR;
       }
     }
     .disabled {
       cursor: context-menu;
-      background-color: #F1E8B630;
-      font-weight: 500;
+      background-color: #E0DCD330;
+      font-family: MontserratR;
     }
   }
 }

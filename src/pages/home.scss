@@ -1,3 +1,23 @@
+@font-face {
+  font-family: Quicksand;
+  src: url("../fonts/Quicksand/Quicksand-Bold.ttf");
+}
+
+@font-face {
+  font-family: QuicksandLight;
+  src: url("../fonts/Quicksand/Quicksand-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: Sanchez;
+  src: url("../fonts/Sanchez/Sanchez-Regular.ttf");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
+}
+
 .home-wrapper {
   width: 100%;
   height: 100%;
@@ -9,7 +29,7 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #F1E8B6;
+    box-shadow: inset 0 0 5px #e0dcd3;
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb {
@@ -44,20 +64,21 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      background-color: #b79171;
+      background-color: #abc3c9;
       padding: 0px 1rem;
       justify-content: center;
       a {
         width: 100%;
         text-align: center;
         padding: 1.8rem 0px;
-        border-bottom: 1px solid #F1E8B6;
+        border-bottom: 1px solid #e0dcd3;
         color: #fcfcfc;
-        font-size: 1.9rem;
+        font-family: Quicksand;
+        font-size: 2rem;
         text-decoration: none;
         cursor: pointer;
         &:hover {
-          background-color: #F1E8B630;
+          background-color: #e0dcd330;
           font-weight: 500;
         }
         &:last-child {
@@ -68,8 +89,9 @@
   }
 
   .second-container {
-    background-color: #b79171;
-    color: #efefef;
+    background-color: #abc3c9;
+    color: #382119;
+    font-family: Sanchez;
     font-size: 1.8rem;
     padding: 0 11%;
     box-sizing: border-box;
@@ -84,13 +106,14 @@
   .third-container {
     display: flex;
     .title {
-      width: 65%;
+      width: 50%;
       margin-left: 10%;
-      background-color: #b79171;
+      background-color: #abc3c9;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2d221b;
+      color: #382119;
+      font-family: Montserrat;
       font-size: 3.3rem;
       padding: 2rem;
       text-align: center;
@@ -99,25 +122,28 @@
       padding: 2rem;
       display: flex;
       align-items: center;
-      color: #2d221b;
+      color: #382119;
+      font-family: Sanchez;
+      font-size: 1.2rem;
     }
   }
 
   .fourth-container {
-    background-color: #b79171;
+    background-color: #abc3c9;
     padding-left: 10%;
     padding-top: 5%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 7%;
-    color: #2d221b;
+    color: #382119;
     .heading {
+      font-family: Montserrat;
       font-size: 3rem;
       .line {
         height: 4px;
         width: 70px;
-        background-color: #2d221b;
+        background-color: #382119;
         margin-top: 0.7rem;
         margin-left: 0.3rem;
       }
@@ -129,10 +155,12 @@
         display: flex;
         flex-direction: column;
         span {
-          font-size: 1.2rem;
+          font-family: Quicksand;
+          font-size: 1rem;
         }
         span:first-child {
-          font-size: 4rem;
+          font-family: QuicksandLight;
+          font-size: 3.8rem;
         }
       }
     }

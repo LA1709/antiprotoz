@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Sanchez;
+  src: url("../fonts/Sanchez/Sanchez-Regular.ttf");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
+}
+
 .table-wrapper {
   box-sizing: border-box;
   width: 100%;
@@ -55,6 +65,7 @@
     }
     td,
     th {
+      font-family: Sanchez;
       padding: 1rem;
       border-bottom: 1px solid #515151;
       text-align: left;
@@ -67,6 +78,7 @@
         color: #d4380d;
         background-color: #fff2e8;
         outline: 1px solid #d69470;
+        font-family: Montserrat;
         border: none;
         &:hover {
           background-color: #b74525;
@@ -80,6 +92,7 @@
       .action-container {
         display: flex;
         gap: 0.6rem;
+        font-family: Montserrat;
         img {
           width: 16px;
           &:hover {
@@ -87,6 +100,9 @@
           }
         }
       }
+    }
+    th {
+      font-family: Montserrat;
     }
     th:not(:last-child) {
       border-right: 1px solid #515151;
@@ -106,7 +122,7 @@
     align-items: center;
     padding: 1rem 0.5rem 0.5rem 0;
     font-size: 1.4rem;
-    font-weight: 500;
+    font-family: Montserrat;
 
     button {
       display: flex;
@@ -115,6 +131,7 @@
       padding: 0.5rem 1.5rem;
       cursor: pointer;
       font-size: 1rem;
+      font-family: Montserrat;
       img {
         width: 16px;
       }

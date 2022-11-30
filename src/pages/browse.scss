@@ -1,10 +1,17 @@
+@font-face {
+  font-family: Sanchez;
+  src: url("../fonts/Sanchez/Sanchez-Regular.ttf");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
+}
+
 .browse-wrapper {
   width: 100%;
   height: 100%;
   color: #4e2f20;
-  h1 {
-    padding: 0rem 1rem;
-  }
   .back-button {
     width: 75px;
     padding: 0.3rem;
@@ -13,6 +20,7 @@
     gap: 0.5rem;
     margin: 1rem;
     cursor: pointer;
+    font-family: Montserrat;
     img {
       width: 15px;
     }
@@ -27,6 +35,7 @@
       max-width: 25%;
       max-height: 74vh;
       h3 {
+        font-family: Montserrat;
         margin: 0 0 1rem 0;
         padding-bottom: 0.2rem;
         border-bottom: 1px solid #4e2f20;
@@ -46,6 +55,7 @@
           }
           label {
             color: #4e2f20;
+            font-family: Sanchez;
           }
         }
       }
@@ -60,6 +70,7 @@
       margin: 1rem 2rem 1rem 1rem;
       input,
       button {
+        font-family: Montserrat;
         width: 80%;
         padding: 0.5rem;
         display: flex;
@@ -72,8 +83,8 @@
       }
       input {
         justify-content: center;
-        font-size: 1.1rem;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: 1rem;
+        font-family: Montserrat;
       }
     }
   }
