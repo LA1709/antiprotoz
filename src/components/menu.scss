@@ -1,17 +1,17 @@
 @font-face {
-  font-family: Montserrat;
-  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
+  font-family: CGBold;
+  src: url("../fonts/Cardo/Cardo-Bold.ttf");
 }
 
 @font-face {
-  font-family: MontserratR;
-  src: url("../fonts/Montserrat/Montserrat-SemiBold.ttf");
+  font-family: CG;
+  src: url("../fonts/Cardo/Cardo-Regular.ttf");
 }
 
 .menu-wrapper {
   display: flex;
-  background-color: #ABC3C9;
-  font-family: Montserrat;
+  background-color: #abc3c9;
+  font-family: CG;
   a {
     display: flex;
     align-items: center;
@@ -37,14 +37,14 @@
         border: none;
       }
       &:hover {
-        background-color: #E0DCD330;
-        font-family: MontserratR;
+        background-color: #e0dcd330;
+        font-family: CGBold;
       }
     }
     .disabled {
       cursor: context-menu;
-      background-color: #E0DCD330;
-      font-family: MontserratR;
+      background-color: #e0dcd330;
+      font-family: CGBold;
     }
   }
 }

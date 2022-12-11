@@ -25,13 +25,14 @@
     width: 100%;
     display: flex;
     .peptide-section {
-      width: 30%;
+      width: 25%;
       height: 100%;
       position: fixed;
       padding: 10% 1rem;
       display: flex;
       flex-direction: column;
       color: #382119;
+      overflow-wrap: break-word;
       span:nth-child(odd) {
         font-size: 1.4rem;
         font-weight: 700;
@@ -40,7 +41,7 @@
     }
     .description-margin {
       width: 44%;
-      background-color: #ABC3C9;
+      background-color: #abc3c9;
     }
     .description-section {
       width: 100%;

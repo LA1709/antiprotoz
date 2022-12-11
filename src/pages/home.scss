@@ -1,22 +1,18 @@
 @font-face {
-  font-family: Quicksand;
-  src: url("../fonts/Quicksand/Quicksand-Bold.ttf");
+  font-family: Cardo;
+  src: url("../fonts/Cardo/Cardo-Regular.ttf");
 }
 
 @font-face {
-  font-family: QuicksandLight;
-  src: url("../fonts/Quicksand/Quicksand-SemiBold.ttf");
+  font-family: CardoBold;
+  src: url("../fonts/Cardo/Cardo-Bold.ttf");
 }
 
 @font-face {
-  font-family: Sanchez;
-  src: url("../fonts/Sanchez/Sanchez-Regular.ttf");
+  font-family: CG;
+  src: url("../fonts/Cormorant_Garamond/CormorantGaramond-SemiBold.ttf");
 }
 
-@font-face {
-  font-family: Montserrat;
-  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
-}
 
 .home-wrapper {
   width: 100%;
@@ -73,13 +69,13 @@
         padding: 1.8rem 0px;
         border-bottom: 1px solid #e0dcd3;
         color: #fcfcfc;
-        font-family: Quicksand;
+        font-family: Cardo;
         font-size: 2rem;
         text-decoration: none;
         cursor: pointer;
         &:hover {
           background-color: #e0dcd330;
-          font-weight: 500;
+          font-family: CardoBold;
         }
         &:last-child {
           border: none;
@@ -113,7 +109,7 @@
       align-items: center;
       justify-content: center;
       color: #382119;
-      font-family: Montserrat;
+      font-family: CG;
       font-size: 3.3rem;
       padding: 2rem;
       text-align: center;
@@ -123,7 +119,7 @@
       display: flex;
       align-items: center;
       color: #382119;
-      font-family: Sanchez;
+      font-family: Cardo;
       font-size: 1.2rem;
     }
   }
@@ -138,7 +134,7 @@
     gap: 7%;
     color: #382119;
     .heading {
-      font-family: Montserrat;
+      font-family: CG;
       font-size: 3rem;
       .line {
         height: 4px;
@@ -155,11 +151,11 @@
         display: flex;
         flex-direction: column;
         span {
-          font-family: Quicksand;
+          font-family: Cardo;
           font-size: 1rem;
         }
         span:first-child {
-          font-family: QuicksandLight;
+          font-family: Cardo;
           font-size: 3.8rem;
         }
       }
