@@ -43,7 +43,6 @@ export const organisms = {
         "Acanthamoeba polyphaga"
     ],
     Amoeba: [
-        "amoeba proteus",
         "Amoeba proteus"
     ],
     Babesia: [
@@ -75,7 +74,7 @@ export const organisms = {
         "Entamoeba histolytica"
     ],
     Euglena: [
-        "euglena gracilis"
+        "Euglena gracilis"
     ],
     Ichthyophthirius: [
         "Ichthyophthirius multifiliis"
@@ -83,17 +82,15 @@ export const organisms = {
     Leishmania: [
         "Leishmania donovani",
         "Leishmania amazonensis",
-        "Leishmania braziliensis,",
-        "Leishmania infantum chagasi,",
+        "Leishmania braziliensis",
+        "Leishmania infantum chagasi",
         "Leishmania major",
         "Leishmania pifanoi",
         "Leishmania mexicana",
         "Leishmania braziliensis",
         "Leishmania aethiopica",
-        "Leishmania donovani 3-Luc",
-        "Leishmania major promastigotes and amastigotes",
         "Leishmania infantum",
-        "Leishmania major,",
+        "Leishmania major",
         "Leishmania tropica",
         "Leishmania panamensis",
         "Leishmania (Viannia)  braziliensis",
@@ -117,13 +114,11 @@ export const organisms = {
         "Plasmodium yoelii",
         "Plasmodium cynomolgi",
         "Plasmodium knowlesi",
-        "Plasmodium falciparum,",
+        "Plasmodium falciparum",
         "Plasmodium yoelii nigeriensis",
         "Plasmodium falciparum falciparum",
         "Plasmodium vinckei",
         "Plasmodium chabaudi",
-        "Plasmodium bergei",
-        "Plasmodium yoelli",
         "Plasmodium gallinaceum"
     ],
     Tetrahymena: [
@@ -133,7 +128,6 @@ export const organisms = {
         "Toxoplasma gondii"
     ],
     Trichomonas: [
-        "Trichomonas vaginillas",
         "Trichomonas vaginalis"
     ],
     Trypanosoma: [
@@ -207,7 +201,6 @@ export const families = [
     "bombinin family",
     "cathelicidin family",
     "cationic peptide 04 (cupiennin) family. 01 subfamily",
-    // "cecropin and melittin family",
     "cecropin family",
     "crotamine-myotoxin family",
     "defensin",
@@ -216,7 +209,6 @@ export const families = [
     "defensin family",
     "defensin Vigna unguiculata",
     "defensin- tick defensin",
-    // "derived from protegrin",
     "formicidae venom precursor-01 superfamily",
     "frog skin active peptide (FSAP) family. Brevinin subfamily",
     "frog skin active peptide (FSAP) family. Cruzioseptin subfamily",
@@ -258,7 +250,7 @@ export const families = [
     "piscidin",
     "pleurocidin family",
     "pore-forming trialysin (trialysin) family",
-    "rog skin active peptide (FSAP) family. Dermaseptin subfamily",
+    "frog skin active peptide (FSAP) family. Dermaseptin subfamily",
     "SAPLIP family,",
     "Saposin",
     "sauvagine/corticotropin-releasing factor/urotensin I family",
