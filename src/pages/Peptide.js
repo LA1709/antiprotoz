@@ -13,9 +13,21 @@ const Peptide = () => {
 
     const getDescription = cols =>
         <div className="description">
-            {cols.map(key => <p>
-                <span className="parameter">{colNames[key]}</span>
-                <span className="value">{data[0]?.[key] ?? "-"}</span>
+            {cols.map(key => <p key={key}>
+                <span className="parameter">{
+                    key === "Weight" ?
+                        colNames[key] + ` (without modification)`
+                        : colNames[key]
+                }</span>
+                <span className="value">
+                    {data[0]?.[key] ?
+                        key === "PubmedID" ? <a
+                            href={`https://pubmed.ncbi.nlm.nih.gov/${data[0][key]}`}
+                            target="_blank"
+                            rel="noreferrer"
+                        >{data[0][key]}</a> : data[0][key] : "-"
+                    }
+                </span>
             </p>)}
         </div>
 
@@ -44,22 +56,12 @@ const Peptide = () => {
             </div>
             <div className="description-margin" />
             <div className="description-section">
-                <div className="description-card">
-                    <span className="description-heading">Peptide Description</span>
-                    {getDescription(peptideInfo["Peptide Description"])}
-                </div>
-                <div className="description-card">
-                    <span className="description-heading">Physiochemical Properties</span>
-                    {getDescription(peptideInfo["Physiochemical Properties"])}
-                </div>
-                <div className="description-card">
-                    <span className="description-heading">Antiprotozoal Activity</span>
-                    {getDescription(peptideInfo["Antiprotozoal Activity"])}
-                </div>
-                <div className="description-card">
-                    <span className="description-heading">Literature Reference</span>
-                    {getDescription(peptideInfo["Literature Reference"])}
-                </div>
+                {Object.entries(peptideInfo).map(item =>
+                    <div className="description-card" key={item[0]}>
+                        <span className="description-heading">{item[0]}</span>
+                        {getDescription(item[1])}
+                    </div>
+                )}
             </div>
         </div>
         }
