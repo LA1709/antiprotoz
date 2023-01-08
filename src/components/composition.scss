@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Cardo;
+  src: url("../fonts/Cardo/Cardo-Regular.ttf");
+}
+
+@font-face {
+  font-family: CardoBold;
+  src: url("../fonts/Cardo/Cardo-Bold.ttf");
+}
+
 .com-wrapper {
   display: flex;
   flex-direction: column;
@@ -5,6 +15,8 @@
   padding: 0 2rem;
   box-sizing: border-box;
   h3 {
+    font-family: CardoBold;
+    font-size: 1.3rem;
     margin: 0.5rem 0;
     border-bottom: 1px solid #4e2f20;
   }
@@ -21,6 +33,7 @@
         cursor: pointer;
       }
       label {
+        font-family: Cardo;
         color: #4e2f20;
       }
     }
@@ -31,6 +44,8 @@
     gap: 1rem;
     margin: 0.5rem 0;
     button {
+      font-family: Cardo;
+      font-size: 0.9rem;
       padding: 0.2rem 0.4rem;
       display: flex;
       align-items: center;
@@ -42,6 +57,7 @@
     }
   }
   .form-range {
+    font-family: Cardo;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem 0.2rem;
@@ -52,6 +68,8 @@
       padding: 0.25rem 0.5rem;
       input {
         width: 40px;
+        font-family: Cardo;
+        font-size: 1rem;
       }
       &:not(:last-child) {
         border-right: 1px solid #4e2f20;
@@ -63,6 +81,8 @@
     justify-content: center;
     margin-top: 2rem;
     input {
+      font-family: CardoBold;
+      font-size: 1.1rem;
       width: 20%;
       padding: 0.5rem;
       display: flex;
@@ -70,8 +90,6 @@
       gap: 0.5rem;
       cursor: pointer;
       justify-content: center;
-      font-size: 1.1rem;
-      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     }
   }
 }

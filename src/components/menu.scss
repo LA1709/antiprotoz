@@ -39,12 +39,16 @@
       &:hover {
         background-color: #e0dcd330;
         font-family: CGBold;
+        padding: 0rem 2.5rem;
       }
     }
     .disabled {
       cursor: context-menu;
       background-color: #e0dcd330;
       font-family: CGBold;
+      &:hover {
+        padding: 0.5rem 2.5rem;
+      }
     }
   }
 }

@@ -11,7 +11,8 @@ const Home = () => {
             <div className="menu-container">
                 <Link to="/browse"> Browse </Link>
                 <Link to="/search"> Search </Link>
-                <Link to="/tools"> Tools </Link>
+                <Link to="/tools/composition"> Tools </Link>
+                <Link to="/overview"> Overview </Link>
                 <Link to="/submit"> Data Submission </Link>
                 <Link to="/guide"> Guide </Link>
             </div>
@@ -59,6 +60,12 @@ const Home = () => {
                 </div>
                 <div className="stats-text">
                 </div>
+            </div>
+        </section>
+        <section className="fifth-container">
+            <div className="heading">
+                Contact
+                <div className="line" />
             </div>
         </section>
     </div>

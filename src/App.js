@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Search from './pages/Search';
 import Browse from './pages/Browse';
 import Tools from './pages/Tools';
+import Blast from './pages/Blast';
+import Overview from './pages/Overview';
 import Peptide from './pages/Peptide';
 import Submit from './pages/Submit';
 import Admin from './pages/Admin';
@@ -14,7 +16,9 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/search' element={<Search />} />
         <Route path='/browse' element={<Browse />} />
-        <Route path='/tools' element={<Tools />} />
+        <Route path='/tools/composition' element={<Tools />} />
+        <Route path='/tools/blast' element={<Blast />} />
+        <Route path='/overview' element={<Overview />} />
         <Route path='/peptide/:id' element={<Peptide />} />
         <Route path='/submit' element={<Submit />} />
         <Route path='/admin' element={<Admin />} />

@@ -9,7 +9,8 @@ const Menu = () => {
         <div className="links-wrapper">
             <Link to="/browse" className={selected === '/browse' ? 'disabled' : ''}>Browse</Link>
             <Link to="/search" className={selected === '/search' ? 'disabled' : ''}>Search</Link>
-            <Link to="/tools" className={selected === '/tools' ? 'disabled' : ''}>Tools</Link>
+            <Link to="/tools" className={selected.match('/tools/') ? 'disabled' : ''}>Tools</Link>
+            <Link to="/overview" className={selected === '/overview' ? 'disabled' : ''}>Overview</Link>
             <Link to="/submit" className={selected === '/submit' ? 'disabled' : ''}>Data Submission</Link>
             <Link to="/guide" className={selected === '/guide' ? 'disabled' : ''}>Guide</Link>
         </div>

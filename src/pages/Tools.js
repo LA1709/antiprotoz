@@ -9,8 +9,8 @@ import RightIcon from '../assets/chevron-right.svg';
 import './tools.scss';
 
 const tabs = [
-    'AA Composition',
-    'PP Composition'
+    'Number of each Amino Acid',
+    'Type of Amino Acids'
 ];
 
 const Tools = () => {
@@ -48,6 +48,12 @@ const Tools = () => {
                 )}
             </div>
             <div className="tab-content">
+                <div className="heading">
+                    Searching peptides based on properties of a peptide
+                </div>
+                <div className="description">
+                    This tool is to facilitate the retrieval of peptides with the required amino acid compositions
+                </div>
                 {tab === 0 && <Composition
                     title="Amino Acid Composition"
                     parameter={aa}

@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Cardo;
+  src: url("../fonts/Cardo/Cardo-Regular.ttf");
+}
+
+@font-face {
+  font-family: CardoBold;
+  src: url("../fonts/Cardo/Cardo-Bold.ttf");
+}
+
 .tools-wrapper {
   width: 100%;
   height: 100%;
@@ -19,10 +29,13 @@
     height: 80%;
     margin-top: 2rem;
     .tab-pane {
+      font-family: Cardo;
       flex-grow: 1;
       width: 20%;
+      height: 11.2rem;
+      margin-top: 10%;
       box-sizing: border-box;
-      background-color: #ABC3C9;
+      background-color: #abc3c9;
       display: flex;
       flex-direction: column;
       .tab-pane-item {
@@ -31,28 +44,41 @@
         justify-content: center;
         gap: 1rem;
         padding: 1.8rem 0;
-        border-bottom: 1px solid #E0DCD3;
+        border-bottom: 1px solid #e0dcd3;
         color: #382119;
         font-size: 1.4rem;
         cursor: pointer;
         &:hover {
-          background-color: #E0DCD330;
-          font-weight: 500;
+          background-color: #e0dcd330;
+          font-family: CardoBold;
         }
         &:last-child {
           border: none;
         }
       }
       .disabled {
-        background-color: #E0DCD330;
-        font-weight: 500;
+        background-color: #e0dcd330;
         cursor: context-menu;
+        font-family: CardoBold;
       }
     }
     .tab-content {
       flex-grow: 2;
       width: 60%;
       padding-top: 2rem;
+      .heading {
+        font-family: Cardo;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+      .description {
+        font-family: Cardo;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
     }
   }
   .result {

@@ -2,7 +2,7 @@ import Menu from '../components/Menu';
 import { submitData } from '../sql/submitData';
 import './submit.scss';
 
-const Tools = () => {
+const SubmitPeptide = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -48,4 +48,4 @@ const Tools = () => {
         </form>
     </div>
 }
-export default Tools;
+export default SubmitPeptide;
