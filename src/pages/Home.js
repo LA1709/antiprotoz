@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import Logo from '../assets/logo.png';
+// import Logo from '../assets/logo.png';
 import './home.scss';
 
 const Home = () => {
     return <div className="home-wrapper">
         <section className="first-container">
             <div className="logo-container">
-                <img src={Logo} alt="Logo" />
+                <span className="bigger">A</span>
+                <span className="smaller">ntiProtoZ</span>
             </div>
             <div className="menu-container">
                 <Link to="/browse"> Browse </Link>
