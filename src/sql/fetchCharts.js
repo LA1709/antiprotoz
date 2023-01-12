@@ -5,6 +5,7 @@ export const fetchCharts = (callback) => {
         "query": `
         SELECT COUNT(*),NatureType FROM master GROUP BY NatureType;
         SELECT COUNT(*),Disease FROM master GROUP BY Disease;
+        SELECT COUNT(*),Target FROM master GROUP BY Target;
         `
     };
     const config = {
@@ -18,12 +19,14 @@ export const fetchCharts = (callback) => {
     axios(config).then(result => {
         const sources = result.data[0].filter(row => !!row.NatureType);
         const diseases = result.data[1].filter(row => !!row.Disease);
+        const peptides = result.data[2].filter(row => !!row.Target);
         callback({
             sources,
-            diseases
+            diseases,
+            peptides
         })
     }).catch(err => {
         console.log(err);
         callback({});
     })
-}
+};

@@ -1,4 +1,9 @@
 @font-face {
+  font-family: Cardo;
+  src: url("../fonts/Cardo/Cardo-Regular.ttf");
+}
+
+@font-face {
   font-family: CardoBold;
   src: url("../fonts/Cardo/Cardo-Bold.ttf");
 }
@@ -8,14 +13,22 @@
     display: flex;
     gap: 4rem;
     justify-content: center;
-    margin-top: 1rem;
     padding: 1rem;
-    font-family: CardoBold;
-    font-size: 1.4rem;
     color: #382119;
-    .chart-container {
-      margin: 0.5rem;
-      width: 500px;
-    }
+  }
+  .chart-container {
+    margin: 1rem;
+    min-width: 500px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .chart-desc {
+    font-size: 1.4rem;
+    font-family: CardoBold;
+    font-family: Cardo;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
   }
 }
