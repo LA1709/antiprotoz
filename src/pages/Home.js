@@ -1,8 +1,17 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchStats } from '../sql/fetchStats';
 // import Logo from '../assets/logo.png';
 import './home.scss';
 
 const Home = () => {
+
+    const [stats, setStats] = useState([]);
+
+    useEffect(() => {
+        fetchStats(setStats)
+    }, [])
+
     return <div className="home-wrapper">
         <section className="first-container">
             <div className="logo-container">
@@ -36,37 +45,46 @@ const Home = () => {
                 Database Statistics
                 <div className="line" />
             </div>
-            <div className="stats">
-                <div className="stats-text">
-                    <span>280</span>
-                    <span>Total Peptides in database</span>
+            {!!stats.length ? <>
+                <div className="stats">
+                    <div className="stats-text">
+                        <span>{stats[0] ?? "-"}</span>
+                        <span>Total Peptides in database</span>
+                    </div>
+                    <div className="stats-text">
+                        <span>{stats[1] ?? "-"}</span>
+                        <span>Unique Peptides</span>
+                    </div>
+                    <div className="stats-text">
+                        <span>{stats[2] ?? "-"}</span>
+                        <span>Unique articles</span>
+                    </div>
                 </div>
-                <div className="stats-text">
-                    <span>4,321</span>
-                    <span>Total Entries of ---</span>
+                <div className="stats">
+                    <div className="stats-text">
+                        <span>{stats[3] ?? "-"}</span>
+                        <span>Peptides targeting free living organisms</span>
+                    </div>
+                    <div className="stats-text">
+                        <span>{stats[4] ?? "-"}</span>
+                        <span>Peptides targeting parasitic organisms</span>
+                    </div>
+                    <div className="stats-text">
+                    </div>
                 </div>
-                <div className="stats-text">
-                    <span>789</span>
-                    <span>Total Entries of ---</span>
-                </div>
-            </div>
-            <div className="stats">
-                <div className="stats-text">
-                    <span>1,234</span>
-                    <span>Total Entries of ---</span>
-                </div>
-                <div className="stats-text">
-                    <span>432</span>
-                    <span>Total Entries of ---</span>
-                </div>
-                <div className="stats-text">
-                </div>
-            </div>
+            </> : "Laoding..."}
         </section>
         <section className="fifth-container">
             <div className="heading">
                 Contact
                 <div className="line" />
+            </div>
+            <div className="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <br />
+                Vel libero accusamus distinctio voluptatum minus in placeat facilis fuga exercitationem. Voluptatum temporibus fugit quam nemo sapiente, porro, expedita eveniet voluptas neque necessitatibus voluptates et debitis. Eum ad nam minus repellat fugiat quo officia culpa aspernatur animi iure illum debitis recusandae, voluptatum nihil numquam aperiam soluta ipsam quas, eligendi distinctio ex quaerat. Provident a consequatur recusandae ea est itaque.
+                <br />
+                Beatae necessitatibus provident, sunt eum aliquid culpa fugiat sit id temporibus quod laboriosam, excepturi corrupti odio consequatur numquam tempore veniam ullam qui sapiente inventore quasi accusamus tenetur in! Quo sapiente eum at magnam!
             </div>
         </section>
     </div>
