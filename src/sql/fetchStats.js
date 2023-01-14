@@ -19,7 +19,7 @@ export const fetchStats = (callback) => {
         data
     };
     axios(config).then(result => {
-        callback(result.data.map(res => Object.values(res[0])[0]))
+        callback(result.data.map(res => Object.values(res[0])[0].toLocaleString()))
     }).catch(err => {
         console.log(err);
         callback([]);

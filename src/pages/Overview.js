@@ -1,160 +1,161 @@
 import 'chart.js/auto';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Chart } from 'react-chartjs-2';
 import Menu from '../components/Menu';
 import { fetchCharts } from '../sql/fetchCharts';
+import Loading from '../assets/loading.json';
+import { getChartsFromData } from './overview.util';
 import './overview.scss';
 
 const Overview = () => {
 
     const [chartData, setChartData] = useState(null);
+    const chart0Ref = useRef(null);
+    const chart1Ref = useRef(null);
+    const chart2Ref = useRef(null);
+    const chart3Ref = useRef(null);
+    const chart4Ref = useRef(null);
 
     useEffect(() => {
         fetchCharts(setChartData);
     }, [])
 
-    const chart1 = {
-        type: 'polarArea',
-        data: chartData?.sources ?
-            {
-                labels: chartData.sources.map(row => row.NatureType),
-                datasets: [
-                    {
-                        label: 'No. of Peptides',
-                        data: chartData.sources.map(row => row['COUNT(*)']),
-                    }
-                ]
-            } : null,
-        options: {
-            responsive: true,
-            scales: {
-                r: {
-                    pointLabels: {
-                        display: true,
-                        centerPointLabels: true,
-                        font: {
-                            size: 18
-                        }
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    position: 'top'
-                },
-                title: {
-                    display: true,
-                    text: 'Source of the peptides'
-                }
-            }
-        },
-    };
-
-    const chart2 = {
-        type: 'doughnut',
-        data: chartData?.diseases ?
-            {
-                labels: chartData.diseases.map(row => row.Disease),
-                datasets: [
-                    {
-                        label: 'No. of target organisms',
-                        data: chartData.diseases.map(row => row['COUNT(*)']),
-                    }
-                ]
-            } : null,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false,
-                },
-                title: {
-                    display: true,
-                    text: 'Disease caused by Target Organism'
-                }
-            }
-        },
-    };
-
-    const chart3 = {
-        type: 'bar',
-        data: chartData?.peptides ?
-            {
-                labels: chartData.peptides.map(row => row.Target),
-                datasets: [
-                    {
-                        label: 'No. of target organisms',
-                        data: chartData.peptides.map(row => row['COUNT(*)']),
-                    }
-                ]
-            } : null,
-        options: {
-            responsive: true,
-            events: [],
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'No. of Peptides per target organisms'
-                }
-            },
-            animation: {
-
-                onComplete: function () {
-                    var chartInstance = this;
-                    var ctx = chartInstance.ctx;
-                    ctx.textAlign = 'center';
-                    ctx.fillStyle = "rgba(0, 0, 0, 1)";
-                    ctx.textBaseline = 'bottom';
-
-                    // Loop through each data in the datasets
-
-                    this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.getDatasetMeta(i);
-                        meta.data.forEach(function (bar, index) {
-                            var data = dataset.data[index];
-                            ctx.fillText(data, bar.x, bar.y - 5);
-
-                        });
-                    });
-                }
-            }
-        },
-    }
+    const {
+        chart0,
+        chart1,
+        chart2,
+        chart3,
+        chart4,
+    } = getChartsFromData(chartData);
 
     return <div className="overview-wrapper">
-        < Menu />
-        <div className="top-container">
-            <div className='chart-container'>
+        <div className='menu-container'>
+            <Menu />
+        </div>
+        <section>
+            <div className='chart'>
+                {chart0.data ? <Chart
+                    ref={chart0Ref}
+                    {...chart0}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart0.options.plugins.title.text}.png`;
+                    link.href = chart0Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section>
+            <div className='chart'>
                 {chart1.data ? <Chart
+                    ref={chart1Ref}
                     {...chart1}
-                /> : 'Loading...'}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
             </div>
-            <div className='chart-desc'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+            <div className='desc'>
+                <span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart1.options.plugins.title.text}.png`;
+                    link.href = chart1Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
             </div>
-        </div>
-        <div className="top-container">
-            <div className='chart-desc'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
-            </div>
-            <div className='chart-container'>
+        </section>
+        <section>
+            <div className='chart'>
                 {chart2.data ? <Chart
+                    ref={chart2}
                     {...chart2}
-                /> : 'Loading...'}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
             </div>
-        </div>
-        <div className='chart-desc' style={{ marginTop: '4rem' }}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
-        </div>
-        <div className='chart-container'>
-            {chart3.data ? <Chart
-                {...chart3}
-            /> : 'Loading...'}
-        </div>
-        <br />
+            <div className='desc'>
+                <span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart2.options.plugins.title.text}.png`;
+                    link.href = chart2Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section className="chart-container">
+            <div className='chart bigger'>
+                {chart3.data ? <Chart
+                    ref={chart3Ref}
+                    {...chart3}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart3.options.plugins.title.text}.png`;
+                    link.href = chart3Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section className="chart-container">
+            <div className='chart bigger'>
+                {chart4.data ? <Chart
+                    ref={chart4Ref}
+                    {...chart4}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart4.options.plugins.title.text}.png`;
+                    link.href = chart4Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
     </div >
 }
 

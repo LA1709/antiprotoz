@@ -21,7 +21,10 @@ const Home = () => {
             <div className="menu-container">
                 <Link to="/browse"> Browse </Link>
                 <Link to="/search"> Search </Link>
-                <Link to="/tools/composition"> Tools </Link>
+                <div className="grouped">
+                    <Link to="/tools/composition"> Protein composition </Link>
+                    <Link to="/tools/blast"> BLAST </Link>
+                </div>
                 <Link to="/overview"> Data Visualisation </Link>
                 <Link to="/submit"> Data Submission </Link>
                 <Link to="/guide"> Guide </Link>

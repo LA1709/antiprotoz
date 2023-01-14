@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import './menu.scss';
-import Logo from '../assets/logo.png';
 
 const Menu = () => {
     const selected = window.location.pathname;
     return <div className='menu-wrapper'>
-        <Link to="/"><img src={Logo} alt="logo" /></Link>
+        <Link to="/">
+            <div className="logo-container">
+                <span className="bigger">A</span>
+                <span className="smaller">ntiProtoZ</span>
+            </div>
+        </Link>
         <div className="links-wrapper">
             <Link to="/browse" className={selected === '/browse' ? 'disabled' : ''}>Browse</Link>
             <Link to="/search" className={selected === '/search' ? 'disabled' : ''}>Search</Link>

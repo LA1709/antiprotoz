@@ -3,32 +3,66 @@
   src: url("../fonts/Cardo/Cardo-Regular.ttf");
 }
 
-@font-face {
-  font-family: CardoBold;
-  src: url("../fonts/Cardo/Cardo-Bold.ttf");
-}
-
 .overview-wrapper {
-  .top-container {
-    display: flex;
-    gap: 4rem;
-    justify-content: center;
-    padding: 1rem;
-    color: #382119;
+  width: 100%;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+
+  .menu-container {
+    width: calc(100% - 1.05rem);
+    position: fixed;
   }
-  .chart-container {
-    margin: 1rem;
-    min-width: 500px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  .chart-desc {
-    font-size: 1.4rem;
-    font-family: CardoBold;
-    font-family: Cardo;
-    margin: 1rem;
+
+  section {
+    margin: 0;
+    scroll-snap-align: start;
+    height: 100vh;
     display: flex;
+    gap: 8rem;
     align-items: center;
-    padding: 1rem;
+    padding: 8rem;
+    box-sizing: border-box;
+    div {
+      width: 100%;
+    }
+    .desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      span {
+        color: #382119;
+        font-size: 1.2rem;
+        font-family: Cardo;
+        padding: 1rem;
+        text-align: justify;
+      }
+      button {
+        cursor: pointer;
+        padding: 0.6rem 1.4rem;
+        color: #382119;
+        background-color: #76bacb;
+        outline: 1px solid #fff2e8;
+        font-family: Cardo;
+        font-size: 1rem;
+        border: none;
+        &:hover {
+          background-color: #abc3c9;
+          color: #fff2e8;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .chart-container {
+    flex-direction: column;
+    padding: 4rem 8rem;
+    gap: 0.5rem;
+    .bigger {
+      width: 1000px;
+    }
   }
 }
