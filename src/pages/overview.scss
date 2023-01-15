@@ -3,6 +3,11 @@
   src: url("../fonts/Cardo/Cardo-Regular.ttf");
 }
 
+@font-face {
+  font-family: CG;
+  src: url("../fonts/Cormorant_Garamond/CormorantGaramond-SemiBold.ttf");
+}
+
 .overview-wrapper {
   width: 100%;
   height: 100%;
@@ -63,6 +68,26 @@
     gap: 0.5rem;
     .bigger {
       width: 1000px;
+    }
+  }
+
+  .first-container {
+    flex-direction: column;
+    gap: 4rem;
+    padding: 0;
+    .heading {
+      margin-top: 5rem;
+      font-family: CG;
+      font-size: 2.4rem;
+      text-align: center;
+      color: #382119;
+    }
+    .chart {
+      display: flex;
+      gap: 8rem;
+      align-items: center;
+      padding: 0px 8rem;
+      box-sizing: border-box;
     }
   }
 }

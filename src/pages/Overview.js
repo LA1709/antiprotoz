@@ -32,30 +32,35 @@ const Overview = () => {
         <div className='menu-container'>
             <Menu />
         </div>
-        <section>
-            <div className='chart'>
-                {chart0.data ? <Chart
-                    ref={chart0Ref}
-                    {...chart0}
-                /> : <lottie-player
-                    src={JSON.stringify(Loading)}
-                    background="transparent"
-                    speed="1"
-                    loop
-                    autoplay
-                />}
+        <section className="first-container">
+            <div className="heading">
+                Data Visualisation
             </div>
-            <div className='desc'>
-                <span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
-                </span>
-                <button onClick={() => {
-                    const link = document.createElement('a');
-                    link.download = `${chart0.options.plugins.title.text}.png`;
-                    link.href = chart0Ref.current.toBase64Image();
-                    link.click();
-                    link.remove();
-                }}>Download</button>
+            <div className="chart">
+                <div className='chart'>
+                    {chart0.data ? <Chart
+                        ref={chart0Ref}
+                        {...chart0}
+                    /> : <lottie-player
+                        src={JSON.stringify(Loading)}
+                        background="transparent"
+                        speed="1"
+                        loop
+                        autoplay
+                    />}
+                </div>
+                <div className='desc'>
+                    <span>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                    </span>
+                    <button onClick={() => {
+                        const link = document.createElement('a');
+                        link.download = `${chart0.options.plugins.title.text}.png`;
+                        link.href = chart0Ref.current.toBase64Image();
+                        link.click();
+                        link.remove();
+                    }}>Download</button>
+                </div>
             </div>
         </section>
         <section>

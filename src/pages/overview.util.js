@@ -14,7 +14,7 @@ export const getChartsFromData = (chartData) => {
             } : null,
         options: {
             responsive: true,
-            spacing: 30,
+            spacing: 10,
             plugins: {
                 legend: {
                     position: 'bottom'
@@ -41,10 +41,10 @@ export const getChartsFromData = (chartData) => {
             } : null,
         options: {
             responsive: true,
-            spacing: 30,
+            spacing: 20,
             plugins: {
                 legend: {
-                    display: false,
+                    position: 'bottom',
                 },
                 title: {
                     display: true,
@@ -68,7 +68,7 @@ export const getChartsFromData = (chartData) => {
             } : null,
         options: {
             responsive: true,
-            spacing: 30,
+            spacing: 10,
             plugins: {
                 legend: {
                     position: 'bottom'
