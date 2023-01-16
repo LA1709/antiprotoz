@@ -87,14 +87,11 @@ export const organisms = {
         "Leishmania major",
         "Leishmania pifanoi",
         "Leishmania mexicana",
-        "Leishmania braziliensis",
         "Leishmania aethiopica",
         "Leishmania infantum",
-        "Leishmania major",
         "Leishmania tropica",
         "Leishmania panamensis",
         "Leishmania (Viannia)  braziliensis",
-        "Leishmania infantum chagasi"
     ],
     Miamiensis: [
         "Miamiensis avidus"
@@ -114,9 +111,7 @@ export const organisms = {
         "Plasmodium yoelii",
         "Plasmodium cynomolgi",
         "Plasmodium knowlesi",
-        "Plasmodium falciparum",
         "Plasmodium yoelii nigeriensis",
-        "Plasmodium falciparum falciparum",
         "Plasmodium vinckei",
         "Plasmodium chabaudi",
         "Plasmodium gallinaceum"
@@ -132,7 +127,6 @@ export const organisms = {
     ],
     Trypanosoma: [
         "Trypanosoma cruzi",
-        "Trypanosoma brucei brucei",
         "Trypanosoma brucei",
         "Trypanosoma evansi",
         "Trypanosoma equiperdum",
