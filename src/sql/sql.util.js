@@ -76,6 +76,9 @@ export const organisms = {
     Euglena: [
         "Euglena gracilis"
     ],
+    Giardia: [
+        "Giardia lamblia"
+    ],
     Ichthyophthirius: [
         "Ichthyophthirius multifiliis"
     ],
@@ -91,7 +94,7 @@ export const organisms = {
         "Leishmania infantum",
         "Leishmania tropica",
         "Leishmania panamensis",
-        "Leishmania (Viannia)  braziliensis",
+        "Leishmania (Viannia) braziliensis",
     ],
     Miamiensis: [
         "Miamiensis avidus"
