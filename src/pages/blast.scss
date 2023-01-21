@@ -9,6 +9,39 @@
 }
 
 .blast-wrapper {
+  .loader {
+    border: 5px solid #4e2f203d;
+    border-radius: 50%;
+    border-top: 5px solid #515151;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  .result-container {
+    padding: 2rem 4rem;
+    button {
+      font-family: Cardo;
+      font-size: 0.9rem;
+      padding: 0.3rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      cursor: pointer;
+      img {
+        width: 14px;
+      }
+    }
+    .result {
+      padding: 0.5rem 8rem;
+      margin: 1rem 2rem;
+      text-align: justify;
+      font-family: Cardo;
+      color: #382119;
+      white-space: pre-line;
+    }
+  }
   .heading {
     margin-top: 1rem;
     font-family: CG;
@@ -41,6 +74,14 @@
         width: 100%;
         font-family: Cardo;
         padding: 0.5rem;
+      }
+      input[type="submit"] {
+        font-family: Cardo;
+        font-size: 1rem;
+        padding: 0.3rem 1.6rem;
+        cursor: pointer;
+        margin: auto;
+        margin-bottom: 2rem;
       }
     }
     .grouped-items {

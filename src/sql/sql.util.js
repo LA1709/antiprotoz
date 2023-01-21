@@ -245,7 +245,6 @@ export const families = [
     "piscidin",
     "pleurocidin family",
     "pore-forming trialysin (trialysin) family",
-    "frog skin active peptide (FSAP) family. Dermaseptin subfamily",
     "SAPLIP family,",
     "Saposin",
     "sauvagine/corticotropin-releasing factor/urotensin I family",
