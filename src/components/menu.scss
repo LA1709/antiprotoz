@@ -51,6 +51,53 @@
         padding: 0rem 2.5rem;
       }
     }
+    .dropdown {
+      cursor: pointer;
+      text-decoration: none;
+      border-right: 2px solid #382119;
+      padding: 0.5rem 1rem;
+      color: #382119;
+      text-align: center;
+      font-size: large;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      &:hover {
+        background-color: #e0dcd330;
+        font-family: CGBold;
+        padding: 0rem 1.5rem;
+      }
+    }
+    .opened {
+      background-color: #e0dcd330;
+      font-family: CGBold;
+      padding: 0rem 1.5rem;
+    }
+    .options {
+      background-color: #abc3c9;
+      position: absolute;
+      margin-top: 3rem;
+      margin-left: -13rem;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      a {
+        border: none;
+        padding: 1rem 1.5rem;
+        &:hover {
+          background-color: #abc3c9;
+          font-family: CG;
+          padding: 1rem 1.5rem;
+          color: #e0dcd3;
+        }
+      }
+      .disabled {
+        background-color: #abc3c9;
+        font-family: CG;
+        color: #e0dcd3;
+      }
+    }
     .disabled {
       cursor: context-menu;
       background-color: #e0dcd330;
