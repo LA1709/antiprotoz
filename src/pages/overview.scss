@@ -86,8 +86,15 @@
       display: flex;
       gap: 8rem;
       align-items: center;
-      padding: 0px 8rem;
+      padding: 0px 6rem;
       box-sizing: border-box;
+    }
+  }
+
+  .second-container {
+    gap: 2rem;
+    .chart {
+      width: 150%;
     }
   }
 }

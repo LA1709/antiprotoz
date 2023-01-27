@@ -73,8 +73,8 @@ const Search = () => {
                         </select>
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="source">Source: </label>
-                        <select id="source" name="Source" defaultValue="">
+                        <label htmlFor="NatureType">Source: </label>
+                        <select id="NatureType" name="NatureType" defaultValue="">
                             <option value="">Any source</option>
                             {sources.map(source =>
                                 <option value={source} key={source}>{source}</option>

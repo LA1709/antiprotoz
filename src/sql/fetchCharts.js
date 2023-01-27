@@ -14,6 +14,22 @@ const getDiseaseGroup = (disease) => {
     if (disease.match(/Malaria/i))
         return 'Malaria';
     return 'Others';
+};
+
+const getFamilyGroup = (family) => {
+    if (family.match(/defensin/i))
+        return 'defensin family';
+    if (family.match(/frog/i))
+        return 'frog skin active peptide (FSAP) family';
+    if (family.match(/gastrin/i))
+        return 'gastrin/cholecystokinin family';
+    if (family.match(/long chain scorpion/i))
+        return 'long chain scorpion toxin family';
+    if (family.match(/mcd/i))
+        return 'MCD family';
+    if (family.match(/non-disulfide-bridged/i))
+        return 'non-disulfide-bridged peptide (NDBP) superfamily';
+    return family;
 }
 
 export const fetchCharts = (callback) => {
@@ -24,6 +40,7 @@ export const fetchCharts = (callback) => {
         SELECT COUNT(*) AS COUNT,Target FROM master GROUP BY Target;
         SELECT COUNT(DISTINCT(PubmedID)) AS COUNT,Year FROM master GROUP BY Year;
         SELECT COUNT(*) AS COUNT,Type FROM master GROUP BY Type;
+        SELECT COUNT(*) AS COUNT,Family FROM master GROUP BY Family;
         `
     };
     const config = {
@@ -49,12 +66,23 @@ export const fetchCharts = (callback) => {
         const peptides = result.data[2].filter(row => !!row.Target);
         const years = result.data[3].filter(row => !!row.Year);
         const types = result.data[4].filter(row => !!row.Type);
+        const families = Object.entries(result.data[5].filter(row => !!row.Family).reduce((prev, curr) => {
+            const group = getFamilyGroup(curr.Family);
+            return {
+                ...prev,
+                [group]: (prev[group] ?? 0) + curr['COUNT']
+            }
+        }, {})).map(item => ({
+            Family: item[0],
+            COUNT: item[1],
+        }));
         callback({
             sources,
             diseases,
             peptides,
             years,
             types,
+            families,
         })
     }).catch(err => {
         console.log(err);

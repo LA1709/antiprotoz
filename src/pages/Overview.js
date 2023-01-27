@@ -15,6 +15,7 @@ const Overview = () => {
     const chart2Ref = useRef(null);
     const chart3Ref = useRef(null);
     const chart4Ref = useRef(null);
+    const chart5Ref = useRef(null);
 
     useEffect(() => {
         fetchCharts(setChartData);
@@ -26,6 +27,7 @@ const Overview = () => {
         chart2,
         chart3,
         chart4,
+        chart5
     } = getChartsFromData(chartData);
 
     return <div className="overview-wrapper">
@@ -63,7 +65,7 @@ const Overview = () => {
                 </div>
             </div>
         </section>
-        <section>
+        <section className="second-container">
             <div className='chart'>
                 {chart1.data ? <Chart
                     ref={chart1Ref}
@@ -156,6 +158,29 @@ const Overview = () => {
                     const link = document.createElement('a');
                     link.download = `${chart4.options.plugins.title.text}.png`;
                     link.href = chart4Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section className="chart-container">
+            <div className='chart bigger'>
+                {chart5.data ? <Chart
+                    ref={chart5Ref}
+                    {...chart5}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart5.options.plugins.title.text}.png`;
+                    link.href = chart5Ref.current.toBase64Image();
                     link.click();
                     link.remove();
                 }}>Download</button>
