@@ -41,6 +41,7 @@ export const fetchCharts = (callback) => {
         SELECT COUNT(DISTINCT(PubmedID)) AS COUNT,Year FROM master GROUP BY Year;
         SELECT COUNT(*) AS COUNT,Type FROM master GROUP BY Type;
         SELECT COUNT(*) AS COUNT,Family FROM master GROUP BY Family;
+        SELECT NTerminal,CTerminal,Modification FROM master;
         `
     };
     const config = {
@@ -76,6 +77,20 @@ export const fetchCharts = (callback) => {
             Family: item[0],
             COUNT: item[1],
         }));
+        const modifications = result.data[6].reduce((prev, curr) => ({
+            NTerminal: {
+                Yes: (prev.NTerminal?.Yes ?? 0) + (curr.NTerminal === "Free" ? 0 : 1),
+                No: (prev.NTerminal?.No ?? 0) + (curr.NTerminal === "Free" ? 1 : 0),
+            },
+            CTerminal: {
+                Yes: (prev.CTerminal?.Yes ?? 0) + (curr.CTerminal === "Free" ? 0 : 1),
+                No: (prev.CTerminal?.No ?? 0) + (curr.CTerminal === "Free" ? 1 : 0),
+            },
+            Modification: {
+                Yes: (prev.Modification?.Yes ?? 0) + (curr.Modification === "None" ? 0 : 1),
+                No: (prev.Modification?.No ?? 0) + (curr.Modification === "None" ? 1 : 0),
+            },
+        }), {});
         callback({
             sources,
             diseases,
@@ -83,6 +98,7 @@ export const fetchCharts = (callback) => {
             years,
             types,
             families,
+            modifications,
         })
     }).catch(err => {
         console.log(err);

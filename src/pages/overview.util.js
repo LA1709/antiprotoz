@@ -226,6 +226,92 @@ export const getChartsFromData = (chartData) => {
         },
     };
 
+    const { NTerminal, CTerminal, Modification } = chartData?.modifications ?? {};
+    const chart6 = {
+        type: 'doughnut',
+        data: NTerminal ? (() => {
+            const t = Object.values(NTerminal).reduce((prev, curr) => prev + curr, 0);
+            return {
+                labels: ["Yes", "No"],
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: Object.values(NTerminal).map(val => (val / t) * 100),
+                    }
+                ]
+            }
+        })() : null,
+        options: {
+            responsive: true,
+            spacing: 10,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'N-Terminal Modification'
+                }
+            },
+        },
+    };
+    const chart7 = {
+        type: 'doughnut',
+        data: CTerminal ? (() => {
+            const t = Object.values(CTerminal).reduce((prev, curr) => prev + curr, 0);
+            return {
+                labels: ["Yes", "No"],
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: Object.values(CTerminal).map(val => (val / t) * 100),
+                    }
+                ]
+            }
+        })() : null,
+        options: {
+            responsive: true,
+            spacing: 10,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'C-Terminal Modification'
+                }
+            },
+        },
+    };
+    const chart8 = {
+        type: 'doughnut',
+        data: Modification ? (() => {
+            const t = Object.values(Modification).reduce((prev, curr) => prev + curr, 0);
+            return {
+                labels: ["Yes", "No"],
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: Object.values(Modification).map(val => (val / t) * 100),
+                    }
+                ]
+            }
+        })() : null,
+        options: {
+            responsive: true,
+            spacing: 10,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Chemical Modification'
+                }
+            },
+        },
+    };
+
     return {
         chart0,
         chart1,
@@ -233,5 +319,8 @@ export const getChartsFromData = (chartData) => {
         chart3,
         chart4,
         chart5,
+        chart6,
+        chart7,
+        chart8,
     }
 } 

@@ -16,6 +16,9 @@ const Overview = () => {
     const chart3Ref = useRef(null);
     const chart4Ref = useRef(null);
     const chart5Ref = useRef(null);
+    const chart6Ref = useRef(null);
+    const chart7Ref = useRef(null);
+    const chart8Ref = useRef(null);
 
     useEffect(() => {
         fetchCharts(setChartData);
@@ -27,7 +30,10 @@ const Overview = () => {
         chart2,
         chart3,
         chart4,
-        chart5
+        chart5,
+        chart6,
+        chart7,
+        chart8,
     } = getChartsFromData(chartData);
 
     return <div className="overview-wrapper">
@@ -94,7 +100,7 @@ const Overview = () => {
         <section>
             <div className='chart'>
                 {chart2.data ? <Chart
-                    ref={chart2}
+                    ref={chart2Ref}
                     {...chart2}
                 /> : <lottie-player
                     src={JSON.stringify(Loading)}
@@ -184,6 +190,44 @@ const Overview = () => {
                     link.click();
                     link.remove();
                 }}>Download</button>
+            </div>
+        </section>
+        <section className="smaller">
+            <div className='chart'>
+                {chart6.data ? <Chart
+                    ref={chart6Ref}
+                    {...chart6}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='chart'>
+                {chart7.data ? <Chart
+                    ref={chart7Ref}
+                    {...chart7}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='chart'>
+                {chart8.data ? <Chart
+                    ref={chart8Ref}
+                    {...chart8}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
             </div>
         </section>
     </div >
