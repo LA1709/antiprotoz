@@ -2,8 +2,8 @@ import axios from "axios";
 import { colNames } from "./sql.util";
 
 const tableMap = [
-    'minmax',
-    'catminmax',
+    'aa',
+    'pp',
 ]
 
 export const getPeptides = (inputData, inputType, dataCallback, colsCallback) => {

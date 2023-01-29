@@ -1,6 +1,5 @@
-CREATE TABLE minmax (
-	ID varchar(10) NOT NULL PRIMARY KEY,
-	Seq varchar(255), 
+CREATE TABLE aa (
+	ID varchar(17) NOT NULL PRIMARY KEY,
 	A INT,
 	C INT,
 	D INT,

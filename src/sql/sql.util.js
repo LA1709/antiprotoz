@@ -368,105 +368,109 @@ export const inputFields = {
 export const aa = {
     'A': {
         min: 0,
-        max: 11,
+        max: 13,
     },
     'C': {
         min: 0,
-        max: 1,
+        max: 8,
     },
     'D': {
         min: 0,
-        max: 1,
+        max: 5,
     },
     'E': {
         min: 0,
-        max: 3,
+        max: 6,
     },
     'F': {
         min: 0,
-        max: 3,
+        max: 7,
     },
     'G': {
-        min: 1,
-        max: 5,
+        min: 0,
+        max: 11,
     },
     'H': {
         min: 0,
-        max: 1,
+        max: 7,
     },
     'I': {
         min: 0,
-        max: 3,
+        max: 6,
     },
     'K': {
         min: 0,
-        max: 6,
+        max: 11,
     },
     'L': {
-        min: 1,
-        max: 6,
+        min: 0,
+        max: 10,
     },
     'M': {
         min: 0,
-        max: 1,
+        max: 4,
     },
     'N': {
         min: 0,
-        max: 2,
+        max: 4,
     },
     'P': {
         min: 0,
-        max: 6,
+        max: 11,
     },
     'Q': {
         min: 0,
-        max: 1,
+        max: 6,
     },
     'R': {
         min: 0,
-        max: 3,
+        max: 10,
     },
     'S': {
         min: 0,
-        max: 3,
+        max: 7,
     },
     'T': {
         min: 0,
-        max: 2,
+        max: 5,
     },
     'V': {
         min: 0,
-        max: 3,
+        max: 12,
     },
     'W': {
         min: 0,
-        max: 1,
+        max: 5,
     },
     'Y': {
         min: 0,
-        max: 1,
+        max: 5,
     },
 }
 
 export const pp = {
     'Aliphatic': {
         min: 0,
-        max: 11,
+        max: 47,
     },
     'Aromatic': {
         min: 0,
-        max: 1,
+        max: 8,
     },
     'Polar': {
         min: 0,
-        max: 1,
+        max: 46,
     },
     'Hydrophobic': {
         min: 0,
-        max: 3,
+        max: 49,
     },
-    'Neutral': {
+    'Positive_Charges': {
         min: 0,
-        max: 3,
+        max: 15,
+    },
+    'Negative_Charges': {
+        min: 0,
+        max: 7,
     },
 }
