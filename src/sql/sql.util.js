@@ -35,6 +35,7 @@ export const colNames = {
     CellLine: "Cell Line",
     Model: "In Vivo Model",
     Assay: "Assay",
+    doi: "DOI",
 }
 
 export const organisms = {
@@ -177,6 +178,7 @@ export const peptideInfo = {
     "Literature Reference": [
         'PubmedID',
         'Year',
+        'doi',
     ]
 }
 

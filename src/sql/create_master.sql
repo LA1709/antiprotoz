@@ -35,7 +35,8 @@ CREATE TABLE master (
 	Vitro_Vivo varchar(255),
 	CellLine varchar(255),
 	Model varchar(255),
-	Assay varchar(255)
+	Assay varchar(255),
+	doi varchar(100),
 );
 
 --- INSERT INTO master VALUES ('Batroxicidin (BatxC)','2017','28246023','KRFKKFFKKLKNSVKKRVKKFFRKPRVDFFDSHVCDE','natural','Bothrops atrox ','venom gland','8723 [NCBI]','U5KJC9','cathelicidin famiy',28,-3,'4258.63 g/mol',4.5,'linear','anionic','D',NULL,'Fatty acid, Lauryl','Amidation','O= Ornithine','parasite','Trypanosoma ','Trypanosoma cruzi','Y strain','Epimastigote forms','Chagas disease','Epimastigote (T. cruzi) 24hr-11.3 Â± 1.6, 48 h 6.33 Â± 1.7, 72 h- 9.6 Â± 3.5uM','cell membrane','induces necrosis','HC50- 12.5 ÂµM','mammalian cell (LLC-MK) 138.8 Â± 20 24 hr MTT assay','in vitro','Rat Myoblast L6 Cells ',NULL,'hemocytometer;','PROTOZ_002');

@@ -25,7 +25,13 @@ const Peptide = () => {
                             href={`https://pubmed.ncbi.nlm.nih.gov/${data[0][key]}`}
                             target="_blank"
                             rel="noreferrer"
-                        >{data[0][key]}</a> : data[0][key] : "-"
+                        >{data[0][key]}</a>
+                            : key === "doi" ? <a
+                                href={`https://doi.org/${data[0][key]}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >{data[0][key]}</a>
+                                : data[0][key] : "-"
                     }
                 </span>
             </p>)}
