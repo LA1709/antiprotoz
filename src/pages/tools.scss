@@ -26,46 +26,32 @@
   }
   .tabs-container {
     display: flex;
-    height: 80%;
-    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
     .tab-pane {
       font-family: Cardo;
-      flex-grow: 1;
-      width: 20%;
-      height: 11.2rem;
-      margin-top: 10%;
       box-sizing: border-box;
-      background-color: #abc3c9;
       display: flex;
-      flex-direction: column;
       .tab-pane-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1.8rem 0;
-        border-bottom: 1px solid #e0dcd3;
+        padding: 1.2rem 1rem 0.2rem;
         color: #382119;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         cursor: pointer;
         &:hover {
-          background-color: #e0dcd330;
-          font-family: CardoBold;
+          border-bottom: 2px solid #382119;
         }
         &:last-child {
-          border: none;
+          border-right: none;
         }
       }
       .disabled {
-        background-color: #e0dcd330;
-        cursor: context-menu;
+        border-bottom: 2px solid #382119;
         font-family: CardoBold;
+        cursor: context-menu;
       }
     }
     .tab-content {
-      flex-grow: 2;
-      width: 60%;
-      padding-top: 2rem;
+      padding: 1.5rem 1rem;
       .heading {
         font-family: Cardo;
         font-size: 2.5rem;

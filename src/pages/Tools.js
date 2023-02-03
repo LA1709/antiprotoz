@@ -5,7 +5,6 @@ import Composition from '../components/Composition';
 import { getPeptides } from '../sql/lookForPeptides';
 import { aa, pp } from '../sql/sql.util'
 import LeftIcon from '../assets/chevron-left.svg';
-import RightIcon from '../assets/chevron-right.svg';
 import './tools.scss';
 
 const tabs = [
@@ -41,10 +40,7 @@ const Tools = () => {
                         key={tabname}
                         className={`tab-pane-item${tab === i ? ' disabled' : ''}`}
                         onClick={() => setTab(i)}
-                    >
-                        {tabname}
-                        <img src={RightIcon} alt="" />
-                    </div>
+                    >{tabname}</div>
                 )}
             </div>
             <div className="tab-content">
@@ -52,7 +48,7 @@ const Tools = () => {
                     Searching peptides based on properties of a peptide
                 </div>
                 <div className="description">
-                    This tool is to facilitate the retrieval of peptides with the required amino acid compositions
+                    This tool is to facilitate the retrieval of peptides with the required {tab === 0 ? 'amino acid' : 'physical properties'} composition
                 </div>
                 {tab === 0 && <Composition
                     title="Amino Acid Composition"
