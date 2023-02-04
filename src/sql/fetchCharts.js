@@ -78,19 +78,32 @@ export const fetchCharts = (callback) => {
             COUNT: item[1],
         }));
         const modifications = result.data[6].reduce((prev, curr) => ({
+            NTerminal: curr.NTerminal ? {
+                Yes: prev.NTerminal.Yes + (curr.NTerminal === "Free" ? 0 : 1),
+                No: prev.NTerminal.No + (curr.NTerminal === "Free" ? 1 : 0),
+            } : prev.NTerminal,
+            CTerminal: curr.CTerminal ? {
+                Yes: prev.CTerminal.Yes + (curr.CTerminal === "Free" ? 0 : 1),
+                No: prev.CTerminal.No + (curr.CTerminal === "Free" ? 1 : 0),
+            } : prev.CTerminal,
+            Modification: {
+                Yes: prev.Modification.Yes + (curr.Modification === "None" ? 0 : 1),
+                No: prev.Modification.No + (curr.Modification === "None" ? 1 : 0),
+            },
+        }), {
             NTerminal: {
-                Yes: (prev.NTerminal?.Yes ?? 0) + (curr.NTerminal === "Free" ? 0 : 1),
-                No: (prev.NTerminal?.No ?? 0) + (curr.NTerminal === "Free" ? 1 : 0),
+                Yes: 0,
+                No: 0,
             },
             CTerminal: {
-                Yes: (prev.CTerminal?.Yes ?? 0) + (curr.CTerminal === "Free" ? 0 : 1),
-                No: (prev.CTerminal?.No ?? 0) + (curr.CTerminal === "Free" ? 1 : 0),
+                Yes: 0,
+                No: 0,
             },
             Modification: {
-                Yes: (prev.Modification?.Yes ?? 0) + (curr.Modification === "None" ? 0 : 1),
-                No: (prev.Modification?.No ?? 0) + (curr.Modification === "None" ? 1 : 0),
+                Yes: 0,
+                No: 0,
             },
-        }), {});
+        });
         callback({
             sources,
             diseases,
