@@ -8,6 +8,7 @@ import Overview from './pages/Overview';
 import Peptide from './pages/Peptide';
 import Submit from './pages/Submit';
 import Admin from './pages/Admin';
+import Guide from './pages/Guide';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/overview' element={<Overview />} />
         <Route path='/peptide/:id' element={<Peptide />} />
         <Route path='/submit' element={<Submit />} />
+        <Route path='/guide' element={<Guide />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/*' element={<Navigate to="/" />} />
       </Routes>

@@ -83,11 +83,10 @@ const Home = () => {
                 <div className="line" />
             </div>
             <div className="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <u>Email</u>
                 <br />
-                Vel libero accusamus distinctio voluptatum minus in placeat facilis fuga exercitationem. Voluptatum temporibus fugit quam nemo sapiente, porro, expedita eveniet voluptas neque necessitatibus voluptates et debitis. Eum ad nam minus repellat fugiat quo officia culpa aspernatur animi iure illum debitis recusandae, voluptatum nihil numquam aperiam soluta ipsam quas, eligendi distinctio ex quaerat. Provident a consequatur recusandae ea est itaque.
+                vikas1101@gmail.com
                 <br />
-                Beatae necessitatibus provident, sunt eum aliquid culpa fugiat sit id temporibus quod laboriosam, excepturi corrupti odio consequatur numquam tempore veniam ullam qui sapiente inventore quasi accusamus tenetur in! Quo sapiente eum at magnam!
             </div>
         </section>
     </div>

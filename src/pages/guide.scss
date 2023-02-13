@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Cardo;
+  src: url("../fonts/Cardo/Cardo-Regular.ttf");
+}
+
+@font-face {
+  font-family: CardoBold;
+  src: url("../fonts/Cardo/Cardo-Bold.ttf");
+}
+
+.guide-wrapper {
+  width: 100%;
+  height: 100%;
+  color: #4e2f20;
+  font-family: Cardo;
+  .heading {
+    font-family: CardoBold;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem;
+  }
+  .description {
+    padding: 0px 5rem;
+    font-size: 1.1rem;
+    ul {
+      margin: 4px;
+    }
+  }
+  .guide-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    .section-heading {
+      font-size: 2rem;
+      width: 60%;
+    }
+    .section-description {
+      width: 55%;
+      text-align: justify;
+      text-align-last: left;
+    }
+    .section-image {
+      margin-top: 1rem;
+      width: 50%;
+    }
+  }
+}
