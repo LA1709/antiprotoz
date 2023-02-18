@@ -14,7 +14,7 @@ export const blast = (elements, callback) => {
         data
     };
     axios(config).then(res => {
-        callback(res.data.replaceAll(/\n\s*Database:.*\.fa\n/g, ""))
+        callback(res.data.replaceAll(/\n\s*Database:.*\n,*.fa\n/g, ""))
     }).catch(err => {
         callback(null);
     })
