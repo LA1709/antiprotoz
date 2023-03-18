@@ -48,7 +48,7 @@ const Tools = () => {
                     Searching peptides based on properties of a peptide
                 </div>
                 <div className="description">
-                    This tool is to facilitate the retrieval of peptides with the required {tab === 0 ? 'amino acid' : 'physical properties'} composition
+                    This tool is to facilitate the retrieval of peptides with the required {tab === 0 ? 'amino acid frequencies' : 'physical properties  - aliphatic, aromatic, hydrophobic, polar, positive, or negative charge.'}
                 </div>
                 {tab === 0 && <Composition
                     title="Amino Acid Composition"

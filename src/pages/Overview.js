@@ -59,7 +59,7 @@ const Overview = () => {
                 </div>
                 <div className='desc'>
                     <span>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                        The pie chart illustrates the nature of the organisms targeted. More than 90% of the peptides are active against parasitic organisms.
                     </span>
                     <button onClick={() => {
                         const link = document.createElement('a');
@@ -86,7 +86,7 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                    The bar graph represents the number of peptides targeting different diseases caused by protozoans species.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
@@ -112,7 +112,7 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet dolores adipisci ullam nihil doloremque aut laudantium, aliquam illo ut sequi quo accusamus et? Ad soluta ea, eveniet minima dolorum sit.
+                    The chart on the left represents the nature of the source of antiprotozoal peptides. The source of origin was either Natural (obtained from parts of different organisms) or Synthetic.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
@@ -137,6 +137,7 @@ const Overview = () => {
                 />}
             </div>
             <div className='desc'>
+                {/* The above graph depicts the number of peptides studied targeting the protozoans causing diseases. */}
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart3.options.plugins.title.text}.png`;
@@ -160,6 +161,7 @@ const Overview = () => {
                 />}
             </div>
             <div className='desc'>
+                {/* Graph illustrating the number of peptides studied in different years. The peptides used for reference are from studies done in the last four decades (1982-2022). */}
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart4.options.plugins.title.text}.png`;
@@ -183,6 +185,7 @@ const Overview = () => {
                 />}
             </div>
             <div className='desc'>
+                {/* The bar graph showcases the families of naturally obtained antiprotozoal peptides. The maximum number of peptides belong to the Frog Skin Active Peptide  (FSAP) family, followed by the Cathelicidin family. */}
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart5.options.plugins.title.text}.png`;
@@ -193,6 +196,7 @@ const Overview = () => {
             </div>
         </section>
         <section className="smaller">
+            {/* Three different pie charts representing the types of modifications studied in the peptides. (a) N-terminal modifications in antiprotozoal peptides include Lysine N-trimethyl, aminoheptanoyl, acetyl, pyroglutamic acid, and glycine groups. (b)  C-terminal modification with Carboxamide, Glycine, alanine, and amide as the most common groups. (c) Chemical modifications with proline, lysine, valine, and methionine groups replacing other groups. Maximum peptides have modifications in C-terminal. */}
             <div className='chart'>
                 {chart6.data ? <Chart
                     ref={chart6Ref}

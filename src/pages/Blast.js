@@ -27,7 +27,9 @@ const Blast = () => {
         </div>
         <br />
         <div className="desc">
-            This tool will enable users to obtain hits for the input peptide sequence. The result will display all the sequences that match
+            This tool will allow the users to perform a BLAST for the query peptide sequence against the database sequences.
+            <br />Users can adjust the general and scoring parameters as per their needs, though the default values are for the best results.
+            <br />For more information, please visit the <a href="/guide">Guide</a>
         </div>
         {loading ?
             <div className="loader" /> :
