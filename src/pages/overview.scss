@@ -60,6 +60,14 @@
         }
       }
     }
+    .row {
+      flex-direction: row;
+      justify-content: space-evenly;
+      button,
+      span {
+        margin-top: -1rem;
+      }
+    }
   }
 
   .chart-container {
@@ -100,5 +108,17 @@
 
   .smaller {
     gap: 0rem;
+    flex-wrap: wrap;
+    .chart {
+      width: auto;
+      flex-grow: 1;
+    }
+    .writeup {
+      text-align: justify;
+      color: #382119;
+      font-size: 1.1rem;
+      font-family: Cardo;
+      padding: 1rem;
+    }
   }
 }

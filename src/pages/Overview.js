@@ -136,8 +136,10 @@ const Overview = () => {
                     autoplay
                 />}
             </div>
-            <div className='desc'>
-                {/* The above graph depicts the number of peptides studied targeting the protozoans causing diseases. */}
+            <div className='desc row'>
+                <span>
+                    The above graph depicts the number of peptides studied targeting the protozoans causing diseases.
+                </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart3.options.plugins.title.text}.png`;
@@ -160,8 +162,8 @@ const Overview = () => {
                     autoplay
                 />}
             </div>
-            <div className='desc'>
-                {/* Graph illustrating the number of peptides studied in different years. The peptides used for reference are from studies done in the last four decades (1982-2022). */}
+            <div className='desc row'>
+                <span>Graph illustrating the number of peptides studied in different years. The peptides used for reference are from studies done in the last four decades (1982-2022).</span>
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart4.options.plugins.title.text}.png`;
@@ -184,8 +186,10 @@ const Overview = () => {
                     autoplay
                 />}
             </div>
-            <div className='desc'>
-                {/* The bar graph showcases the families of naturally obtained antiprotozoal peptides. The maximum number of peptides belong to the Frog Skin Active Peptide  (FSAP) family, followed by the Cathelicidin family. */}
+            <div className='desc row'>
+                <span>
+                    The bar graph showcases the families of naturally obtained antiprotozoal peptides. The maximum number of peptides belong to the Frog Skin Active Peptide  (FSAP) family, followed by the Cathelicidin family.
+                </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart5.options.plugins.title.text}.png`;
@@ -196,7 +200,6 @@ const Overview = () => {
             </div>
         </section>
         <section className="smaller">
-            {/* Three different pie charts representing the types of modifications studied in the peptides. (a) N-terminal modifications in antiprotozoal peptides include Lysine N-trimethyl, aminoheptanoyl, acetyl, pyroglutamic acid, and glycine groups. (b)  C-terminal modification with Carboxamide, Glycine, alanine, and amide as the most common groups. (c) Chemical modifications with proline, lysine, valine, and methionine groups replacing other groups. Maximum peptides have modifications in C-terminal. */}
             <div className='chart'>
                 {chart6.data ? <Chart
                     ref={chart6Ref}
@@ -232,6 +235,9 @@ const Overview = () => {
                     loop
                     autoplay
                 />}
+            </div>
+            <div className='writeup'>
+                Three different pie charts representing the types of modifications studied in the peptides. (a) N-terminal modifications in antiprotozoal peptides include Lysine N-trimethyl, aminoheptanoyl, acetyl, pyroglutamic acid, and glycine groups. (b)  C-terminal modification with Carboxamide, Glycine, alanine, and amide as the most common groups. (c) Chemical modifications with proline, lysine, valine, and methionine groups replacing other groups. Maximum peptides have modifications in C-terminal.
             </div>
         </section>
     </div >
