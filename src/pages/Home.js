@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchStats } from '../sql/fetchStats';
-// import Logo from '../assets/logo.png';
 import './home.scss';
 
 const Home = () => {
