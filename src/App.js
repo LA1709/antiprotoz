@@ -12,7 +12,7 @@ import Guide from './pages/Guide';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/antiprotoz'>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/search' element={<Search />} />

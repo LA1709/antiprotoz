@@ -1,5 +1,6 @@
 {
   "name": "webapp",
+  "homepage": "http://www.soodlab.com/antiprotoz/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
