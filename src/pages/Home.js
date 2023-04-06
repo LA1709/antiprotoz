@@ -21,8 +21,8 @@ const Home = () => {
                 <Link to="/browse"> Browse </Link>
                 <Link to="/search"> Search </Link>
                 <div className="grouped">
-                    <Link to="/tools/composition"> Protein composition </Link>
-                    <Link to="/tools/blast"> BLAST </Link>
+                    <Link to="/composition/aa"> Protein composition </Link>
+                    <Link to="/blast"> BLAST </Link>
                 </div>
                 <Link to="/overview"> Data Visualisation </Link>
                 <Link to="/submit"> Data Submission </Link>

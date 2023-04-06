@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
 import { browsePeptides } from '../sql/browsePeptides';
-import { sources, organisms, families } from '../sql/sql.util'
+import { sources, organisms, families, getFamilyGroup } from '../sql/sql.util'
 import CheckIcon from '../assets/check-square.svg';
 import TrashIcon from '../assets/trash.svg';
 import LeftIcon from '../assets/chevron-left.svg';
@@ -49,12 +49,24 @@ const Browse = () => {
         {showInput ?
             <form id="form" className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <h3>Source</h3>
+                    <h3>Source of Peptide</h3>
                     <div className="item-container">
                         {sources.map((source, idx) =>
                             <div className="form-group-item" key={`source_${idx + 1}`}>
                                 <input id={`source_${idx + 1}`} value={source} name="NatureType" type="checkbox" />
                                 <label htmlFor={`source_${idx + 1}`}>{source}</label>
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <hr />
+                <div className="form-group">
+                    <h3>Peptide Family</h3>
+                    <div className="item-container">
+                        {[...new Set(families.map(family => getFamilyGroup(family)))].map((family, idx) =>
+                            <div className="form-group-item" key={`family_${idx + 1}`}>
+                                <input id={`family_${idx + 1}`} value={family} name="Family" type="checkbox" />
+                                <label htmlFor={`family_${idx + 1}`}>{family.charAt(0).toUpperCase() + family.slice(1)}</label>
                             </div>
                         )}
                     </div>
@@ -67,18 +79,6 @@ const Browse = () => {
                             <div className="form-group-item" key={`target_${idx + 1}`}>
                                 <input id={`target_${idx + 1}`} value={target} name="Target" type="checkbox" />
                                 <label htmlFor={`target_${idx + 1}`}>{target}</label>
-                            </div>
-                        )}
-                    </div>
-                </div>
-                <hr />
-                <div className="form-group">
-                    <h3>Family</h3>
-                    <div className="item-container">
-                        {families.map((family, idx) =>
-                            <div className="form-group-item" key={`family_${idx + 1}`}>
-                                <input id={`family_${idx + 1}`} value={family} name="Family" type="checkbox" />
-                                <label htmlFor={`family_${idx + 1}`}>{family.charAt(0).toUpperCase() + family.slice(1)}</label>
                             </div>
                         )}
                     </div>

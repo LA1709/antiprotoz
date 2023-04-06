@@ -17,26 +17,27 @@ const Menu = () => {
             </div>
         </Link>
         <div className="links-wrapper">
-            <Link to="/browse" className={selected === '/browse' ? 'disabled' : ''}>Browse</Link>
-            <Link to="/search" className={selected === '/search' ? 'disabled' : ''}>Search</Link>
+            <Link to="/browse" className={selected.match('/browse') ? 'disabled' : ''}>Browse</Link>
+            <Link to="/search" className={selected.match('/search') ? 'disabled' : ''}>Search</Link>
             <div
-                className={`dropdown${(isOpen || selected.match('/tools/')) ? " opened" : ""}`}
+                className={`dropdown${(isOpen || selected.match('/composition/')) ? " opened" : ""}`}
                 onClick={() => setIsOpen(prev => !prev)}
-            >Tools{isOpen ?
+            >Composition{isOpen ?
                 <UpIcon stroke="#382119" />
                 : <DownIcon stroke="#382119" />}
             </div>
-            {isOpen && <div className="options">
-                <Link to="/tools/blast" className={selected === '/tools/blast' ? 'disabled' : ''}>
-                    BLAST Search
+            {isOpen && <div className="options" onClick={() => setIsOpen(prev => !prev)}>
+                <Link to="/composition/aa" className={selected.match('/composition/aa') ? 'disabled' : ''}>
+                    Amino Acid
                 </Link>
-                <Link to="/tools/composition" className={selected === '/tools/composition' ? 'disabled' : ''}>
-                    Protein composition
+                <Link to="/composition/pp" className={selected.match('/composition/pp') ? 'disabled' : ''}>
+                    Physical Properties
                 </Link>
             </div>}
-            <Link to="/overview" className={selected === '/overview' ? 'disabled' : ''}>Data Visualisation</Link>
-            <Link to="/submit" className={selected === '/submit' ? 'disabled' : ''}>Data Submission</Link>
-            <Link to="/guide" className={selected === '/guide' ? 'disabled' : ''}>Guide</Link>
+            <Link to="/blast" className={selected.match('/blast') ? 'disabled' : ''}>BLAST</Link>
+            <Link to="/overview" className={selected.match('/overview') ? 'disabled' : ''}>Data Visualisation</Link>
+            <Link to="/submit" className={selected.match('/submit') ? 'disabled' : ''}>Data Submission</Link>
+            <Link to="/guide" className={selected.match('/guide') ? 'disabled' : ''}>Guide</Link>
         </div>
     </div>
 }

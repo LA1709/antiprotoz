@@ -10,7 +10,7 @@ export const browsePeptides = (elements, dataCallback, colsCallback) => {
         }
     }
     const q = `(${Object.entries(params).map(item =>
-        `${item[0]}='${item[1].join(`' OR ${item[0]}='`)}'`
+        `${item[0]} LIKE '%${item[1].join(`%' OR ${item[0]} LIKE '%`)}%'`
     ).join(") AND (")})`;
     const data = {
         "query": `SELECT

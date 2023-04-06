@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { searchPeptides } from '../sql/searchPeptides';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
-import { organisms, families, sources } from '../sql/sql.util';
+import { organisms, families, sources, getFamilyGroup } from '../sql/sql.util';
 import './search.scss';
 import DownIcon from '../assets/chevron-down.svg';
 import UpIcon from '../assets/chevron-up.svg';
@@ -20,6 +20,9 @@ const Search = () => {
     }
     return <div className="search-wrapper">
         <Menu />
+        {!show && <span className="heading">
+            Simple Search
+        </span>}
         <form className="form" onSubmit={handleSubmit}>
             <div className="form-group">
                 <div className="form-group-item">
@@ -38,10 +41,6 @@ const Search = () => {
                 </div>
                 {show && <div className="collapsible">
                     <div className="form-group-item">
-                        <label htmlFor="pubmedid">PubMed ID: </label>
-                        <input id="pubmedid" name="PubmedID" type="text" placeholder="Enter PubMed ID" />
-                    </div>
-                    <div className="form-group-item">
                         <label htmlFor="target">Target Organism: </label>
                         <select
                             id="target"
@@ -56,7 +55,7 @@ const Search = () => {
                         </select>
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="target">Species: </label>
+                        <label htmlFor="target">Target Species: </label>
                         <select
                             id="species"
                             name="Species"
@@ -73,7 +72,7 @@ const Search = () => {
                         </select>
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="NatureType">Source: </label>
+                        <label htmlFor="NatureType">Peptide Source: </label>
                         <select id="NatureType" name="NatureType" defaultValue="">
                             <option value="">Any source</option>
                             {sources.map(source =>
@@ -82,39 +81,53 @@ const Search = () => {
                         </select>
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="family">Family: </label>
+                        <label htmlFor="family">Peptide Family: </label>
                         <select id="family" name="Family" defaultValue="">
                             <option value="">Any family</option>
-                            {families.map(family =>
+                            {[...new Set(families.map(family => getFamilyGroup(family)))].map(family =>
                                 <option value={family} key={family}>{family}</option>
                             )}
                         </select>
+                    </div>
+                    <div className="form-group-item">
+                        <label htmlFor="plength">Peptide Length: </label>
+                        <input id="plength" name="Length" type="number" min={1} max={124} placeholder="Enter Length" />
+                    </div>
+                    <div className="form-group-item">
+                        <label htmlFor="pubmedid">PubMed ID: </label>
+                        <input id="pubmedid" name="PubmedID" type="text" placeholder="Enter PubMed ID" />
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="year">Year: </label>
                         <input id="year" name="year" type="text" placeholder="Enter Year" />
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="plength">Length: </label>
-                        <input id="plength" name="Length" type="number" placeholder="Enter Length" />
+                        <label htmlFor="hemolytic">Hemolytic Activity: </label>
+                        <select id="hemolytic" name="Hemolytic" defaultValue="">
+                            <option value="">Any</option>
+                            <option value="reported">Reported</option>
+                        </select>
                     </div>
-                    <hr />
-                    <span>Show only if:</span>
-                    <div className="form-group-item closer">
-                        <input id="hemolytic" value="Hemolytic" name="cols" type="checkbox" />
-                        <label htmlFor="hemolytic" className="not-aligned">Hemolytic Activity</label>
+                    <div className="form-group-item">
+                        <label htmlFor="uniport">Uniport ID</label>
+                        <select id="uniport" name="UniportID" defaultValue="">
+                            <option value="">Any</option>
+                            <option value="reported">Reported</option>
+                        </select>
                     </div>
-                    <div className="form-group-item closer">
-                        <input id="uniport" value="UniportID" name="cols" type="checkbox" />
-                        <label htmlFor="uniport" className="not-aligned">Uniport ID</label>
+                    <div className="form-group-item">
+                        <label htmlFor="charge">Net Charge</label>
+                        <select id="charge" name="Charge" defaultValue="">
+                            <option value="">Any</option>
+                            <option value="reported">Reported</option>
+                        </select>
                     </div>
-                    <div className="form-group-item closer">
-                        <input id="charge" value="Charge" name="cols" type="checkbox" />
-                        <label htmlFor="charge" className="not-aligned">Net Charge</label>
-                    </div>
-                    <div className="form-group-item closer">
-                        <input id="activity" value="Activity" name="cols" type="checkbox" />
-                        <label htmlFor="activity" className="not-aligned">Activity</label>
+                    <div className="form-group-item">
+                        <label htmlFor="activity">Activity</label>
+                        <select id="activity" name="Activity" defaultValue="">
+                            <option value="">Any</option>
+                            <option value="reported">Reported</option>
+                        </select>
                     </div>
                     <hr />
                 </div>}
@@ -123,7 +136,7 @@ const Search = () => {
                 </div>
                 <div className="form-group-item">
                     <p onClick={() => setShow(!show)}>
-                        {show ? "Hide" : "Show"} Advanced Filters
+                        {show ? "Hide" : "Show"} Advanced Search
                         <img src={show ? UpIcon : DownIcon} alt="icon" />
                     </p>
                 </div>

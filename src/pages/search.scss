@@ -8,6 +8,14 @@
   height: 100%;
   color: #4e2f20;
   font-family: Cardo;
+  .heading {
+    position: relative;
+    top: 0.8rem;
+    margin: auto;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    left: 10%;
+  }
   form {
     display: flex;
     gap: 1rem;
@@ -26,9 +34,6 @@
         padding: 0px;
         width: max-content;
         cursor: pointer;
-        &:hover {
-          font-size: 1.05rem;
-        }
         img {
           transform: translateY(7px);
           margin-left: 7px;
@@ -44,6 +49,10 @@
           margin: 0;
           margin-top: -0.5rem;
           padding: 0;
+          font-size: 1.1rem;
+          &:hover {
+            font-size: 1.2rem;
+          }
         }
         label {
           width: 100%;

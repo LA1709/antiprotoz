@@ -2,13 +2,15 @@ import axios from "axios";
 import { colNames } from "./sql.util";
 
 const getAdvancedQuery = params => {
-    let cols = null;
-    if (params.cols) {
-        cols = params.cols.map(col => `${col} IS NOT NULL`).join(" AND ");
-        delete params.cols;
-    }
     let condition = Object.entries(params).filter(item => item[0] !== 'type' && item[0] !== 'Sequence')
-        .map(item => `${item[0]}='${item[1]}'`)?.join(" AND ");
+        .map(item => `${item[1] ?
+            item[1] !== "reported" ?
+                item[0] === "Family" ?
+                    `Family LIKE '%${item[1]}%'`
+                    : `${item[0]}='${item[1]}'`
+                : `${item[0]} IS NOT NULL`
+            : ""
+            }`).filter(condition => !!condition).join(" AND ");
     if (params.Sequence) {
         const q = `${params.type === "exact" ?
             `Sequence='${params.Sequence}'` :
@@ -20,25 +22,12 @@ const getAdvancedQuery = params => {
     return `SELECT
     ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType
     FROM master
-    WHERE ${condition ? condition : "TRUE"} AND ${cols ? cols : "TRUE"};`;
+    WHERE ${condition ? condition : "TRUE"};`;
 }
 
 export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback) => {
-    const params = {};
-    let colsChecked = false;
-    for (const el of elements) {
-        if (!el.name) continue;
-        if (elements[el.name].value)
-            params[el.name] = elements[el.name].value;
-        else if (!colsChecked && el.name === "cols") {
-            params[el.name] = [];
-            for (const node of elements[el.name]) {
-                if (node.checked)
-                    params[el.name].push(node.value);
-            }
-            colsChecked = true
-        }
-    };
+    let params = {};
+    for (const el of elements) params[el.name] = el.value;
     delete params.submit;
     const data = {
         "query": isAdvanced ?
@@ -48,6 +37,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
                 `WHERE Sequence LIKE '%${params.Sequence}%'`
             };`
     };
+    console.log(data);
     const config = {
         method: 'post',
         url: 'https://3v3bd3qzhk.execute-api.us-east-2.amazonaws.com/query_sql',

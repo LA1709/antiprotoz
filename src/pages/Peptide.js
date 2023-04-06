@@ -55,6 +55,8 @@ const Peptide = () => {
                 autoplay
             /></div> : <div className="container">
             <div className="peptide-section">
+                <span>Peptide ID</span>
+                <span>{id}</span>
                 <span>Name</span>
                 <span>{data[0].Name}</span>
                 <span>Sequence</span>

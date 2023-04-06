@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
 import Composition from '../components/Composition';
@@ -6,10 +6,11 @@ import { getPeptides } from '../sql/lookForPeptides';
 import { aa, pp } from '../sql/sql.util'
 import LeftIcon from '../assets/chevron-left.svg';
 import './tools.scss';
+import { useParams } from 'react-router-dom';
 
 const tabs = [
-    'Number of each Amino Acid',
-    'Type of Amino Acids'
+    'AA Composition',
+    'PP Composition'
 ];
 
 const Tools = () => {
@@ -18,12 +19,18 @@ const Tools = () => {
     const [data, setData] = useState(null);
     const [tab, setTab] = useState(0);
 
+    const { tool } = useParams();
+
     const getData = d => {
         setData(undefined);
         setColumns(undefined);
         getPeptides(d, tab, setData, setColumns);
         setShowInput(false);
     }
+
+    useEffect(() => {
+        setTab(tool === "pp" ? 1 : 0);
+    }, [tool])
 
     return <div className="tools-wrapper">
         <Menu />

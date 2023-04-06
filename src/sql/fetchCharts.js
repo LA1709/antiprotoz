@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getFamilyGroup } from "./sql.util";
 
 const getDiseaseGroup = (disease) => {
     if (disease.match(/Cryptosporidiosis/i))
@@ -15,22 +16,6 @@ const getDiseaseGroup = (disease) => {
         return 'Malaria';
     return 'Others';
 };
-
-const getFamilyGroup = (family) => {
-    if (family.match(/defensin/i))
-        return 'defensin family';
-    if (family.match(/frog/i))
-        return 'frog skin active peptide (FSAP) family';
-    if (family.match(/gastrin/i))
-        return 'gastrin/cholecystokinin family';
-    if (family.match(/long chain scorpion/i))
-        return 'long chain scorpion toxin family';
-    if (family.match(/mcd/i))
-        return 'MCD family';
-    if (family.match(/non-disulfide-bridged/i))
-        return 'non-disulfide-bridged peptide (NDBP) superfamily';
-    return family;
-}
 
 export const fetchCharts = (callback) => {
     const data = {
