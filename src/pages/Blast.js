@@ -23,7 +23,7 @@ const Blast = () => {
             BLAST
         </div>
         <div className="desc">
-            Basic Line Alignment Search Tool
+            Basic Local Alignment Search Tool
         </div>
         <br />
         <div className="desc">
