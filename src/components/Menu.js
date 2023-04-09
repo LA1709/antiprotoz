@@ -28,10 +28,10 @@ const Menu = () => {
             </div>
             {isOpen && <div className="options" onClick={() => setIsOpen(prev => !prev)}>
                 <Link to="/composition/aa" className={selected.match('/composition/aa') ? 'disabled' : ''}>
-                    Amino Acid
+                    AA Composition
                 </Link>
                 <Link to="/composition/pp" className={selected.match('/composition/pp') ? 'disabled' : ''}>
-                    Physical Properties
+                    PP Composition
                 </Link>
             </div>}
             <Link to="/blast" className={selected.match('/blast') ? 'disabled' : ''}>BLAST</Link>

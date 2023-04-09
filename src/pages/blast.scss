@@ -53,6 +53,14 @@
     text-align: center;
     color: #382119;
   }
+  .result-desc {
+    font-family: Cardo;
+    text-align: center;
+    color: #382119;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
   form {
     padding: 0px 10rem;
     display: flex;
@@ -66,23 +74,26 @@
       gap: 1rem;
       font-family: Cardo;
       color: #382119;
+      .heading-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button {
+          font-family: Cardo;
+          font-size: 0.95rem;
+          padding: 0.1rem 0.5rem;
+          cursor: pointer;
+        }
+      }
       .input-title {
         text-decoration: underline;
       }
       textarea {
-        width: 100%;
         font-family: Cardo;
         padding: 0.5rem;
       }
-      input[type="submit"] {
-        font-family: Cardo;
-        font-size: 1rem;
-        padding: 0.3rem 1.6rem;
-        cursor: pointer;
-        margin: auto;
-        margin-bottom: 2rem;
-      }
     }
+
     .grouped-items {
       display: flex;
       gap: 1rem;
@@ -94,6 +105,14 @@
       }
       input[type="number"] {
         width: 60px;
+      }
+      input[type="submit"],
+      button {
+        font-family: Cardo;
+        font-size: 1rem;
+        padding: 0.3rem 1.6rem;
+        cursor: pointer;
+        margin: 2rem 0px;
       }
     }
   }

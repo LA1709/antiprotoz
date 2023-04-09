@@ -22,7 +22,7 @@ export const colNames = {
     Modification: "Chemical Modification",
     Type: "Free Living/Parasitic",
     Target: "Target Organism",
-    Species: "Species",
+    Species: "Target Species",
     Strain: "Strain",
     Stage: "Stage",
     Disease: "Disease caused",

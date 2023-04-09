@@ -1,11 +1,6 @@
 import axios from "axios";
 import { colNames } from "./sql.util";
 
-const tableMap = [
-    'aa',
-    'pp',
-]
-
 export const getPeptides = (inputData, inputType, dataCallback, colsCallback) => {
     const q = `(${Object.entries(inputData).map(item =>
         `${item[0]} BETWEEN ${item[1][0]} and ${item[1][1]}`
@@ -13,8 +8,8 @@ export const getPeptides = (inputData, inputType, dataCallback, colsCallback) =>
     const data = {
         "query": `SELECT
             master.ID,Name,Year,PubmedID,Sequence,NatureType,Family,Target,Species
-            FROM master,${tableMap[inputType]} WHERE
-            master.ID=${tableMap[inputType]}.ID AND ${q === "()" ? "TRUE" : q};`
+            FROM master,${inputType} WHERE
+            master.ID=${inputType}.ID AND ${q === "()" ? "TRUE" : q};`
     };
     const config = {
         method: 'post',

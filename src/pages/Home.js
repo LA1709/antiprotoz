@@ -21,9 +21,10 @@ const Home = () => {
                 <Link to="/browse"> Browse </Link>
                 <Link to="/search"> Search </Link>
                 <div className="grouped">
-                    <Link to="/composition/aa"> Protein composition </Link>
-                    <Link to="/blast"> BLAST </Link>
+                    <Link to="/composition/aa"> AA composition </Link>
+                    <Link to="/composition/pp"> PP composition </Link>
                 </div>
+                <Link to="/blast"> BLAST </Link>
                 <Link to="/overview"> Data Visualisation </Link>
                 <Link to="/submit"> Data Submission </Link>
                 <Link to="/guide"> Guide </Link>

@@ -93,14 +93,14 @@ const Search = () => {
                         <label htmlFor="plength">Peptide Length: </label>
                         <input id="plength" name="Length" type="number" min={1} max={124} placeholder="Enter Length" />
                     </div>
-                    <div className="form-group-item">
+                    {/* <div className="form-group-item">
                         <label htmlFor="pubmedid">PubMed ID: </label>
                         <input id="pubmedid" name="PubmedID" type="text" placeholder="Enter PubMed ID" />
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="year">Year: </label>
                         <input id="year" name="year" type="text" placeholder="Enter Year" />
-                    </div>
+                    </div> */}
                     <div className="form-group-item">
                         <label htmlFor="hemolytic">Hemolytic Activity: </label>
                         <select id="hemolytic" name="Hemolytic" defaultValue="">
@@ -109,26 +109,26 @@ const Search = () => {
                         </select>
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="uniport">Uniport ID</label>
+                        <label htmlFor="uniport">Uniport ID: </label>
                         <select id="uniport" name="UniportID" defaultValue="">
                             <option value="">Any</option>
                             <option value="reported">Reported</option>
                         </select>
                     </div>
                     <div className="form-group-item">
-                        <label htmlFor="charge">Net Charge</label>
+                        <label htmlFor="charge">Net Charge: </label>
                         <select id="charge" name="Charge" defaultValue="">
                             <option value="">Any</option>
                             <option value="reported">Reported</option>
                         </select>
                     </div>
-                    <div className="form-group-item">
-                        <label htmlFor="activity">Activity</label>
+                    {/* <div className="form-group-item">
+                        <label htmlFor="activity">Activity: </label>
                         <select id="activity" name="Activity" defaultValue="">
                             <option value="">Any</option>
                             <option value="reported">Reported</option>
                         </select>
-                    </div>
+                    </div> */}
                     <hr />
                 </div>}
                 <div className="form-group-item">
@@ -136,7 +136,7 @@ const Search = () => {
                 </div>
                 <div className="form-group-item">
                     <p onClick={() => setShow(!show)}>
-                        {show ? "Hide" : "Show"} Advanced Search
+                        {show ? "Hide" : ""} Advanced Search
                         <img src={show ? UpIcon : DownIcon} alt="icon" />
                     </p>
                 </div>

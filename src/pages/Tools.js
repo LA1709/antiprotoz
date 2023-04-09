@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Menu from '../components/Menu';
 import Table from '../components/Table';
 import Composition from '../components/Composition';
@@ -8,29 +8,19 @@ import LeftIcon from '../assets/chevron-left.svg';
 import './tools.scss';
 import { useParams } from 'react-router-dom';
 
-const tabs = [
-    'AA Composition',
-    'PP Composition'
-];
-
 const Tools = () => {
     const [showInput, setShowInput] = useState(true);
     const [columns, setColumns] = useState(null);
     const [data, setData] = useState(null);
-    const [tab, setTab] = useState(0);
 
     const { tool } = useParams();
 
     const getData = d => {
         setData(undefined);
         setColumns(undefined);
-        getPeptides(d, tab, setData, setColumns);
+        getPeptides(d, tool, setData, setColumns);
         setShowInput(false);
     }
-
-    useEffect(() => {
-        setTab(tool === "pp" ? 1 : 0);
-    }, [tool])
 
     return <div className="tools-wrapper">
         <Menu />
@@ -40,37 +30,29 @@ const Tools = () => {
         >
             <img src={LeftIcon} alt="" />Back
         </button>}
-        {showInput ? <div className="tabs-container">
-            <div className="tab-pane">
-                {tabs.map((tabname, i) =>
-                    <div
-                        key={tabname}
-                        className={`tab-pane-item${tab === i ? ' disabled' : ''}`}
-                        onClick={() => setTab(i)}
-                    >{tabname}</div>
-                )}
-            </div>
-            <div className="tab-content">
-                <div className="heading">
-                    Searching peptides based on properties of a peptide
+        {showInput ?
+            <div className="tabs-container">
+                <div className="tab-content">
+                    <div className="heading">
+                        Searching peptides based on properties of a peptide
+                    </div>
+                    <div className="description">
+                        This tool is to facilitate the retrieval of peptides with the required {tool === "aa" ? 'amino acid composition' : 'physiochemical properties  - aliphatic, aromatic, hydrophobic, polar, positive, or negative charge.'}
+                    </div>
+                    {tool === "aa" && <Composition
+                        title="Amino Acid Composition"
+                        parameter={aa}
+                        callback={getData}
+                    />}
+                    {tool === "pp" && <Composition
+                        title="Physiochemical Properties Composition"
+                        parameter={pp}
+                        callback={getData}
+                    />}
                 </div>
-                <div className="description">
-                    This tool is to facilitate the retrieval of peptides with the required {tab === 0 ? 'amino acid frequencies' : 'physical properties  - aliphatic, aromatic, hydrophobic, polar, positive, or negative charge.'}
-                </div>
-                {tab === 0 && <Composition
-                    title="Amino Acid Composition"
-                    parameter={aa}
-                    callback={getData}
-                />}
-                {tab === 1 && <Composition
-                    title="Physical Properties Composition"
-                    parameter={pp}
-                    callback={getData}
-                />}
-            </div>
-        </div> : <div className="result">
-            <Table data={data} columns={columns} />
-        </div>}
+            </div> : <div className="result">
+                <Table data={data} columns={columns} />
+            </div>}
     </div >
 }
 export default Tools;

@@ -47,18 +47,19 @@
     .form-group-button {
       display: flex;
       justify-content: center;
+      gap: 1rem;
       margin-top: 2rem;
-      input {
-        width: 20%;
-        padding: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+      input,
+      button {
+        width: 18%;
+        padding: 0.2rem;
         cursor: pointer;
-        justify-content: center;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-family: Cardo;
       }
+    }
+    span {
+      text-decoration: underline;
     }
   }
 }

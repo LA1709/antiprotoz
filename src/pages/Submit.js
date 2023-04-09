@@ -9,10 +9,21 @@ const SubmitPeptide = () => {
         submitData(e.target.elements);
     }
 
+    const handleClear = (e) => {
+        e.preventDefault();
+        const formElement = document.getElementById('form');
+        for (const el of formElement) {
+            if (el.id === "submit" || el.id === "clear")
+                continue;
+            el.value = "";
+        }
+    };
+
     return <div className="submit-wrapper">
         <Menu />
         <form id="form" onSubmit={handleSubmit}>
             <h2>Data Submission</h2>
+            <span>Peptide Information</span>
             <div className="form-group-item">
                 <label htmlFor="name">Peptide Name:</label>
                 <input id="name" name="Name" type="text" placeholder="Enter Peptide Name" required />
@@ -26,16 +37,17 @@ const SubmitPeptide = () => {
                 <input id="pubmed" name="Pubmed ID" type="text" placeholder="Enter Pubmed ID / Link" required />
             </div>
             <br />
+            <span>Submitter's Information</span>
             <div className="form-group-item">
-                <label htmlFor="sub_name">Submitter's Name:</label>
+                <label htmlFor="sub_name">Name:</label>
                 <input id="sub_name" name="Submitter" type="text" placeholder="Enter your name" required />
             </div>
             <div className="form-group-item">
                 <label htmlFor="aff">Affiliation:</label>
-                <input id="aff" name="Affiliation" type="text" placeholder="Enter your affiliation" required />
+                <input id="aff" name="Affiliation" type="text" placeholder="Enter your affiliation" />
             </div>
             <div className="form-group-item">
-                <label htmlFor="email">Submitter's Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input id="email" name="Email" type="email" placeholder="Enter your email" required />
             </div>
             <div className="form-special-item">
@@ -43,6 +55,9 @@ const SubmitPeptide = () => {
                 <textarea id="comments" name="Comments" placeholder="Any additional comments" rows="5" />
             </div>
             <div className="form-group-button">
+                <button id="clear" onClick={handleClear}>
+                    Clear
+                </button>
                 <input id="submit" name="submit" type="submit" value="Submit" />
             </div>
         </form>
