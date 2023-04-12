@@ -31,7 +31,12 @@ const getAdvancedQuery = (params, isAdvanced) => {
 
 export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback) => {
     let params = {};
-    for (const el of elements) params[el.name] = el.value;
+    for (const el of elements) {
+        if (el.name !== "type")
+            params[el.name] = el.value;
+        else if (el.checked)
+            params.type = el.value;
+    }
     delete params.submit;
     console.log(params);
     const data = {
