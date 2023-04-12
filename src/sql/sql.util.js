@@ -533,6 +533,116 @@ export const pp = {
     },
 }
 
+export const freqAA = {
+    'A': {
+        min: 0,
+        max: 50,
+    },
+    'C': {
+        min: 0,
+        max: 25,
+    },
+    'D': {
+        min: 0,
+        max: 25,
+    },
+    'E': {
+        min: 0,
+        max: 22,
+    },
+    'F': {
+        min: 0,
+        max: 33,
+    },
+    'G': {
+        min: 0,
+        max: 33,
+    },
+    'H': {
+        min: 0,
+        max: 29,
+    },
+    'I': {
+        min: 0,
+        max: 33,
+    },
+    'K': {
+        min: 0,
+        max: 43,
+    },
+    'L': {
+        min: 0,
+        max: 38,
+    },
+    'M': {
+        min: 0,
+        max: 33,
+    },
+    'N': {
+        min: 0,
+        max: 13,
+    },
+    'P': {
+        min: 0,
+        max: 33,
+    },
+    'Q': {
+        min: 0,
+        max: 33,
+    },
+    'R': {
+        min: 0,
+        max: 75,
+    },
+    'S': {
+        min: 0,
+        max: 30,
+    },
+    'T': {
+        min: 0,
+        max: 13,
+    },
+    'V': {
+        min: 0,
+        max: 33,
+    },
+    'W': {
+        min: 0,
+        max: 38,
+    },
+    'Y': {
+        min: 0,
+        max: 19,
+    },
+}
+
+export const freqPP = {
+    'Aliphatic': {
+        min: 0,
+        max: 100,
+    },
+    'Aromatic': {
+        min: 0,
+        max: 38,
+    },
+    'Polar': {
+        min: 0,
+        max: 83,
+    },
+    'Hydrophobic': {
+        min: 17,
+        max: 100,
+    },
+    'Positive_Charges': {
+        min: 0,
+        max: 75,
+    },
+    'Negative_Charges': {
+        min: 0,
+        max: 25,
+    },
+}
+
 export const getFamilyGroup = (family) => {
     if (family.match(/defensin/i))
         return 'defensin family';

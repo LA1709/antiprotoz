@@ -30,8 +30,14 @@ const Menu = () => {
                 <Link to="/composition/aa" className={selected.match('/composition/aa') ? 'disabled' : ''}>
                     AA Composition
                 </Link>
+                <Link to="/composition/freqAA" className={selected.match('/composition/freqAA') ? 'disabled' : ''}>
+                    AA Frequency
+                </Link>
                 <Link to="/composition/pp" className={selected.match('/composition/pp') ? 'disabled' : ''}>
                     PP Composition
+                </Link>
+                <Link to="/composition/freqPP" className={selected.match('/composition/freqPP') ? 'disabled' : ''}>
+                    PP Frequency
                 </Link>
             </div>}
             <Link to="/blast" className={selected.match('/blast') ? 'disabled' : ''}>BLAST</Link>

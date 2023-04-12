@@ -3,10 +3,17 @@ import Menu from '../components/Menu';
 import Table from '../components/Table';
 import Composition from '../components/Composition';
 import { getPeptides } from '../sql/lookForPeptides';
-import { aa, pp } from '../sql/sql.util'
+import { aa, freqAA, freqPP, pp } from '../sql/sql.util'
 import LeftIcon from '../assets/chevron-left.svg';
 import './tools.scss';
 import { useParams } from 'react-router-dom';
+
+const description = {
+    aa: 'amino acid composition',
+    pp: 'physiochemical properties  - aliphatic, aromatic, hydrophobic, polar, positive, or negative charge.',
+    freqAA: 'frequency of amino acids in the peptide',
+    freqPP: 'frequency of physiochemical properties in the peptide',
+}
 
 const Tools = () => {
     const [showInput, setShowInput] = useState(true);
@@ -37,7 +44,7 @@ const Tools = () => {
                         Searching peptides based on properties of a peptide
                     </div>
                     <div className="description">
-                        This tool is to facilitate the retrieval of peptides with the required {tool === "aa" ? 'amino acid composition' : 'physiochemical properties  - aliphatic, aromatic, hydrophobic, polar, positive, or negative charge.'}
+                        This tool is to facilitate the retrieval of peptides with the required {description[tool] ?? "N/A"}
                     </div>
                     {tool === "aa" && <Composition
                         title="Amino Acid Composition"
@@ -47,6 +54,16 @@ const Tools = () => {
                     {tool === "pp" && <Composition
                         title="Physiochemical Properties Composition"
                         parameter={pp}
+                        callback={getData}
+                    />}
+                    {tool === "freqAA" && <Composition
+                        title="Amino Acids Frequency"
+                        parameter={freqAA}
+                        callback={getData}
+                    />}
+                    {tool === "freqPP" && <Composition
+                        title="Physiochemical Properties Frequency"
+                        parameter={freqPP}
                         callback={getData}
                     />}
                 </div>

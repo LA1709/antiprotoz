@@ -148,7 +148,7 @@ const Search = () => {
                     </div>
                     <div className="form-group-item">
                         <label htmlFor="length">Peptide Length: </label>
-                        <input id="length" name="Length" type="number" min={1} max={124} placeholder="Enter Length" />
+                        <input id="length" name="Length" type="number" min={2} max={124} placeholder="Enter Length" />
                     </div>
                     {/* <div className="form-group-item">
                         <label htmlFor="pubmedid">PubMed ID: </label>
