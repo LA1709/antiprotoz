@@ -8,27 +8,23 @@
   height: 100%;
   color: #4e2f20;
   font-family: Cardo;
-  .heading {
-    position: relative;
-    top: 0.8rem;
-    margin: auto;
-    font-size: 1.2rem;
-    text-decoration: underline;
-    left: 10%;
-  }
   form {
     display: flex;
     gap: 1rem;
-    min-height: 70vh;
+    min-height: 75vh;
+    max-height: 88vh;
     margin-top: 1rem;
     .form-group {
       min-width: 25%;
       max-width: 28%;
       flex-grow: 1;
+      overflow-y: scroll;
+      padding: 1rem 0.5rem 1rem 0px;
       span {
-        margin-left: 1rem;
+        margin-left: 2rem;
+        text-align: center;
         text-decoration: underline;
-        cursor: context-menu;
+        font-size: 1.1rem;
       }
       p {
         padding: 0px;
@@ -49,9 +45,9 @@
           margin: 0;
           margin-top: -0.5rem;
           padding: 0;
-          font-size: 1.1rem;
+          font-size: 1.15rem;
           &:hover {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
           }
         }
         label {
@@ -83,9 +79,51 @@
           font-family: Cardo;
         }
       }
-      .closer {
-        margin-top: 0.2rem;
-        padding-left: 10%;
+      .form-group-special {
+        padding: 1rem 0rem 1rem 2rem;
+        span {
+          margin-left: 0px;
+        }
+        .help {
+          text-decoration: none;
+          padding: 1rem 0px 0px;
+          font-size: 0.96rem;
+        }
+        .aa-container {
+          display: flex;
+          flex-wrap: wrap;
+          .aa-item {
+            padding: 0.5rem;
+            input {
+              width: 35px;
+            }
+          }
+        }
+      }
+      .heading-container {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: flex-end;
+        align-items: center;
+        .heading {
+          font-size: 1.2rem;
+          text-decoration: underline;
+        }
+        .icon-container {
+          display: flex;
+          gap: 0.5rem;
+          cursor: pointer;
+          align-items: center;
+          padding-left: 1rem;
+          border-left: 1px solid #4e2f20;
+          &:hover {
+            font-weight: bold;
+            text-decoration: underline;
+          }
+          img {
+            width: 20px;
+          }
+        }
       }
     }
     .result-group {
@@ -93,6 +131,9 @@
       flex-grow: 1;
       max-width: 69vw;
       max-height: 82vh;
+    }
+    .collapsible {
+      padding-top: 1rem;
     }
   }
 }

@@ -12,12 +12,12 @@ const getAdvancedQuery = params => {
             : ""
             }`).filter(condition => !!condition).join(" AND ");
     if (params.Sequence) {
-        const q = `${params.type === "exact" ?
-            `Sequence='${params.Sequence}'` :
-            `Sequence LIKE '%${params.Sequence}%'`
-            }`;
-        if (condition) condition += ` AND ${q}`;
-        else condition = q;
+        // const q = `${params.type === "exact" ?
+        //     `Sequence='${params.Sequence}'` :
+        //     `Sequence LIKE '%${params.Sequence}%'`
+        //     }`;
+        // if (condition) condition += ` AND ${q}`;
+        // else condition = q;
     }
     return `SELECT
     ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType

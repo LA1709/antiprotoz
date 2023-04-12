@@ -367,6 +367,62 @@ export const inputFields = {
     },
 }
 
+export const cellLines = [
+    "A. gambiae strain KIL",
+    "A549 cell line",
+    "Adenocarcinomic human alveolar basal epithelial cells (A549) /RAW 264.7 Abelson murine leukemia virus-transformed macrophages",
+    "BALB/c BMDM",
+    "Balb/C mice bone marrow-derived macrophages (BMDMs)",
+    "Caco-2",
+    "Dendritic cells",
+    "Dendritic cells, vero cells and 293TT cells",
+    "HEK cells (American Type Culture Collection CRL-1573) and LNCaP prostate cancer cells (CRL-1740)",
+    "HeLa and fibroblast L929 cells",
+    "HeLa cells",
+    "HeLa cells and A549",
+    "HepG2 cells ,fibroblasts, THP-1 monocytes ,THP-1-derived macrophages",
+    "Human Hela MAGIC-5 cells",
+    "Human THP-1 monocytes",
+    "Human brain microvascular endothelial cells",
+    "Human colonic carcinoma cell line (Caco-2)",
+    "Human fibroblasts",
+    "Human foreskin fibroblast HFF",
+    "Human foreskin fibroblast cells (HFF-1)",
+    "Human glioblastoma cell line 86HG39",
+    "Human keratinocytes HaCat, Peritoneal Macrophages",
+    "Human lymphoma THP1",
+    "J774.1 murine macrophage",
+    "LLC-MK2 cells",
+    "MCF-10A human breast epithelial cells",
+    "MDCK cells",
+    "Macrophage U937",
+    "Mammalian Vero cells",
+    "Mammalian cell (LLC-MK)",
+    "Mice BALB/c peritoneal macrophages",
+    "Mouse embryonal cell line (NIH/3T3)",
+    "Murine macrophages",
+    "Normal breast cells MCF-10a",
+    "Normal cell line 3T3 from mouse fibroblast",
+    "Peritoneal Macrophages",
+    "Peritoneal mouse macrophages",
+    "Rat Myoblast L6 Cells",
+    "Rat peritoneal mast cells",
+    "Rat skeletal myoblasts(L-6 cells)",
+    "Rhesus monkey kidney cells LLC-MK2 (ATCC CCL-7)",
+    "T-lymphocytes",
+    "THP-1 cells",
+    "THP-1 monocytes, THP-1-derived macrophages, HFF  fibroblasts and HepG2 cells.",
+    "THP1 cell line",
+    "Tamm-Horsfall Protein 1 (THP1) cell line",
+    "Tamm-Horsfall Protein 1 (THP1) cell line (ATCC TIB-202)",
+    "The A549 cell line",
+    "Vero and 293TT cells",
+    "Vero cells",
+    "Vero cells, (ECACC 84113001)",
+    "human THP-1 monocytes, THP-1-derived macrophages, human hepatoma-derived cells",
+    "peritoneal macrophages from Balb/c mice"
+]
+
 export const aa = {
     'A': {
         min: 0,
@@ -492,3 +548,37 @@ export const getFamilyGroup = (family) => {
         return 'non-disulfide-bridged peptide (NDBP) superfamily';
     return family;
 }
+
+export const getSearchStyles = () => ({
+    control: (base, state) => ({
+        ...base,
+        background: '#fff',
+        borderColor: '#9c9c9c',
+        minHeight: '30px',
+        boxShadow: state.isFocused ? null : null,
+    }),
+    valueContainer: (base) => ({
+        ...base,
+        padding: '2px 6px',
+    }),
+    input: (base) => ({
+        ...base,
+        margin: '0px',
+    }),
+    multiValueLabel: (base) => ({
+        ...base,
+        padding: "2px 4px",
+    }),
+    multiValueRemove: (base) => ({
+        ...base,
+        padding: "0px 2px",
+    }),
+    option: (base) => ({
+        ...base,
+        padding: "0.3rem 0.5rem",
+    }),
+    placeholder: (base) => ({
+        ...base,
+        fontSize: "0.9rem",
+    }),
+})

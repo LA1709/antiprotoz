@@ -19,6 +19,7 @@
 
   .help-text {
     align-self: center;
+    padding-top: 2px;
   }
 
   .loader {
@@ -38,6 +39,9 @@
     display: block;
     max-width: 100%;
     max-height: 100%;
+    width: min-content;
+    table-layout: fixed;
+    margin: auto;
     overflow-x: auto;
     overflow-y: auto;
     white-space: nowrap;
