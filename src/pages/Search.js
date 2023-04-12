@@ -16,12 +16,30 @@ const Search = () => {
     const [data, setData] = useState(null);
     const [columns, setColumns] = useState(null);
     const [selectedOrg, setSelectedOrg] = useState("");
-    const [selectedAA, setSelectedAA] = useState([]);
+    const [selection, setSelection] = useState([]);
+    const [pattern, setPattern] = useState({});
 
     const handleSubmit = e => {
         e.preventDefault();
         setData(undefined);
         searchPeptides(e.target.elements, show, setData, setColumns);
+    }
+
+    const handleInputChange = e => {
+        const name = e.target.name;
+        const value = e.target.value;
+        if (value.match(/\D/) || pattern[value])
+            return;
+        setPattern(prev => {
+            const t = Object.keys(prev).filter(key =>
+                prev[key] !== name
+            ).reduce((obj, curr) => ({
+                ...obj,
+                [curr]: prev[curr]
+            }), {})
+            if (value) t[value] = name;
+            return t;
+        });
     }
 
     return <div className="search-wrapper">
@@ -32,32 +50,62 @@ const Search = () => {
                     <span>Search using Pattern</span>
                     <div className="form-group-special">
                         <Select
-                            id="sequence" name="Sequence" defaultValue={[""]}
+                            id="sequence" name="Sequence"
                             isMulti
                             options={Object.keys(aa).map(aminoAcid => ({
-                                label: aminoAcid,
-                                value: aminoAcid,
+                                label: aminoAcid
                             }))}
                             placeholder="Select Amino Acids to match"
                             styles={getSearchStyles()}
-                            onChange={selection => setSelectedAA(selection.map(item => item.value))}
+                            onChange={newSelection => {
+                                setSelection(newSelection.map(opt => ({
+                                    label: opt.label,
+                                    value: `${opt.label}SEQ_${Math.random()}`,
+                                })));
+                                setPattern({});
+                            }}
+                            value={selection}
                         />
-                        {!!selectedAA.length && <>
+                        {!!selection.length && <>
                             <div className="form-group-item">
                                 <label htmlFor="sequence">Length of Sequence: </label>
                                 <input id="SEQ_Length" name="SEQ_Length" type="number" min={2} max={263} placeholder="Any Length" />
                             </div>
-                            <div className="help">Positions to match at (comma-separated):</div>
+                            <div className="help">Positions to match at:</div>
                             <div className="aa-container">
-                                {selectedAA.map(item => (<div className="aa-item">
-                                    {item}: <input
-                                        id={`SEQ_${item}`}
-                                        name={`SEQ_${item}`}
-                                        type="text"
-                                        pattern="(\d,)*\d"
-                                        placeholder="Any"
-                                    />
-                                </div>))}
+                                {selection.map(item =>
+                                    <div className="aa-item" key={`${item.value}`}>
+                                        {item.label}: <input
+                                            name={`${item.value}`}
+                                            type="number"
+                                            min={1}
+                                            max={263}
+                                            placeholder="Any"
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                            <hr />
+                            <div className="pattern">
+                                {(() => {
+                                    const keys = Object.keys(pattern).map(key =>
+                                        parseInt(key)
+                                    ).sort((a, b) => a - b);
+                                    let ans = [];
+                                    for (let i = 0; i < keys.length; i++) {
+                                        const diff = keys[i] - (keys[i - 1] ?? 0);
+                                        if (diff === 1) {
+                                            ans.push(pattern[keys[i]].replace(/SEQ_.*/, ""));
+                                            continue;
+                                        }
+                                        if (diff > 4)
+                                            ans.push("..");
+                                        else ans.push("_".repeat(diff - 1));
+                                        ans.push(pattern[keys[i]].replace(/SEQ_.*/, ""));
+                                    }
+                                    return ans.join("") + "..";
+                                })()}
                             </div>
                         </>}
                     </div>

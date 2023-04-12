@@ -1,8 +1,8 @@
 import axios from "axios";
 import { colNames } from "./sql.util";
 
-const getAdvancedQuery = params => {
-    let condition = Object.entries(params).filter(item => item[0] !== 'type' && item[0] !== 'Sequence')
+const getAdvancedQuery = (params, isAdvanced) => {
+    let condition = Object.entries(params).filter(item => item[0].match(/^type|^Sequence|SEQ_/))
         .map(item => `${item[1] ?
             item[1] !== "reported" ?
                 item[0] === "Family" ?
@@ -12,12 +12,16 @@ const getAdvancedQuery = params => {
             : ""
             }`).filter(condition => !!condition).join(" AND ");
     if (params.Sequence) {
-        // const q = `${params.type === "exact" ?
-        //     `Sequence='${params.Sequence}'` :
-        //     `Sequence LIKE '%${params.Sequence}%'`
-        //     }`;
-        // if (condition) condition += ` AND ${q}`;
-        // else condition = q;
+        if (!isAdvanced) {
+            const q = `${params.type === "exact" ?
+                `Sequence='${params.Sequence}'` :
+                `Sequence LIKE '%${params.Sequence}%'`
+                }`;
+            if (condition) condition += ` AND ${q}`;
+            else condition = q;
+        } else {
+            console.log("This is the pattern search.");
+        }
     }
     return `SELECT
     ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType
@@ -30,12 +34,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     for (const el of elements) params[el.name] = el.value;
     delete params.submit;
     const data = {
-        "query": isAdvanced ?
-            getAdvancedQuery(params) :
-            `SELECT ID,Name,Year,PubmedID,Sequence,Target,Species,NatureType FROM master ${params.type === "exact" ?
-                `WHERE Sequence='${params.Sequence}'` :
-                `WHERE Sequence LIKE '%${params.Sequence}%'`
-            };`
+        "query": getAdvancedQuery(params, isAdvanced)
     };
     console.log(data);
     const config = {
