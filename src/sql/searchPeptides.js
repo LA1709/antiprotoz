@@ -2,7 +2,7 @@ import axios from "axios";
 import { colNames } from "./sql.util";
 
 const getAdvancedQuery = (params, isAdvanced) => {
-    let condition = Object.entries(params).filter(item => item[0].match(/^type|^Sequence|SEQ_/))
+    let condition = Object.entries(params).filter(item => !item[0].match(/^type|^Sequence|SEQ_/))
         .map(item => `${item[1] ?
             item[1] !== "reported" ?
                 item[0] === "Family" ?
@@ -33,6 +33,7 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
     let params = {};
     for (const el of elements) params[el.name] = el.value;
     delete params.submit;
+    console.log(params);
     const data = {
         "query": getAdvancedQuery(params, isAdvanced)
     };
