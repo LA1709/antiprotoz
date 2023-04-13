@@ -42,6 +42,11 @@ const getAdvancedQuery = (params, isAdvanced) => {
                 else regex += `.{${diff - 1}}`;
                 regex += name;
             }
+            if (params['SEQ_Length']) {
+                const diff = params['SEQ_Length'] - keys[keys.length - 1];
+                if (diff > 0)
+                    regex += `.{${diff}}`;
+            }
             q += `${q ? " AND " : ""}Sequence REGEXP '${regex}'`;
             if (condition) condition += ` AND ${q}`;
             else condition = q;

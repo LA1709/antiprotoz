@@ -18,6 +18,7 @@ const Search = () => {
     const [selectedOrg, setSelectedOrg] = useState("");
     const [selection, setSelection] = useState([]);
     const [pattern, setPattern] = useState({});
+    const [patternLength, setPatternLength] = useState(null);
 
     const stringFromPattern = (() => {
         const keys = Object.keys(pattern).sort((a, b) => a - b);
@@ -33,9 +34,7 @@ const Search = () => {
             else ans += "_".repeat(diff - 1);
             ans += pattern[keys[i]].replace(/SEQ_.*/, "");
         }
-        const lengthValue = document.getElementById("SEQ_Length")?.value;
-        console.log(lengthValue);
-        const diff = lengthValue ? lengthValue - keys[keys.length - 1] : 0;
+        const diff = patternLength ? patternLength - keys[keys.length - 1] : 0;
         if (diff > 0 && diff < 4)
             return ans + "_".repeat(diff);
         return ans + "..";
@@ -93,7 +92,16 @@ const Search = () => {
                         {!!selection.length && <>
                             <div className="form-group-item">
                                 <label htmlFor="sequence">Length of Sequence: </label>
-                                <input id="SEQ_Length" name="SEQ_Length" type="number" min={2} max={263} placeholder="Any Length" />
+                                <input
+                                    id="SEQ_Length"
+                                    name="SEQ_Length"
+                                    type="number" min={2} max={263}
+                                    placeholder="Any Length"
+                                    onChange={e => {
+                                        const val = parseInt(e.target.value);
+                                        setPatternLength(val ? val : null);
+                                    }}
+                                />
                             </div>
                             <div className="help">Positions to match at:</div>
                             <div className="aa-container">
