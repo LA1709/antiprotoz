@@ -35,7 +35,7 @@ const Search = () => {
             ans += pattern[keys[i]].replace(/SEQ_.*/, "");
         }
         const diff = patternLength ? patternLength - keys[keys.length - 1] : 0;
-        if (diff > 0 && diff < 4)
+        if (diff >= 0 && diff < 4)
             return ans + "_".repeat(diff);
         return ans + "..";
     })();
