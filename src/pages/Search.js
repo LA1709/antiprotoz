@@ -19,6 +19,29 @@ const Search = () => {
     const [selection, setSelection] = useState([]);
     const [pattern, setPattern] = useState({});
 
+    const stringFromPattern = (() => {
+        const keys = Object.keys(pattern).sort((a, b) => a - b);
+        let ans = "";
+        for (let i = 0; i < keys.length; i++) {
+            const diff = keys[i] - (keys[i - 1] ?? 0);
+            if (diff === 1) {
+                ans += pattern[keys[i]].replace(/SEQ_.*/, "");
+                continue;
+            }
+            if (diff > 4)
+                ans += "..";
+            else ans += "_".repeat(diff - 1);
+            ans += pattern[keys[i]].replace(/SEQ_.*/, "");
+        }
+        const lengthValue = document.getElementById("SEQ_Length")?.value;
+        console.log(lengthValue);
+        const diff = lengthValue ? lengthValue - keys[keys.length - 1] : 0;
+        if (diff > 0 && diff < 4)
+            return ans + "_".repeat(diff);
+        return ans + "..";
+    })();
+
+
     const handleSubmit = e => {
         e.preventDefault();
         setData(undefined);
@@ -28,7 +51,7 @@ const Search = () => {
     const handleInputChange = e => {
         const name = e.target.name;
         const value = e.target.value;
-        if (value.match(/\D/) || pattern[value])
+        if (value.match(/^0|\D/) || pattern[value])
             return;
         setPattern(prev => {
             const t = Object.keys(prev).filter(key =>
@@ -60,7 +83,8 @@ const Search = () => {
                             onChange={newSelection => {
                                 setSelection(newSelection.map(opt => ({
                                     label: opt.label,
-                                    value: `${opt.label}SEQ_${Math.random()}`,
+                                    value: `${opt.label}SEQ_${Math.random()
+                                        }`,
                                 })));
                                 setPattern({});
                             }}
@@ -74,9 +98,9 @@ const Search = () => {
                             <div className="help">Positions to match at:</div>
                             <div className="aa-container">
                                 {selection.map(item =>
-                                    <div className="aa-item" key={`${item.value}`}>
+                                    <div className="aa-item" key={`${item.value} `}>
                                         {item.label}: <input
-                                            name={`${item.value}`}
+                                            name={`${item.value} `}
                                             type="number"
                                             min={1}
                                             max={263}
@@ -88,24 +112,7 @@ const Search = () => {
                             </div>
                             <hr />
                             <div className="pattern">
-                                {(() => {
-                                    const keys = Object.keys(pattern).map(key =>
-                                        parseInt(key)
-                                    ).sort((a, b) => a - b);
-                                    let ans = [];
-                                    for (let i = 0; i < keys.length; i++) {
-                                        const diff = keys[i] - (keys[i - 1] ?? 0);
-                                        if (diff === 1) {
-                                            ans.push(pattern[keys[i]].replace(/SEQ_.*/, ""));
-                                            continue;
-                                        }
-                                        if (diff > 4)
-                                            ans.push("..");
-                                        else ans.push("_".repeat(diff - 1));
-                                        ans.push(pattern[keys[i]].replace(/SEQ_.*/, ""));
-                                    }
-                                    return ans.join("") + "..";
-                                })()}
+                                {stringFromPattern}
                             </div>
                         </>}
                     </div>

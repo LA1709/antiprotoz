@@ -20,7 +20,31 @@ const getAdvancedQuery = (params, isAdvanced) => {
             if (condition) condition += ` AND ${q}`;
             else condition = q;
         } else {
-            console.log("This is the pattern search.");
+            let q = "";
+            if (!!params['SEQ_Length'])
+                q += `LENGTH(Sequence)=${params['SEQ_Length']}`;
+            const keys = Object.keys(params).filter(key =>
+                key.match(/SEQ_0/)
+            ).sort((a, b) => params[a] - params[b]);
+            let regex = "";
+            for (let i = 0; i < keys.length; i++) {
+                const name = keys[i].replace(/SEQ_.*/, "");
+                if (!params[keys[i]]) {
+                    condition += `${condition ? " AND " : ""}Sequence LIKE '%${name}%'`;
+                    continue;
+                }
+                const diff = params[keys[i]] - (params[keys[i - 1]] ?? 0);
+                if (diff === 1) {
+                    regex += name;
+                    continue;
+                }
+                if (diff === 2) regex += ".";
+                else regex += `.{${diff - 1}}`;
+                regex += name;
+            }
+            q += `${q ? " AND " : ""}Sequence REGEXP '${regex}'`;
+            if (condition) condition += ` AND ${q}`;
+            else condition = q;
         }
     }
     return `SELECT
