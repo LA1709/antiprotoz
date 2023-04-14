@@ -7,14 +7,20 @@ import './blast.scss';
 const Blast = () => {
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
+    const [error, setError] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
-        setLoading(true);
-        blast(e.target.elements, data => {
-            setLoading(false);
-            setResult(data);
-        });
+        setError(false);
+        if (!e.target.elements.query.value.match(/^>.*\n.*\n{1,}$/)) {
+            setError(true);
+        } else {
+            setLoading(true);
+            blast(e.target.elements, data => {
+                setLoading(false);
+                setResult(data);
+            });
+        }
     }
 
     const handleExample = (e) => {
@@ -25,6 +31,7 @@ const Blast = () => {
 
     const handleClear = (e) => {
         e.preventDefault();
+        setError(false);
         const el = document.getElementById('query');
         el.value = "";
     };
@@ -77,6 +84,9 @@ const Blast = () => {
                             rows="7"
                             required
                         />
+                        {error && <div className="error">
+                            Incorrect Query. Please enter only one sequence in FASTA format
+                        </div>}
                     </div>
                     <div className="form-item">
                         <div className="grouped-items">

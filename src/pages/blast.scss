@@ -74,6 +74,9 @@
       gap: 1rem;
       font-family: Cardo;
       color: #382119;
+      .error {
+        color: #d64545;
+      }
       .heading-group {
         display: flex;
         justify-content: space-between;
