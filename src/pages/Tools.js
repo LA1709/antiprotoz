@@ -41,10 +41,10 @@ const Tools = () => {
             <div className="tabs-container">
                 <div className="tab-content">
                     <div className="heading">
-                        Amino Acid Composition
+                        {tool.match(/aa/i) ? "Amino Acid Composition" : "Physical Properties Composition"}
                     </div>
                     <div className="description">
-                        Physical Properties Composition
+                        This tool is to facilitate the retrieval of peptides with the required {description[tool] ?? "N/A"}
                     </div>
                     {tool === "aa" && <Composition
                         title="Amino Acid Composition"
