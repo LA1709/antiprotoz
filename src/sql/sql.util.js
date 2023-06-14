@@ -185,6 +185,7 @@ export const peptideInfo = {
 export const sources = [
     'Natural',
     'Synthetic',
+    'Derived from Natural Protein',
 ]
 
 export const families = [
@@ -238,8 +239,8 @@ export const families = [
     "phospholipase A2 family. Group II subfamily. K49 sub-subfamily",
     "pleurocidin family",
     "pore-forming trialysin (trialysin) family",
-    "SAPLIP family,",
-    "Saposin",
+    "SAPLIP family",
+    "Saposin family",
     "sauvagine/corticotropin-releasing factor/urotensin I family",
     "tachyplesin/polyphemusin family",
     "thiocillin family",

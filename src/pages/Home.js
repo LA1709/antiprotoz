@@ -18,7 +18,7 @@ const Home = () => {
                 <span className="smaller">ntiProtoZ</span>
             </div>
             <div className="menu-container">
-                <Link to="/browse"> Browse </Link>
+                <Link to="/browse"> Explore </Link>
                 <Link to="/search"> Search </Link>
                 <div className="grouped">
                     <Link to="/composition/aa"> AA composition </Link>
@@ -31,17 +31,17 @@ const Home = () => {
             </div>
         </section>
         <section className="second-container">
-            <span>AntiProtoZ is a manually-curated database solely dedicated collection of peptides with antiprotozoal activity.</span>
-            <span>The database contains experimentally verified peptides, and a detailed description for each peptide has PubMed Id and Uniport ID for literature and peptide reference.</span>
-            <span>The database provides a search for peptides against particular Organisms or Species and a browse facility to explore the different categories of peptides.</span>
-            <span>Additionally, tools for BLAST and amino acid composition and visualization of the current statistics are present.</span>
+            <span>AntiProtoZ is a manually-curated database solely dedicated to collection of peptides with antiprotozoal activity.</span>
+            <span>The database contains experimentally verified peptides and a detailed description of each peptide including their activity, physical properties, literature reference, and modifications.</span>
+            <span>The database provides utilities for searching peptides against particular Organisms or Species and an explore facility to retrieve the different sets of peptides belonging to different categories.</span>
+            <span>Additionally, BLAST and amino acid and physical property composition are provided. Users can get real time statistics of the data on the visualization page.</span>
         </section>
         <section className="third-container">
             <div className="title">Anti-Protozoal Peptides</div>
             <div className="description">
-                Anti-protozoal peptides  are a subset of Antimicrobial peptides that show activity against protozoan species.
+                Anti-protozoal peptides are a subset of Antimicrobial peptides that show activity against protozoan species.
                 <br />
-                These peptides can be natural or synthetic. Antiprotoz contains antiprotozoal peptides for both free-living and parasitic protozoan species.
+                These peptides can be naturally obtained from organisms or synthetically designed. Antiprotoz contains antiprotozoal peptides for both free-living and parasitic protozoan species.
             </div>
         </section>
         <section className="fourth-container">

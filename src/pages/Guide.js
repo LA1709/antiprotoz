@@ -24,7 +24,7 @@ const Guide = () => {
         <div className="description">
             On this page, we have provided instructions for the following:
             <ul>
-                <li><a href="#browse">Browse</a></li>
+                <li><a href="#explore">Explore</a></li>
                 <li><a href="#search">Search</a></li>
                 <li><a href="#blast">BLAST</a></li>
                 <li><a href="#composition">Amino Acid Composition</a></li>
@@ -32,14 +32,14 @@ const Guide = () => {
             </ul>
         </div>
         <div className="guide-section">
-            <div id="browse" className="section-heading">1. Browse</div>
+            <div id="explore" className="section-heading">1. Explore</div>
             <div className="section-description">
-                The Browse will allow you to obtain all the peptides belonging to the categories listed under each category. You can also explore the subgroups formed by selecting multiple options.
+                The explore section will allow you to obtain all the peptides belonging to the categories listed under each category. You can also explore the subgroups formed by selecting multiple options.
             </div>
             <img
                 className="section-image"
                 src={i1}
-                alt="browse"
+                alt="explore"
             />
             <div id="search" className="section-heading">2. Search</div>
             <div className="section-description">

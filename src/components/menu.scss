@@ -46,7 +46,7 @@
         border: none;
       }
       &:hover {
-        background-color: #e0dcd330;
+        background-color: #efe7da30;
         font-family: CGBold;
         padding: 0rem 2.5rem;
       }
@@ -64,13 +64,13 @@
       align-items: center;
       gap: 0.5rem;
       &:hover {
-        background-color: #e0dcd330;
+        background-color: #efe7da30;
         font-family: CGBold;
         padding: 0rem 1.5rem;
       }
     }
     .opened {
-      background-color: #e0dcd330;
+      background-color: #efe7da30;
       font-family: CGBold;
       padding: 0rem 1.5rem;
     }
@@ -89,18 +89,18 @@
           background-color: #abc3c9;
           font-family: CG;
           padding: 1rem 1.5rem;
-          color: #e0dcd3;
+          color: #efe7da;
         }
       }
       .disabled {
         background-color: #abc3c9;
         font-family: CG;
-        color: #e0dcd3;
+        color: #efe7da;
       }
     }
     .disabled {
       cursor: context-menu;
-      background-color: #e0dcd330;
+      background-color: #efe7da30;
       font-family: CGBold;
       &:hover {
         padding: 0.5rem 2.5rem;

@@ -17,7 +17,7 @@ const Menu = () => {
             </div>
         </Link>
         <div className="links-wrapper">
-            <Link to="/browse" className={selected.match('/browse') ? 'disabled' : ''}>Browse</Link>
+            <Link to="/browse" className={selected.match('/browse') ? 'disabled' : ''}>Explore</Link>
             <Link to="/search" className={selected.match('/search') ? 'disabled' : ''}>Search</Link>
             <div
                 className={`dropdown${(isOpen || selected.match('/composition/')) ? " opened" : ""}`}

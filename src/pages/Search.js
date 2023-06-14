@@ -173,7 +173,7 @@ const Search = () => {
                             name="Species"
                             defaultValue=""
                         >
-                            <option value="">Any spieces</option>
+                            <option value="">Any species</option>
                             {(selectedOrg ?
                                 organisms[selectedOrg] : Object.values(organisms)
                                     .reduce((prev, curr) => [...prev, ...curr], []))

@@ -87,7 +87,7 @@ const Browse = () => {
                 <div className="actionable-form-group">
                     <button onClick={handleSelectAll}><img src={CheckIcon} alt="" />Select All</button>
                     <button onClick={handleClearAll}><img src={TrashIcon} alt="" />Clear All</button>
-                    <input id="submit" name="submit" type="submit" value="Browse" />
+                    <input id="submit" name="submit" type="submit" value="Explore" />
                 </div>
             </form> :
             <div className="result">

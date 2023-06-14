@@ -24,7 +24,7 @@
     height: 10px;
   }
   &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #e0dcd3;
+    box-shadow: inset 0 0 5px #efe7da;
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb {
@@ -75,22 +75,22 @@
         display: flex;
         justify-content: space-between;
         a:last-child {
-          border-bottom: 1px solid #e0dcd3;
-          border-left: 1px solid #e0dcd3;
+          border-bottom: 1px solid #efe7da;
+          border-left: 1px solid #efe7da;
         }
       }
       a {
         width: 100%;
         text-align: center;
         padding: 1.8rem 0px;
-        border-bottom: 1px solid #e0dcd3;
+        border-bottom: 1px solid #efe7da;
         color: #fcfcfc;
         font-family: Cardo;
         font-size: 2rem;
         text-decoration: none;
         cursor: pointer;
         &:hover {
-          background-color: #e0dcd330;
+          background-color: #efe7da30;
           font-family: CardoBold;
         }
         &:last-child {

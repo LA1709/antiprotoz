@@ -41,10 +41,10 @@ const Tools = () => {
             <div className="tabs-container">
                 <div className="tab-content">
                     <div className="heading">
-                        Searching peptides based on properties of a peptide
+                        Amino Acid Composition
                     </div>
                     <div className="description">
-                        This tool is to facilitate the retrieval of peptides with the required {description[tool] ?? "N/A"}
+                        Physical Properties Composition
                     </div>
                     {tool === "aa" && <Composition
                         title="Amino Acid Composition"
