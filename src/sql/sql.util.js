@@ -19,7 +19,7 @@ export const colNames = {
     Structure: "3D Structure",
     NTerminal: "N-Terminal Modification",
     CTerminal: "C-Terminal Modification",
-    Modification: "Chemical Modification",
+    Modification: "Sequence Modification",
     Type: "Free Living/Parasitic",
     Target: "Target Organism",
     Species: "Target Species",

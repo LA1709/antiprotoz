@@ -19,6 +19,8 @@ const Overview = () => {
     const chart6Ref = useRef(null);
     const chart7Ref = useRef(null);
     const chart8Ref = useRef(null);
+    const chart9Ref = useRef(null);
+    const chart10Ref = useRef(null);
 
     useEffect(() => {
         fetchCharts(setChartData);
@@ -34,6 +36,8 @@ const Overview = () => {
         chart6,
         chart7,
         chart8,
+        chart9,
+        chart10,
     } = getChartsFromData(chartData);
 
     return <div className="overview-wrapper">
@@ -59,7 +63,7 @@ const Overview = () => {
                 </div>
                 <div className='desc'>
                     <span>
-                        The pie chart illustrates the nature of the organisms targeted. More than 90% of the peptides are active against parasitic organisms.
+                        Protozoan organisms can be either parasitic or free living. The pie chart illustrates the number of peptides targeting parasitic and free-living organisms.
                     </span>
                     <button onClick={() => {
                         const link = document.createElement('a');
@@ -86,7 +90,7 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    The bar graph represents the number of peptides targeting different diseases caused by protozoans species.
+                    The bar graph represents the number of peptides against different diseases caused by protozoans species. The others category include other rare protozoan diseases such as Besnoitiosis, Acanthamoeba keratitis, Babesiosis, Blastocystis, Coccidiosis, Intestinal amoebiasis, Primary Amebic Meningoencephalitis, Neosporosis, and Scuticociliatosis.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
@@ -112,12 +116,64 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    The chart on the left represents the nature of the source of antiprotozoal peptides. The source of origin was either Natural (obtained from parts of different organisms) or Synthetic.
+                    The chart on the left represents the source of antiprotozoal peptides. The source of origin was either Natural (obtained from parts of different organisms) , Derived from nature protein (peptides that are fragments of original natural peptide), or Synthetic.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart2.options.plugins.title.text}.png`;
                     link.href = chart2Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section>
+            <div className='chart'>
+                {chart9.data ? <Chart
+                    ref={chart9Ref}
+                    {...chart9}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <span>
+                    The chart on the left represents the chirality of the antiprotozoal peptides.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart9.options.plugins.title.text}.png`;
+                    link.href = chart9Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section>
+            <div className='chart'>
+                {chart10.data ? <Chart
+                    ref={chart10Ref}
+                    {...chart10}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <span>
+                    The chart on the left represents the structure of the antiprotozoal peptides.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart10.options.plugins.title.text}.png`;
+                    link.href = chart10Ref.current.toBase64Image();
                     link.click();
                     link.remove();
                 }}>Download</button>
@@ -163,7 +219,7 @@ const Overview = () => {
                 />}
             </div>
             <div className='desc row'>
-                <span>Graph illustrating the number of peptides studied in different years. The peptides used for reference are from studies done in the last four decades (1982-2022).</span>
+                <span>The above Line graph shows the number of antiprotozoal peptides published in the time period of the last four decades (1982-2022).</span>
                 <button onClick={() => {
                     const link = document.createElement('a');
                     link.download = `${chart4.options.plugins.title.text}.png`;
@@ -188,7 +244,7 @@ const Overview = () => {
             </div>
             <div className='desc row'>
                 <span>
-                    The bar graph showcases the families of naturally obtained antiprotozoal peptides. The maximum number of peptides belong to the Frog Skin Active Peptide  (FSAP) family, followed by the Cathelicidin family.
+                    Each bar in the graph shows the number of antiprotozoal peptides in the database that belong to a particular peptide family.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
@@ -199,19 +255,7 @@ const Overview = () => {
                 }}>Download</button>
             </div>
         </section>
-        <section className="smaller">
-            <div className='chart'>
-                {chart6.data ? <Chart
-                    ref={chart6Ref}
-                    {...chart6}
-                /> : <lottie-player
-                    src={JSON.stringify(Loading)}
-                    background="transparent"
-                    speed="1"
-                    loop
-                    autoplay
-                />}
-            </div>
+        <section>
             <div className='chart'>
                 {chart7.data ? <Chart
                     ref={chart7Ref}
@@ -224,6 +268,46 @@ const Overview = () => {
                     autoplay
                 />}
             </div>
+            <div className='desc'>
+                <span>
+                    The chart represents the modifications at the C-terminal modification. The most common C-terminal modification is carboxamidation. The other different types of modifications include the addition of Morpholine urea, Butyloxycarbonyl, Methoxy group, aldehyde group, Phenylalaninamide, Methoxypyrrolinone, lactic acid, etc.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart7.options.plugins.title.text}.png`;
+                    link.href = chart7Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section>
+            <div className='chart'>
+                {chart6.data ? <Chart
+                    ref={chart6Ref}
+                    {...chart6}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <span>
+                    The chart represents the modifications at the N-terminal modification. The most common N-terminal modification is Acetylation. The other different types of modifications include the addition of Fluoromethanide, heptanoyl, lauroyl, Glycyl, Butyryl, Benzoyl, etc.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart6.options.plugins.title.text}.png`;
+                    link.href = chart6Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section>
             <div className='chart'>
                 {chart8.data ? <Chart
                     ref={chart8Ref}
@@ -236,8 +320,17 @@ const Overview = () => {
                     autoplay
                 />}
             </div>
-            <div className='writeup'>
-                Three different pie charts representing the types of modifications studied in the peptides. (a) N-terminal modifications in antiprotozoal peptides include Lysine N-trimethyl, aminoheptanoyl, acetyl, pyroglutamic acid, and glycine groups. (b)  C-terminal modification with Carboxamide, Glycine, alanine, and amide as the most common groups. (c) Chemical modifications with proline, lysine, valine, and methionine groups replacing other groups. Maximum peptides have modifications in C-terminal.
+            <div className='desc'>
+                <span>
+                    The chart represents the modifications In the sequence of amino acids in a peptide or the addition of non-protein amino acids. Ornithine is the most commonly added nonprotein amino acid and Trimethylation of lysine is the most common amino acid modification. The other different types of modifications include the addition of Homophenylalanine, D-allo-threonine, Anthryl-alanine, Aeo= 2-amino-9,10-epoxy-8-oxodecanoic acid, Pyroglutamic acid, etc.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart8.options.plugins.title.text}.png`;
+                    link.href = chart8Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
             </div>
         </section>
     </div >

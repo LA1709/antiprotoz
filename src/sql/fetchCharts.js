@@ -27,6 +27,8 @@ export const fetchCharts = (callback) => {
         SELECT COUNT(*) AS COUNT,Type FROM master GROUP BY Type;
         SELECT COUNT(*) AS COUNT,Family FROM master GROUP BY Family;
         SELECT NTerminal,CTerminal,Modification FROM master;
+        SELECT COUNT(*) AS COUNT,Chirality FROM master GROUP BY Chirality;
+        SELECT COUNT(*) AS COUNT,Encoding FROM master GROUP BY Encoding;
         `
     };
     const config = {
@@ -89,6 +91,9 @@ export const fetchCharts = (callback) => {
                 No: 0,
             },
         });
+        const chirality = result.data[7].filter(row => !!row.Chirality);
+        const encoding = result.data[8].filter(row => !!row.Encoding);
+
         callback({
             sources,
             diseases,
@@ -97,7 +102,9 @@ export const fetchCharts = (callback) => {
             types,
             families,
             modifications,
-        })
+            chirality,
+            encoding,
+        });
     }).catch(err => {
         console.log(err);
         callback({});

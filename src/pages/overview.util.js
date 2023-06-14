@@ -125,7 +125,7 @@ export const getChartsFromData = (chartData) => {
                 },
                 title: {
                     display: true,
-                    text: 'No. of Peptides per target organisms'
+                    text: 'No. of Peptides per target organism'
                 }
             },
             animation: {
@@ -199,7 +199,7 @@ export const getChartsFromData = (chartData) => {
                 },
                 title: {
                     display: true,
-                    text: 'The families of Target Organisms'
+                    text: 'Distribution of the peptides on the basis of peptide families'
                 }
             },
             animation: {
@@ -306,9 +306,65 @@ export const getChartsFromData = (chartData) => {
                 },
                 title: {
                     display: true,
-                    text: 'Chemical Modification'
+                    text: 'Sequence Modification'
                 }
             },
+        },
+    };
+
+    const t9 = chartData?.chirality?.reduce((prev, curr) => prev + curr['COUNT'], 0);
+    const chart9 = {
+        type: 'doughnut',
+        data: chartData?.chirality ?
+            {
+                labels: chartData.chirality.map(row => row.Chirality),
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: chartData.chirality.map(row => (row['COUNT'] / t9) * 100),
+                    }
+                ]
+            } : null,
+        options: {
+            responsive: true,
+            spacing: 10,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Chirality'
+                }
+            }
+        },
+    };
+
+    const t10 = chartData?.encoding?.reduce((prev, curr) => prev + curr['COUNT'], 0);
+    const chart10 = {
+        type: 'doughnut',
+        data: chartData?.encoding ?
+            {
+                labels: chartData.encoding.map(row => row.Encoding),
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: chartData.encoding.map(row => (row['COUNT'] / t10) * 100),
+                    }
+                ]
+            } : null,
+        options: {
+            responsive: true,
+            spacing: 10,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Linear / Cyclic'
+                }
+            }
         },
     };
 
@@ -322,5 +378,7 @@ export const getChartsFromData = (chartData) => {
         chart6,
         chart7,
         chart8,
+        chart9,
+        chart10,
     }
 } 
