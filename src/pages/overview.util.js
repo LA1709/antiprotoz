@@ -15,7 +15,7 @@ export const getChartsFromData = (chartData) => {
             } : null,
         options: {
             responsive: true,
-            spacing: 10,
+            spacing: 4,
             plugins: {
                 legend: {
                     position: 'bottom'
@@ -125,7 +125,7 @@ export const getChartsFromData = (chartData) => {
                 },
                 title: {
                     display: true,
-                    text: 'No. of Peptides per target organisms'
+                    text: 'No. of Peptides per target organism'
                 }
             },
             animation: {
@@ -199,7 +199,7 @@ export const getChartsFromData = (chartData) => {
                 },
                 title: {
                     display: true,
-                    text: 'The families of Target Organisms'
+                    text: 'Distribution of the peptides on the basis of peptide families'
                 }
             },
             animation: {
@@ -229,21 +229,21 @@ export const getChartsFromData = (chartData) => {
     const { NTerminal, CTerminal, Modification } = chartData?.modifications ?? {};
     const chart6 = {
         type: 'doughnut',
-        data: NTerminal ? (() => {
-            const t = Object.values(NTerminal).reduce((prev, curr) => prev + curr, 0);
+        data: NTerminal?.length ? (() => {
+            const t = NTerminal.reduce((prev, curr) => prev + curr.COUNT, 0);
             return {
-                labels: ["Yes", "No"],
+                labels: NTerminal.map(row => row.NTerminal),
                 datasets: [
                     {
                         label: "Peptides (%)",
-                        data: Object.values(NTerminal).map(val => (val / t) * 100),
+                        data: NTerminal.map(val => (val.COUNT / t) * 100),
                     }
                 ]
             }
         })() : null,
         options: {
             responsive: true,
-            spacing: 10,
+            spacing: 3,
             plugins: {
                 legend: {
                     position: 'bottom'
@@ -258,20 +258,20 @@ export const getChartsFromData = (chartData) => {
     const chart7 = {
         type: 'doughnut',
         data: CTerminal ? (() => {
-            const t = Object.values(CTerminal).reduce((prev, curr) => prev + curr, 0);
+            const t = CTerminal.reduce((prev, curr) => prev + curr.COUNT, 0);
             return {
-                labels: ["Yes", "No"],
+                labels: CTerminal.map(row => row.CTerminal),
                 datasets: [
                     {
                         label: "Peptides (%)",
-                        data: Object.values(CTerminal).map(val => (val / t) * 100),
+                        data: CTerminal.map(val => (val.COUNT / t) * 100),
                     }
                 ]
             }
         })() : null,
         options: {
             responsive: true,
-            spacing: 10,
+            spacing: 3,
             plugins: {
                 legend: {
                     position: 'bottom'
@@ -286,17 +286,73 @@ export const getChartsFromData = (chartData) => {
     const chart8 = {
         type: 'doughnut',
         data: Modification ? (() => {
-            const t = Object.values(Modification).reduce((prev, curr) => prev + curr, 0);
+            const t = Modification.reduce((prev, curr) => prev + curr.COUNT, 0);
             return {
-                labels: ["Yes", "No"],
+                labels: Modification.map(row => row.Modification),
                 datasets: [
                     {
                         label: "Peptides (%)",
-                        data: Object.values(Modification).map(val => (val / t) * 100),
+                        data: Modification.map(val => (val.COUNT / t) * 100),
                     }
                 ]
             }
         })() : null,
+        options: {
+            responsive: true,
+            spacing: 3,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Sequence Modification'
+                }
+            },
+        },
+    };
+
+    const t9 = chartData?.chirality?.reduce((prev, curr) => prev + curr['COUNT'], 0);
+    const chart9 = {
+        type: 'doughnut',
+        data: chartData?.chirality ?
+            {
+                labels: chartData.chirality.map(row => row.Chirality),
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: chartData.chirality.map(row => (row['COUNT'] / t9) * 100),
+                    }
+                ]
+            } : null,
+        options: {
+            responsive: true,
+            spacing: 3,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Chirality'
+                }
+            }
+        },
+    };
+
+    const t10 = chartData?.encoding?.reduce((prev, curr) => prev + curr['COUNT'], 0);
+    const chart10 = {
+        type: 'doughnut',
+        data: chartData?.encoding ?
+            {
+                labels: chartData.encoding.map(row => row.Encoding),
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: chartData.encoding.map(row => (row['COUNT'] / t10) * 100),
+                    }
+                ]
+            } : null,
         options: {
             responsive: true,
             spacing: 10,
@@ -306,9 +362,9 @@ export const getChartsFromData = (chartData) => {
                 },
                 title: {
                     display: true,
-                    text: 'Chemical Modification'
+                    text: 'Linear / Cyclic'
                 }
-            },
+            }
         },
     };
 
@@ -322,5 +378,7 @@ export const getChartsFromData = (chartData) => {
         chart6,
         chart7,
         chart8,
+        chart9,
+        chart10,
     }
 } 

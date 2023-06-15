@@ -1,21 +1,18 @@
 import axios from "axios";
-import { getFamilyGroup } from "./sql.util";
+import { getDiseaseGroup, getFamilyGroup } from "./sql.util";
 
-const getDiseaseGroup = (disease) => {
-    if (disease.match(/Cryptosporidiosis/i))
-        return 'Cryptosporidiosis';
-    if (disease.match(/Toxoplasmosis/i))
-        return 'Toxoplasmosis';
-    if (disease.match(/Leishmaniasis/i))
-        return 'Leishmaniasis';
-    if (disease.match(/trypanosomiasis/i))
-        return 'trypanosomiasis';
-    if (disease.match(/Trichomoniasis/i))
-        return 'Trichomoniasis';
-    if (disease.match(/Malaria/i))
-        return 'Malaria';
-    return 'Others';
-};
+const groupDataCount = (data, colName, filter) => {
+    return Object.entries(data.filter(row => !!row[colName]).reduce((prev, curr) => {
+        const group = filter(curr[colName]);
+        return {
+            ...prev,
+            [group]: (prev[group] ?? 0) + curr['COUNT']
+        }
+    }, {})).map(item => ({
+        [colName]: item[0],
+        COUNT: item[1],
+    }));
+}
 
 export const fetchCharts = (callback) => {
     const data = {
@@ -26,7 +23,11 @@ export const fetchCharts = (callback) => {
         SELECT COUNT(DISTINCT(PubmedID)) AS COUNT,Year FROM master GROUP BY Year;
         SELECT COUNT(*) AS COUNT,Type FROM master GROUP BY Type;
         SELECT COUNT(*) AS COUNT,Family FROM master GROUP BY Family;
-        SELECT NTerminal,CTerminal,Modification FROM master;
+        SELECT COUNT(*) AS COUNT,Chirality FROM master GROUP BY Chirality;
+        SELECT COUNT(*) AS COUNT,Encoding FROM master GROUP BY Encoding;
+        SELECT COUNT(*) AS COUNT,NTerminal FROM master GROUP BY NTerminal;
+        SELECT COUNT(*) AS COUNT,CTerminal FROM master GROUP BY CTerminal;
+        SELECT COUNT(*) AS COUNT,Modification FROM master GROUP BY Modification;
         `
     };
     const config = {
@@ -39,56 +40,26 @@ export const fetchCharts = (callback) => {
     };
     axios(config).then(result => {
         const sources = result.data[0].filter(row => !!row.NatureType);
-        const diseases = Object.entries(result.data[1].filter(row => !!row.Disease).reduce((prev, curr) => {
-            const group = getDiseaseGroup(curr.Disease);
-            return {
-                ...prev,
-                [group]: (prev[group] ?? 0) + curr['COUNT']
-            }
-        }, {})).map(item => ({
-            Disease: item[0],
-            COUNT: item[1],
-        }));
+        const diseases = groupDataCount(result.data[1], 'Disease', getDiseaseGroup);
         const peptides = result.data[2].filter(row => !!row.Target);
         const years = result.data[3].filter(row => !!row.Year);
         const types = result.data[4].filter(row => !!row.Type);
-        const families = Object.entries(result.data[5].filter(row => !!row.Family).reduce((prev, curr) => {
-            const group = getFamilyGroup(curr.Family);
-            return {
-                ...prev,
-                [group]: (prev[group] ?? 0) + curr['COUNT']
-            }
-        }, {})).map(item => ({
-            Family: item[0],
-            COUNT: item[1],
-        }));
-        const modifications = result.data[6].reduce((prev, curr) => ({
-            NTerminal: curr.NTerminal ? {
-                Yes: prev.NTerminal.Yes + (curr.NTerminal === "Free" ? 0 : 1),
-                No: prev.NTerminal.No + (curr.NTerminal === "Free" ? 1 : 0),
-            } : prev.NTerminal,
-            CTerminal: curr.CTerminal ? {
-                Yes: prev.CTerminal.Yes + (curr.CTerminal === "Free" ? 0 : 1),
-                No: prev.CTerminal.No + (curr.CTerminal === "Free" ? 1 : 0),
-            } : prev.CTerminal,
-            Modification: {
-                Yes: prev.Modification.Yes + (curr.Modification === "None" ? 0 : 1),
-                No: prev.Modification.No + (curr.Modification === "None" ? 1 : 0),
-            },
-        }), {
-            NTerminal: {
-                Yes: 0,
-                No: 0,
-            },
-            CTerminal: {
-                Yes: 0,
-                No: 0,
-            },
-            Modification: {
-                Yes: 0,
-                No: 0,
-            },
+        const families = groupDataCount(result.data[5], 'Family', getFamilyGroup);
+        const chirality = result.data[6].filter(row => !!row.Chirality);
+        const encoding = result.data[7].filter(row => !!row.Encoding);
+        const NTerminal = groupDataCount(result.data[8], 'NTerminal', (value) => {
+            if (value.match(/Free|Acetyl/)) return value;
+            else return 'Other Modification';
         });
+        const CTerminal = groupDataCount(result.data[9], 'CTerminal', (value) => {
+            if (value.match(/Free|Carboxamide/)) return value;
+            else return 'Other Modification';
+        });
+        const Modification = groupDataCount(result.data[10], 'Modification', (value) => {
+            if (value.match(/Free|Ornithine|Trimethylation/)) return value;
+            else return 'Other Modification';
+        });
+
         callback({
             sources,
             diseases,
@@ -96,8 +67,14 @@ export const fetchCharts = (callback) => {
             years,
             types,
             families,
-            modifications,
-        })
+            chirality,
+            encoding,
+            modifications: {
+                CTerminal,
+                NTerminal,
+                Modification,
+            },
+        });
     }).catch(err => {
         console.log(err);
         callback({});
