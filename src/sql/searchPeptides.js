@@ -26,7 +26,7 @@ const getAdvancedQuery = (params, isAdvanced) => {
             const keys = Object.keys(params).filter(key =>
                 key.match(/SEQ_0/)
             ).sort((a, b) => params[a] - params[b]);
-            let regex = "";
+            let regex = "^";
             for (let i = 0; i < keys.length; i++) {
                 const name = keys[i].replace(/SEQ_.*/, "");
                 if (!params[keys[i]]) {
@@ -67,11 +67,9 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
             params.type = el.value;
     }
     delete params.submit;
-    console.log(params);
     const data = {
         "query": getAdvancedQuery(params, isAdvanced)
     };
-    console.log(data);
     const config = {
         method: 'post',
         url: 'https://3v3bd3qzhk.execute-api.us-east-2.amazonaws.com/query_sql',

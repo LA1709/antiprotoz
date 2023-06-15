@@ -61,14 +61,14 @@ const Composition = (props) => {
                         onChange={handleChange}
                         defaultChecked={!!selection[val]}
                     />
-                    <label htmlFor={`${val}_${idx + 1}`}>{val}</label>
+                    <label htmlFor={`${val}_${idx + 1}`}>{val.replace("_", " ").replace(/s$/, "")}</label>
                 </div>
             )}
         </div>
         <div className="form-range">
             {Object.entries(selection).filter(item => !!item[1]).map((val, idx) =>
                 <div className="form-range-item" key={`${val[0]}-${idx + 1}`}>
-                    <span>{val[0]}:</span>
+                    <span>{val[0].replace("_", " ").replace(/s$/, "")}:</span>
                     <input
                         id={`${val[0]}_min`}
                         type="number"

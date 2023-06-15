@@ -20,10 +20,11 @@ const Home = () => {
             <div className="menu-container">
                 <Link to="/browse"> Explore </Link>
                 <Link to="/search"> Search </Link>
-                <div className="grouped">
+                {/* <div className="grouped">
                     <Link to="/composition/aa"> AA composition </Link>
                     <Link to="/composition/pp"> PP composition </Link>
-                </div>
+                </div> */}
+                <Link to="/composition/aa"> Peptide Composition </Link>
                 <Link to="/blast"> BLAST </Link>
                 <Link to="/overview"> Data Visualisation </Link>
                 <Link to="/submit"> Data Submission </Link>

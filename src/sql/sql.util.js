@@ -236,7 +236,7 @@ export const families = [
     "non-disulfide-bridged peptide (NDBP) superfamily. Antimalarial peptide (group 5) family",
     "non-disulfide-bridged peptide (NDBP) superfamily. Medium-length antimicrobial peptide (group 3) family. Ponericin-W subfamily",
     "NPY family",
-    "phospholipase A2 family. Group II subfamily. K49 sub-subfamily",
+    "Phospholipase A2 family",
     "pleurocidin family",
     "pore-forming trialysin (trialysin) family",
     "SAPLIP family",
@@ -659,6 +659,22 @@ export const getFamilyGroup = (family) => {
         return 'non-disulfide-bridged peptide (NDBP) superfamily';
     return family;
 }
+
+export const getDiseaseGroup = (disease) => {
+    if (disease.match(/Cryptosporidiosis/i))
+        return 'Cryptosporidiosis';
+    if (disease.match(/Toxoplasmosis/i))
+        return 'Toxoplasmosis';
+    if (disease.match(/Leishmaniasis/i))
+        return 'Leishmaniasis';
+    if (disease.match(/trypanosomiasis/i))
+        return 'trypanosomiasis';
+    if (disease.match(/Trichomoniasis/i))
+        return 'Trichomoniasis';
+    if (disease.match(/Malaria/i))
+        return 'Malaria';
+    return 'Others';
+};
 
 export const getSearchStyles = () => ({
     control: (base, state) => ({
