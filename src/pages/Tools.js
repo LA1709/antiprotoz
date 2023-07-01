@@ -8,12 +8,21 @@ import LeftIcon from '../assets/chevron-left.svg';
 import './tools.scss';
 import { useParams } from 'react-router-dom';
 
+
+
+const heading = {
+    aa: 'Amino Acid Composition',
+    pp: 'Physical Properties Composition',
+    freqAA: 'Amino Acid Frequency',
+    freqPP: 'Physical Properties Composition',
+};
+
 const description = {
     aa: 'amino acid composition',
     pp: 'physiochemical properties  - aliphatic, aromatic, hydrophobic, polar, positive, or negative charge.',
     freqAA: 'frequency of amino acids in the peptide',
     freqPP: 'frequency of physiochemical properties in the peptide',
-}
+};
 
 const Tools = () => {
     const [showInput, setShowInput] = useState(true);
@@ -41,7 +50,7 @@ const Tools = () => {
             <div className="tabs-container">
                 <div className="tab-content">
                     <div className="heading">
-                        {tool.match(/aa/i) ? "Amino Acid Composition" : "Physical Properties Composition"}
+                        {heading[tool]}
                     </div>
                     <div className="description">
                         This tool is to facilitate the retrieval of peptides with the required {description[tool] ?? "N/A"}

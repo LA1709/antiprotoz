@@ -1,5 +1,5 @@
 import axios from "axios";
-import { colNames } from "./sql.util";
+import { colNames, peptidesExcludedFromSearch } from "./sql.util";
 
 const getAdvancedQuery = (params, isAdvanced) => {
     let condition = Object.entries(params).filter(item => !item[0].match(/^type|^Sequence|SEQ_/))
@@ -83,7 +83,11 @@ export const searchPeptides = (elements, isAdvanced, dataCallback, colsCallback)
             colsCallback(Object.keys(result.data[0]).filter(key => key !== "ID").map(
                 key => ({ name: colNames[key], key })
             ))
-        dataCallback(result.data.map(item => ({
+        const filteredResult = (!!params.Sequence && !!isAdvanced) ?
+            result.data.filter(item =>
+                !peptidesExcludedFromSearch.includes(item.ID)
+            ) : result.data;
+        dataCallback(filteredResult.map(item => ({
             ...item,
             Family: item.Family ?
                 item.Family.charAt(0).toUpperCase() + item.Family.slice(1) : ""
