@@ -658,7 +658,33 @@ export const getDiseaseGroup = (disease) => {
     if (disease.match(/Malaria/i))
         return 'Malaria';
     return 'Others';
-};
+}
+
+export const getOriginGroup = (origin) => {
+    if (origin.match(/Raniceps|Cruziohyla|Bombina|Rana|Hypophthalmichthys|Leptodactylus|Pelophylax|Phyllomedusa|Pleurodema|Xenopus/i))
+        return 'Amphibians';
+    if (origin.match(/Acanthoscurria|Anopheles|Anoplius|Anterhynchium|Apis|Lucilia|Bombyx|Cupiennius|Drosophila|Eumenes|Ixodes|Galleria|Glossina|Haemaphysalis|Hyalophora|Insect|Lycosa|Vaejovis|Mesobuthus|Xylocopa|Oreumenes|Penaeus|Phlebotomus|Vespa|Polybia|Psalmopoeus|Pseudacanthotermes|Stomoxys|Tachypleus|Tetramorium|Tityus/i))
+        return 'Arthropods';
+    if (origin.match(/Actinomycetes|Bacillus|Brevibacillus|Cyanobacterium|Microcystis|Myxobacterium|Red-tipped|Streptomyces|Lyngbya/i))
+        return 'Bacteria';
+    if (origin.match(/Plasmodium/i))
+        return 'Protozoa';
+    if (origin.match(/Ictalurus|Morone|Oplegnathus|Pleuronectes|Sciaenops/i))
+        return 'Fishes';
+    if (origin.match(/Aspergillus|Beauveria|Cochliobolus|Emericellopsis|Fusarium|Gliocladium|Hirsutella|Paecilomyces|Tolypocladium|Trichoderma|Paecilomyces/i))
+        return 'Fungus';
+    if (origin.match(/taurus|sapiens|aries|scrofa|musculus|Oryctolagus/i))
+        return 'Mammals';
+    if (origin.match(/Didemnum|Styela|Mytilus/i))
+        return 'Marine invertebrate';
+    if (origin.match(/Hordeum|Linseed|Phaseolus|Vigna|Ziziphus/i))
+        return 'Plants';
+    if (origin.match(/Hepatitis|M13/i))
+        return 'Virus';
+    if (origin.match(/Bothrops|Crotalus/i))
+        return 'Reptiles';
+    return null;
+}
 
 export const getSearchStyles = () => ({
     control: (base, state) => ({

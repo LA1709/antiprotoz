@@ -21,6 +21,7 @@ const Overview = () => {
     const chart8Ref = useRef(null);
     const chart9Ref = useRef(null);
     const chart10Ref = useRef(null);
+    const chart11Ref = useRef(null);
 
     useEffect(() => {
         fetchCharts(setChartData);
@@ -38,6 +39,7 @@ const Overview = () => {
         chart8,
         chart9,
         chart10,
+        chart11,
     } = getChartsFromData(chartData);
 
     return <div className="overview-wrapper">
@@ -49,7 +51,7 @@ const Overview = () => {
                 Data Visualisation
             </div>
             <div className="chart">
-                <div className='chart'>
+                <div className="chart">
                     {chart0.data ? <Chart
                         ref={chart0Ref}
                         {...chart0}
@@ -129,6 +131,32 @@ const Overview = () => {
         </section>
         <section>
             <div className='chart'>
+                {chart11.data ? <Chart
+                    ref={chart11Ref}
+                    {...chart11}
+                /> : <lottie-player
+                    src={JSON.stringify(Loading)}
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                />}
+            </div>
+            <div className='desc'>
+                <span>
+                    The graph depicts the organism from which the natural peptides were obtained.
+                </span>
+                <button onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `${chart11.options.plugins.title.text}.png`;
+                    link.href = chart11Ref.current.toBase64Image();
+                    link.click();
+                    link.remove();
+                }}>Download</button>
+            </div>
+        </section>
+        <section>
+            <div className='chart'>
                 {chart9.data ? <Chart
                     ref={chart9Ref}
                     {...chart9}
@@ -180,7 +208,7 @@ const Overview = () => {
             </div>
         </section>
         <section className="chart-container">
-            <div className='chart bigger'>
+            <div className='chart bigger' style={!chart3.data ? { width: '500px' } : null}>
                 {chart3.data ? <Chart
                     ref={chart3Ref}
                     {...chart3}
@@ -206,7 +234,7 @@ const Overview = () => {
             </div>
         </section>
         <section className="chart-container">
-            <div className='chart bigger'>
+            <div className='chart bigger' style={!chart3.data ? { width: '500px' } : null}>
                 {chart4.data ? <Chart
                     ref={chart4Ref}
                     {...chart4}
@@ -230,7 +258,7 @@ const Overview = () => {
             </div>
         </section>
         <section className="chart-container">
-            <div className='chart bigger'>
+            <div className='chart bigger' style={!chart3.data ? { width: '500px' } : null}>
                 {chart5.data ? <Chart
                     ref={chart5Ref}
                     {...chart5}
@@ -255,30 +283,36 @@ const Overview = () => {
                 }}>Download</button>
             </div>
         </section>
-        <section>
-            <div className='chart'>
-                {chart7.data ? <Chart
-                    ref={chart7Ref}
-                    {...chart7}
-                /> : <lottie-player
-                    src={JSON.stringify(Loading)}
-                    background="transparent"
-                    speed="1"
-                    loop
-                    autoplay
-                />}
+        <section className="first-container">
+
+            <div className="heading">
+                Chemical Modifications
             </div>
-            <div className='desc'>
-                <span>
-                    The chart represents the modifications at the C-terminal modification. The most common C-terminal modification is carboxamidation. The other different types of modifications include the addition of Morpholine urea, Butyloxycarbonyl, Methoxy group, aldehyde group, Phenylalaninamide, Methoxypyrrolinone, lactic acid, etc.
-                </span>
-                <button onClick={() => {
-                    const link = document.createElement('a');
-                    link.download = `${chart7.options.plugins.title.text}.png`;
-                    link.href = chart7Ref.current.toBase64Image();
-                    link.click();
-                    link.remove();
-                }}>Download</button>
+            <div className="chart">
+                <div className='chart'>
+                    {chart7.data ? <Chart
+                        ref={chart7Ref}
+                        {...chart7}
+                    /> : <lottie-player
+                        src={JSON.stringify(Loading)}
+                        background="transparent"
+                        speed="1"
+                        loop
+                        autoplay
+                    />}
+                </div>
+                <div className='desc'>
+                    <span>
+                        The chart represents the modifications at the C-terminal modification. The most common C-terminal modification is carboxamidation. The other different types of modifications include the addition of Morpholine urea, Butyloxycarbonyl, Methoxy group, Aldehyde group, Phenylalaninamide, Methoxypyrrolinone, Lactic acid, etc.
+                    </span>
+                    <button onClick={() => {
+                        const link = document.createElement('a');
+                        link.download = `${chart7.options.plugins.title.text}.png`;
+                        link.href = chart7Ref.current.toBase64Image();
+                        link.click();
+                        link.remove();
+                    }}>Download</button>
+                </div>
             </div>
         </section>
         <section>
@@ -296,7 +330,7 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    The chart represents the modifications at the N-terminal modification. The most common N-terminal modification is Acetylation. The other different types of modifications include the addition of Fluoromethanide, heptanoyl, lauroyl, Glycyl, Butyryl, Benzoyl, etc.
+                    The chart represents the modifications at the N-terminal modification. The most common N-terminal modification is Acetylation. The other different types of modifications include the addition of Fluoromethanide, Heptanoyl, Lauroyl, Glycyl, Butyryl, Benzoyl, etc.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');
@@ -322,7 +356,7 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    The chart represents the modifications In the sequence of amino acids in a peptide or the addition of non-protein amino acids. Ornithine is the most commonly added nonprotein amino acid and Trimethylation of lysine is the most common amino acid modification. The other different types of modifications include the addition of Homophenylalanine, D-allo-threonine, Anthryl-alanine, Aeo= 2-amino-9,10-epoxy-8-oxodecanoic acid, Pyroglutamic acid, etc.
+                    The chart represents the modifications In the sequence of amino acids in a peptide or the addition of non-protein amino acids. Ornithine is the most commonly added nonprotein amino acid and Trimethylation of lysine is the most common amino acid modification. The other different types of modifications include the addition of Homophenylalanine, D-allo-threonine, Anthryl-alanine, 2-amino-9,10-epoxy-8-oxodecanoic acid (Aeo), Pyroglutamic acid, etc.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');

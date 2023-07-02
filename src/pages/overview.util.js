@@ -368,6 +368,34 @@ export const getChartsFromData = (chartData) => {
         },
     };
 
+    const t11 = chartData?.origin?.reduce((prev, curr) => prev + curr['COUNT'], 0);
+    const chart11 = {
+        type: 'doughnut',
+        data: chartData?.origin ?
+            {
+                labels: chartData.origin.map(row => row.Origin),
+                datasets: [
+                    {
+                        label: "Peptides (%)",
+                        data: chartData.origin.map(row => (row['COUNT'] / t11) * 100),
+                    }
+                ]
+            } : null,
+        options: {
+            responsive: true,
+            spacing: 10,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Origin'
+                }
+            }
+        },
+    };
+
     return {
         chart0,
         chart1,
@@ -380,5 +408,6 @@ export const getChartsFromData = (chartData) => {
         chart8,
         chart9,
         chart10,
+        chart11,
     }
 } 
