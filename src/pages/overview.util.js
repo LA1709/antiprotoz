@@ -373,7 +373,7 @@ export const getChartsFromData = (chartData) => {
         type: 'doughnut',
         data: chartData?.origin ?
             {
-                labels: chartData.origin.map(row => row.Origin),
+                labels: chartData.origin.map(row => row.Source),
                 datasets: [
                     {
                         label: "Peptides (%)",
