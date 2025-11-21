@@ -118,7 +118,7 @@ const Overview = () => {
             </div>
             <div className='desc'>
                 <span>
-                    The chart on the left represents the source of antiprotozoal peptides. The source of origin was either Natural (obtained from parts of different organisms) , Derived from nature protein (peptides that are fragments of original natural peptide), or Synthetic.
+                    The chart on the left represents the source of antiprotozoal peptides. The source of origin was either Natural (obtained from parts of different organisms) or Synthetic.
                 </span>
                 <button onClick={() => {
                     const link = document.createElement('a');

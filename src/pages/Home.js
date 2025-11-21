@@ -13,9 +13,14 @@ const Home = () => {
 
     return <div className="home-wrapper">
         <section className="first-container">
-            <div className="logo-container">
-                <span className="bigger">A</span>
-                <span className="smaller">ntiProtoZ</span>
+            <div className="title-container">
+                <div className="logo-container">
+                    <span className="bigger">A</span>
+                    <span className="smaller">ntiProtoZ</span>
+                </div>
+                <span className="subtitle">
+                    Find your peptide
+                </span>
             </div>
             <div className="menu-container">
                 <Link to="/browse"> Explore </Link>
@@ -32,17 +37,19 @@ const Home = () => {
             </div>
         </section>
         <section className="second-container">
-            <span>AntiProtoZ is a manually-curated database solely dedicated to collection of peptides with antiprotozoal activity.</span>
-            <span>The database contains experimentally verified peptides and a detailed description of each peptide including their activity, physical properties, literature reference, and modifications.</span>
-            <span>The database provides utilities for searching peptides against particular Organisms or Species and an explore facility to retrieve the different sets of peptides belonging to different categories.</span>
-            <span>Additionally, BLAST and amino acid and physical property composition are provided. Users can get real time statistics of the data on the visualization page.</span>
+            <span><b>What is AntiProtoZ?</b></span>
+            <span>AntiProtoZ is a manually curated database dedicated to antiprotozoal peptides (APPs). It compiles experimentally validated peptides active against diverse protozoan species, including details for each entry, including activity, physicochemical properties, chemical modifications, and literature references.</span>
+            <br />
+            <span><b>How to use it?</b></span>
+            <span>The database has tools for exploring and analysing APPs. You can search by protozoan species or browse curated categories through the Explore feature. Additional utilities such as BLAST, amino acid composition search, and physicochemical property-based search provide quick retrieval of peptides with desired sequence composition. Real-time database statistics are available on the Visualization page. (For more info: <Link to="/guide">guide</Link>)</span>
+            <br />
+            <span><b>Who is it for?</b></span>
+            <span>We designed AntiProtoZ to serve as a comprehensive and reliable resource for researchers studying protozoan pathogens and peptide-based therapeutics.</span>
         </section>
         <section className="third-container">
-            <div className="title">Anti-Protozoal Peptides</div>
+            <div className="title">What are Anti-Protozoal Peptides?</div>
             <div className="description">
-                Anti-protozoal peptides are a subset of Antimicrobial peptides that show activity against protozoan species.
-                <br />
-                These peptides can be naturally obtained from organisms or synthetically designed. Antiprotoz contains antiprotozoal peptides for both free-living and parasitic protozoan species.
+                Antiprotozoal peptides (APPs) are a class of antimicrobial peptides that display activity against protozoan species. They may occur naturally in a wide range of organisms or be synthetically designed for enhanced activity. AntiProtoZ brings together APPs effective against both free-living and parasitic protozoa.
             </div>
         </section>
         <section className="fourth-container">

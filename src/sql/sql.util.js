@@ -41,7 +41,9 @@ export const colNames = {
 export const organisms = {
     Acanthamoeba: [
         "Acanthamoeba castellanii",
-        "Acanthamoeba polyphaga"
+        "Acanthamoeba griffini",
+        "Acanthamoeba polyphaga",
+        "Acanthamoeba quina",
     ],
     Amoeba: [
         "Amoeba proteus"
@@ -93,7 +95,8 @@ export const organisms = {
         "Leishmania mexicana",
         "Leishmania panamensis",
         "Leishmania pifanoi",
-        "Leishmania tropica"
+        "Leishmania tarentolae",
+        "Leishmania tropica",
     ],
     Miamiensis: [
         "Miamiensis avidus"
@@ -182,7 +185,7 @@ export const peptideInfo = {
 export const sources = [
     'Natural',
     'Synthetic',
-    'Derived from Natural Protein',
+    // 'Derived from Natural Protein',
 ]
 
 export const families = [
@@ -651,11 +654,11 @@ export const getDiseaseGroup = (disease) => {
         return 'Toxoplasmosis';
     if (disease.match(/Leishmaniasis/i))
         return 'Leishmaniasis';
-    if (disease.match(/trypanosomiasis/i))
-        return 'trypanosomiasis';
+    if (disease.match(/trypanosomiasis|chagas/i))
+        return 'Trypanosomiasis';
     if (disease.match(/Trichomoniasis/i))
         return 'Trichomoniasis';
-    if (disease.match(/Malaria/i))
+    if (disease.match(/^Malaria/i))
         return 'Malaria';
     return 'Others';
 }

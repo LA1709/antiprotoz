@@ -45,22 +45,32 @@
 
   .first-container {
     display: flex;
-    .logo-container {
+    .title-container {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 100%;
-      font-family: CG;
-      font-size: 6rem;
-      color: #382119;
-      .bigger {
-        font-size: 12rem;
+      .logo-container {
+        font-family: CG;
+        font-size: 6rem;
+        color: #382119;
+        .bigger {
+          font-size: 12rem;
+        }
+        .smaller {
+          margin-bottom: -4rem;
+        }
+        img {
+          width: 80%;
+        }
       }
-      .smaller {
-        margin-bottom: -4rem;
-      }
-      img {
-        width: 80%;
+
+      .subtitle {
+        font-family: CG;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: -2rem;
       }
     }
 
@@ -104,12 +114,13 @@
     background-color: #abc3c9;
     color: #382119;
     font-family: Sanchez;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     padding: 0 11%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: justify;
     span {
       margin: 0.4rem;
     }
@@ -131,6 +142,7 @@
       text-align: center;
     }
     .description {
+      max-width: 60%;
       padding: 2rem;
       display: flex;
       align-items: center;
