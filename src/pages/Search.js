@@ -230,6 +230,13 @@ const Search = () => {
                         </select>
                     </div>
                     <div className="form-group-item">
+                        <label htmlFor="activity">Activity: </label>
+                        <select id="activity" name="Activity" defaultValue="">
+                            <option value="">Any</option>
+                            <option value="reported">Reported</option>
+                        </select>
+                    </div>
+                    <div className="form-group-item">
                         <label htmlFor="uniport">Uniport ID: </label>
                         <select id="uniport" name="UniportID" defaultValue="">
                             <option value="">Any</option>

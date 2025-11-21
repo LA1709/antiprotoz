@@ -1,13 +1,14 @@
 import axios from "axios";
-import { getDiseaseGroup, getFamilyGroup } from "./sql.util";
+import { getDiseaseGroup, getFamilyGroup, getOriginGroup } from "./sql.util";
 
 const groupDataCount = (data, colName, filter) => {
     return Object.entries(data.filter(row => !!row[colName]).reduce((prev, curr) => {
         const group = filter(curr[colName]);
+        if (!group) return { ...prev };
         return {
             ...prev,
             [group]: (prev[group] ?? 0) + curr['COUNT']
-        }
+        };
     }, {})).map(item => ({
         [colName]: item[0],
         COUNT: item[1],
@@ -28,6 +29,7 @@ export const fetchCharts = (callback) => {
         SELECT COUNT(*) AS COUNT,NTerminal FROM master GROUP BY NTerminal;
         SELECT COUNT(*) AS COUNT,CTerminal FROM master GROUP BY CTerminal;
         SELECT COUNT(*) AS COUNT,Modification FROM master GROUP BY Modification;
+        SELECT COUNT(*) AS COUNT,Source FROM master GROUP BY Source;
         `
     };
     const config = {
@@ -56,9 +58,10 @@ export const fetchCharts = (callback) => {
             else return 'Other Modification';
         });
         const Modification = groupDataCount(result.data[10], 'Modification', (value) => {
-            if (value.match(/Free|Ornithine|Trimethylation/)) return value;
+            if (value.match(/None|Ornithine|Trimethylation/)) return value;
             else return 'Other Modification';
         });
+        const origin = groupDataCount(result.data[11], 'Source', getOriginGroup);
 
         callback({
             sources,
@@ -74,6 +77,7 @@ export const fetchCharts = (callback) => {
                 NTerminal,
                 Modification,
             },
+            origin,
         });
     }).catch(err => {
         console.log(err);

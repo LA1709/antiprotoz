@@ -4,7 +4,7 @@ export const fetchStats = (callback) => {
     const data = {
         "query": `
         SELECT COUNT(*) FROM master;
-        SELECT COUNT(DISTINCT(Sequence)) FROM master;
+        SELECT COUNT(DISTINCT(Name)) FROM master;
         SELECT COUNT(DISTINCT(PubmedID)) FROM master;
         SELECT COUNT(*) FROM master WHERE Type='Free Living';
         SELECT COUNT(*) FROM master WHERE Type='Parasitic';
